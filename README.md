@@ -1,5 +1,5 @@
 # AnalayzeWise
-This is an alyzer web app powerd by Flask.
+This is an analyzer web app powerd by Flask.
 
 
 ### Features:
