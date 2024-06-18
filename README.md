@@ -10,7 +10,7 @@ Note: You have to register and login to be able to use the features.
 
 Public address:
 ```sh
-analayzewise.liara.run
+analyzewise.liara.run
 ```
 Local usage:
 
