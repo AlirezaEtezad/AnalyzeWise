@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Login and Register{% endblock %}
+
+{% block content %}
+<h1>Login and Register</h1>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#login" data-bs-toggle="tab">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#register" data-bs-toggle="tab">Register</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="login">
+      <form method="post" action="{{ url_for('login') }}">
+          <input type="hidden" name="action" value="login">
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+    <div class="tab-pane fade" id="register">
+      <form method="post" action="{{ url_for('login') }}">
+          <input type="hidden" name="action" value="register">
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
