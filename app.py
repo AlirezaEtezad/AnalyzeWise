@@ -1,169 +1,118 @@
-from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session
+from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session as flask_session
 import os
 import cv2
 from werkzeug.security import generate_password_hash, check_password_hash
 from deepface import DeepFace
+from database import User, RegisterModel, LoginModel, engine
+from sqlmodel import Session as db_session, select
+from pydantic import ValidationError
 
-app = Flask("Analayze Face")
+app = Flask("Analyze Face")
 app.config["UPLOAD_FOLDER"] = './uploads'
 app.config["ALLOWED_EXTENSIONS"] = {'png', 'jpg', 'jpeg'}
 app.secret_key = '000'
 
-
-
-users = {}
-
 def auth(email, password):
-    user = users.get(email)
-    if user and check_password_hash(user['password'], password):
-        return True
-    else:
-        return False
+    with db_session(engine) as session:
+        statement = select(User).where(User.email == email)
+        user = session.exec(statement).first()
+        if user and check_password_hash(user.password, password):
+            return True
+    return False
 
-
-# def auth(email, password):
-#     if email == "a@yahoo.com" and password == "123":
-#         return True
-#     else:
-#         return False 
-    
 def allowed_files(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config["ALLOWED_EXTENSIONS"]
-
-
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
-
-# @app.route("/login", methods= ['GET', 'POST'])
-# def login():
-#     if request.method == "GET":
-#         return render_template("login.html")
-    
-#     elif request.method == "POST":
-
-#         email = request.form["email"]
-#         password = request.form["password"]
-#         result = auth(email, password)
-
-#         if result:
-#             return redirect(url_for("upload"))
-
-#         else:
-#             return redirect(url_for("login"))
-
-# @app.route("/login", methods=['GET', 'POST'])
-# def login():
-#     if request.method == "POST":
-#         action = request.form.get("action")
-#         email = request.form["email"]
-#         password = request.form["password"]
-
-#         if action == "login":
-#             if email in users and check_password_hash(users[email]['password'], password):
-#                 session['email'] = email
-#                 flash("Login successful")
-#                 return redirect(url_for("upload"))
-#             else:
-#                 flash("Invalid email or password")
-#                 return redirect(url_for("login"))
-        
-#         elif action == "register":
-#             if email in users:
-#                 flash("Email already registered")
-#                 return redirect(url_for("login"))
-#             hashed_password = generate_password_hash(password)
-#             users[email] = {'password': hashed_password}
-#             flash("Registered successfully! Please log in.")
-#             return redirect(url_for("login"))
-
-#     return render_template("login.html")
-        
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
+
         action = request.form.get("action")
         email = request.form["email"]
         password = request.form["password"]
 
         if action == "login":
-          #  if email in users and check_password_hash(users[email]['password'], password):
             if auth(email, password):
-                session['email'] = email
-                flash("Login successful")
+                flask_session['email'] = email
+                flash("Login successful", "success")
                 return redirect(url_for("upload"))
             else:
-                flash("Invalid email or password")
+                flash("Invalid email or password", "success")
                 return redirect(url_for("login"))
-        
+
         elif action == "register":
-            if email in users:
-                flash("Email already registered")
+            
+            with db_session(engine) as session:
+                statement = select(User).where(User.email == email)
+                user = session.exec(statement).first()
+                if user:
+                    flash("Email already registered", "danger")
+                    return redirect(url_for("login"))
+                
+                try:
+                    register_data = RegisterModel(
+                        first_name=request.form["first_name"],
+                        last_name=request.form["last_name"],
+                        email=email,
+                        age=int(request.form["age"]),
+                        city=request.form["city"],
+                        country=request.form["country"],
+                        password=password,
+                        confirm_password=request.form["confirm_password"]
+                    )
+                except ValidationError as e:
+                    error_messages = [err['msg'] for err in e.errors()]
+                    for msg in error_messages:
+                        flash(f"Validation Error: {msg}", "danger")
+                    return redirect(url_for("login"))
+                
+                hashed_password = generate_password_hash(password)
+                new_user = User(
+                    first_name=register_data.first_name,
+                    last_name=register_data.last_name,
+                    email=register_data.email,
+                    age=register_data.age,
+                    city=register_data.city,
+                    country=register_data.country,
+                    password=hashed_password
+                )
+                session.add(new_user)
+                session.commit()
+                flash("Registered successfully! Please log in.", "success")
                 return redirect(url_for("login"))
-            hashed_password = generate_password_hash(password)
-            users[email] = {'password': hashed_password}
-            flash("Registered successfully! Please log in.")
-            return redirect(url_for("login"))
 
     return render_template("login.html")
 
-
-
-
-
-# @app.route("/upload", methods=["GET", "POST"])
-# def upload():
-#     if request.method == 'GET':
-#         return render_template("upload.html")
-#     elif request.method == 'POST':
-#         print("image uploaded")
-
-#         image = request.files['image']
-#         if image.filename == "":
-#             return redirect(url_for("upload"))
-        
-#             #print("khali")
-#         else:
-#          #   print("ok")
-#             if image and allowed_files(image.filename):
-#                 save_path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
-#                 image.save(save_path)
-#                 result = DeepFace.analyze(
-#                     img_path = save_path,
-#                     actions = ["age"]
-
-#                 )
-
-#             return render_template("result.html", result=result)
-
-
-#                 # return redirect(url_for("result"))
-
-
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
-    if 'email' not in session:
-        flash("Please log in to upload images")
+    if 'email' not in flask_session:
+        flash("Please log in to upload images", "danger")
         return redirect(url_for("login"))
 
     if request.method == 'POST':
         image = request.files['image']
         if image.filename == "":
-            flash("No selected file")
+            flash("No selected file", "danger")
             return redirect(url_for("upload"))
-        
+
         if image and allowed_files(image.filename):
-            save_path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
-            image.save(save_path)
-            result = DeepFace.analyze(img_path=save_path, actions=["age"])
-            return render_template("result.html", result=result)
-
+            try:
+                os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+                save_path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
+                image.save(save_path)
+                result = DeepFace.analyze(img_path=save_path, actions=["age"])
+                return render_template("result.html", result=result)
+            except Exception as e:
+                flash(f"Error processing image: {e}", "danger")
+                return redirect(url_for("upload"))
+        flash("File type not allowed", "danger")
+        return redirect(url_for("upload"))
+    
     return render_template("upload.html")
-
-
 
 def calculate_bmr(weight, height, age, gender):
     if gender == 'male':
@@ -172,13 +121,12 @@ def calculate_bmr(weight, height, age, gender):
         bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)
     return bmr
 
-
 @app.route("/bmr", methods=["GET", "POST"])
 def bmr():
-    if 'email' not in session:
-        flash("Please log in to ues bmr calculator")
+    if 'email' not in flask_session:
+        flash("Please log in to use BMR calculator", "danger")
         return redirect(url_for("login"))
-    
+
     if request.method == "POST":
         weight = float(request.form["weight"])
         height = float(request.form["height"])
@@ -188,20 +136,14 @@ def bmr():
         return render_template("bmr.html", bmr_result=bmr_result)
     return render_template("bmr.html", bmr_result=None)
 
-
-
-       # print("image uploaded")
-        # return redirect(url_for("result"))
-    
-
-
 @app.route("/result")
 def result():
     return render_template("result.html")
 
-
 @app.route("/logout")
 def logout():
-    session.pop('email', None)
-    flash("You have been logged out.")
+    flask_session.pop('email', None)
+    flash("You have been logged out.", "success")
     return redirect(url_for("index"))
+
+
