@@ -31,5 +31,5 @@ sudo docker build -t {name_of_image}
 ```
 make a docker container from the image:
 ```sh
-sudo docker run -p 5000:5000 --name {name_of_container}
+sudo docker run -p 5000:5000 --name {name_of_container} {name_of_image}
 ```
