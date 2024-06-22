@@ -21,3 +21,15 @@ pip install -r requirements.txt
 ```sh
 flask --run --debug
 ```
+
+## Dockerized!!
+You can also use it on docker due to your purposes.
+
+make a docker image:
+```sh
+sudo docker build -t {name_of_image}
+```
+make a docker container from the image:
+```sh
+sudo docker run -p 5432:5432 --name {name_of_container}
+```

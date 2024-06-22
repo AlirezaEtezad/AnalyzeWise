@@ -1,6 +1,5 @@
 from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session as flask_session
 import os
-import cv2
 from werkzeug.security import generate_password_hash, check_password_hash
 from deepface import DeepFace
 from database import User, RegisterModel, LoginModel, engine
@@ -38,10 +37,10 @@ def login():
         if action == "login":
             if auth(email, password):
                 flask_session['email'] = email
-                flash("Login successful", "success")
+                flash("Login successful", "info")
                 return redirect(url_for("upload"))
             else:
-                flash("Invalid email or password", "success")
+                flash("Invalid email or password", "warning")
                 return redirect(url_for("login"))
 
         elif action == "register":
@@ -90,13 +89,13 @@ def login():
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     if 'email' not in flask_session:
-        flash("Please log in to upload images", "danger")
+        flash("Please log in to upload images", "warning")
         return redirect(url_for("login"))
 
     if request.method == 'POST':
         image = request.files['image']
         if image.filename == "":
-            flash("No selected file", "danger")
+            flash("No selected file", "warning")
             return redirect(url_for("upload"))
 
         if image and allowed_files(image.filename):
@@ -109,7 +108,7 @@ def upload():
             except Exception as e:
                 flash(f"Error processing image: {e}", "danger")
                 return redirect(url_for("upload"))
-        flash("File type not allowed", "danger")
+        flash("File type not allowed", "warning")
         return redirect(url_for("upload"))
     
     return render_template("upload.html")
@@ -124,7 +123,7 @@ def calculate_bmr(weight, height, age, gender):
 @app.route("/bmr", methods=["GET", "POST"])
 def bmr():
     if 'email' not in flask_session:
-        flash("Please log in to use BMR calculator", "danger")
+        flash("Please log in to use BMR calculator", "warning")
         return redirect(url_for("login"))
 
     if request.method == "POST":
@@ -143,7 +142,7 @@ def result():
 @app.route("/logout")
 def logout():
     flask_session.pop('email', None)
-    flash("You have been logged out.", "success")
+    flash("You have been logged out.", "info")
     return redirect(url_for("index"))
 
 
