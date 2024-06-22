@@ -3,3 +3,4 @@ deepface
 Werkzeug
 pydantic
 datetime
+opencv-python
