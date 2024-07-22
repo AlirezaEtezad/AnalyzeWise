@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Face Analyzing App{% endblock %}
+
+{% block content %}
+<h1>Welcome to Face Analyzing App</h1>
+
+<div class="row">
+    <div class="col-md-3">
+        <a href="/upload" class="card-link">
+            <div class="card text-bg-warning mb-3">
+                <div class="card-header">Age Finder</div>
+                <div class="card-body">
+                    <h5 class="card-title">Find your real age</h5>
+                    <p class="card-text">Gonna say how old you are; Just upload your face.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/bmr" class="card-link">
+            <div class="card text-bg-success mb-3">
+                <div class="card-header">BMR</div>
+                <div class="card-body">
+                    <h5 class="card-title"> Find your BMR </h5>
+                    <p class="card-text">(Basal Metabolic Rate): The number of calories your body needs at rest to maintain basic functions like breathing and circulation..</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/mind-reader" class="card-link">
+            <div class="card text-bg-danger mb-3">
+                <div class="card-header">Mind Reader</div>
+                <div class="card-body">
+                    <h5 class="card-title">Blow up your mind</h5>
+                    <p class="card-text">Mysteriously will find your entered number.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/pose-detection" class="card-link">
+            <div class="card custom-bg-purple mb-3">
+                <div class="card-header">Pose detection</div>
+                <div class="card-body">
+                    <h5 class="card-title">Turn on your webcam!!!</h5>
+                    <p class="card-text">We will detect your positions; Just make a figure in front of your webcam.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<style>
+    .card a {
+        color: inherit;
+        text-decoration: none;
+        display: block;
+    }
+    .card-link {
+        text-decoration: none;
+    }
+    .custom-bg-purple {
+        background-color: #6f42c1; /* Bootstrap's purple color */
+        color: white; /* Ensures the text is readable */
+    }
+</style>
+{% endblock %}

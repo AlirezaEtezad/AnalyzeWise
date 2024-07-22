@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Mind Reader {% endblock %}
+
+{% block content %}
+<h1> An amazing mind reader</h1>
+
+
+<div class="row mt-4">
+    <div class="col-3">
+        <div class="card text-bg-light mb-3">
+            <div class="card-body">
+                <form method="post">
+                    <input type="number" name="number" class="form-control mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
