@@ -4,7 +4,9 @@ This is an analyzer web app powerd by Flask.
 
 ### Features:
 - Finding your age using Deepface
-- Calculating yout BMR
+- Calculating your BMR
+- Posture detector using mediapipe
+- Amazing Guess number
 
 Note: You have to register and login to be able to use the features.
 
