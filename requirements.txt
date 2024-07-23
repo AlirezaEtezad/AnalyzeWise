@@ -7,3 +7,5 @@ opencv-python
 tensorflow==2.16.1
 tf-keras
 mediapipe
+sqlmodel
+pydantic
