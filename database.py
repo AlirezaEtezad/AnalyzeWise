@@ -13,9 +13,13 @@ class User(SQLModel, table=True):
     city: str
     country: str
     password: str
-    join_time: datetime = Field(default_factory=datetime.utcnow)
+    join_time: datetime = Field(default_factory=datetime.now)
+    role: str = Field(default="user")
 
-engine = create_engine("sqlite:///./database.db", echo=True)
+
+#DATABASE_URL = "postgresql://admin:123@localhost:5432/postgres_db"
+DATABASE_URL = "sqlite:///./database.db"
+engine = create_engine(DATABASE_URL, echo=True)
 SQLModel.metadata.create_all(engine)
 
 class RegisterModel(BaseModel):

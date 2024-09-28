@@ -1,0 +1,260 @@
+/**==customizer==**/
+.sidebar-pannle-main {
+  position: fixed;
+  bottom: 80px;
+  z-index: 9;
+  right: 30px;
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+  ul {
+    .icon-btn {
+      transition: all 1s;
+      cursor: pointer;
+      margin-bottom: 10px;
+      height: calc(1.4rem + 1.5em + 2px);
+      width: calc(1.4rem + 1.5em + 2px);
+      border-radius: 100%;
+      font-weight: 800;
+      align-items: center;
+      justify-content: center;
+      display: inline-flex;
+      border: 0 !important;
+      box-shadow: 0 0 10px $primary-color;
+      i {
+        font-size: 22px;
+      }
+    }
+  }
+}
+.setting-sidebar {
+  background-color: var(--card-color);
+  width: 370px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  z-index: 999;
+  box-shadow: $sidebar-shadow;
+  border-left: 1px solid var(--photoswipe-border);
+  transition: all 0.3s ease;
+  &.open {
+    right: 0;
+    transition: all 0.3s ease;
+  }
+  h4 {
+    font-weight: 500;
+  }
+  .customizer-header {
+    padding: 10px 20px;
+    background: var(--theme-default);
+    .theme-title {
+      display: flex;
+      align-items: center;
+      h4 {
+        color: $white;
+      }
+      p {
+        color: $white;
+      }
+      .flex-grow-1 {
+        .icon-btn {
+          &.btn-outline-light {
+            cursor: pointer;
+            transition: 1s ease all;
+            color: var(--theme-default);
+            background-color: var(--card-color) !important;
+            height: 37px;
+            width: 37px;
+            border-radius: 100%;
+            font-weight: 800;
+            align-items: center;
+            justify-content: center;
+            display: inline-flex;
+            border: 0 !important;
+            &:hover {
+              transform: rotate(360deg);
+            }
+            i {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .customizer-body {
+    padding: 20px;
+    max-height: calc(100vh - 125px);
+    overflow-y: scroll;
+    .b-t-primary {
+      border-top-width: 2px !important;
+    }
+    .color-body {
+      .color-img {
+        position: relative;
+        border: 5px solid rgba($primary-color, 0.3);
+        border-radius: 10px;
+        img {
+          left: 0;
+          border-radius: 5px;
+          transition: all 1s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+        .customizer-overlay {
+          position: absolute;
+          border-radius: 5px;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0);
+          transition: background 0.5s ease;
+        }
+        .color-btn {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          transition: opacity .35s ease;
+          a {
+            padding: 3px 6px;
+            text-align: center;
+            color: $white;
+            font-size: 12px;
+            border: solid 2px $white;
+            z-index: 1;
+          }
+        }
+        &:hover {
+          .customizer-overlay {
+            display: block;
+            background: rgba(0, 0, 0, .3);
+          }
+          .color-btn {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .radio-form {
+      gap: 0px;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .sidebar-body {
+      .radio-wrapper {
+        li {
+          width: unset;
+          height: unset;
+          padding: 8px 15px;
+          .form-check-input {
+            cursor: pointer;
+            &:checked {
+              ~ {
+                .form-check-label {
+                  .stroke-icon {
+                    stroke: var(--theme-default);
+                  }
+                  .fill-icon {
+                    fill: $primary-color;
+                  }
+                  span {
+                    color: var(--theme-default);
+                  }
+                }
+              }
+            }
+          }
+          .form-check-label {
+            margin-bottom: 0 !important;
+            display: flex;
+            align-items: center;
+            .stroke-icon {
+              stroke: var(--light-font);
+            }
+            .fill-icon {
+              fill: var(--light-font);
+            }
+            span {
+              color: var(--light-font);
+            }
+          }
+        }
+      }
+    }
+    .customizer-color {
+      ul {
+        .color-layout {
+          height: 35px;
+          width: 35px;
+          border-radius: 6px;
+          display: inline-block;
+          margin-right: 3px;
+          border: 1px solid #b8b8b8;
+          padding: 3px;
+          position: relative;
+          cursor: pointer;
+          opacity: 0.9;
+          >div {
+            background-color: #43b9b2;
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+          }
+          &[data-attr="color-2"] {
+            div {
+              background-color: #0F2C59;
+            }
+          }
+          &[data-attr="color-3"] {
+            div {
+              background-color: #7A3E65;
+            }
+          }
+          &[data-attr="color-4"] {
+            div {
+              background-color: #025464;
+            }
+          }
+          &[data-attr="color-5"] {
+            div {
+              background-color: #3E64FF;
+            }
+          }
+          &[data-attr="color-6"] {
+            div {
+              background-color: #506D84;
+            }
+          }
+        }
+      }
+    }
+  }
+  .customizer-footer {
+    padding: 10px 20px;
+    border-top: 1px solid #cccbcb;
+    .btn {
+      align-items: center;
+      display: flex;
+      box-shadow: 0 3px 3px 0 rgba(52, 71, 103, .15), 0 3px 1px -2px rgba(52, 71, 103, .2), 0 1px 5px 0 rgba(52, 71, 103, .15);
+      &:hover {
+        animation: pulse 1s infinite;
+        transition: .3s;
+        svg {
+          animation: swing ease-in-out 0.5s 1 alternate;
+        }
+      }
+      svg {
+        transition: color 0.3s;
+      }
+    }
+  }
+}

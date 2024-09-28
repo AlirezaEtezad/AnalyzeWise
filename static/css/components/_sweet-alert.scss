@@ -1,0 +1,76 @@
+/**=====================
+    Sweet-alert CSS Start
+==========================**/
+.swal-modal {
+    .swal-title {
+        font-size: 22px;
+    }
+    .swal-text {
+        font-size: 17px;
+    }
+}
+.swal2-title {
+    font-size: 22px !important;
+}
+.swal2-image {
+    width: 100px !important;
+}
+.swal2-icon {
+    margin-top: 20px !important;
+}
+.swal2-toast {
+    .swal2-icon {
+        margin-top: 0 !important;
+    }
+}
+.swal2-styled.swal2-confirm {
+    background-color: var(--theme-default) !important;
+}
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: none !important;
+}
+.swal2-popup.swal2-toast {
+    .swal2-title {
+        font-size: 18px !important;
+    }
+}
+.animate__animated {
+    .swal2-image {
+        width: auto !important;
+    }
+}
+.swal2-popup {
+    [data-theme="dark"] & {
+        background-color: var(--body-color);
+        color: var(--body-font-color);
+    }
+}
+.swal2-popup {
+    &.swal2-toast {
+        [data-theme="dark"] & {
+            background-color: var(--body-color) !important;
+            color: var(--body-font-color);
+            box-shadow: var(--card-box-shadow);
+        }
+    }
+}
+.swal2-checkbox {
+    [data-theme="dark"] & {
+        background-color: var(--body-color);
+        color: var(--body-font-color);
+    }
+}
+.swal2-radio {
+    [data-theme="dark"] & {
+        color: var(--body-font-color);
+        background-color: var(--body-color);
+    }
+}
+.sweet-29 {
+    [data-theme="dark"] & {
+        color: var(--black) !important;
+    }
+}
+/**=====================
+    Sweet-alert CSS ends
+==========================**/

@@ -1,0 +1,236 @@
+/**=====================
+     Badge css start
+==========================**/
+$colors: (primary: $primary-color,
+  secondary: $secondary-color,
+  tertiary: $tertiary-color,
+  warning: $warning-color,
+  info: $info-color,
+  success: $success-color,
+  danger: $danger-color,
+  light: $light-color,
+  dark: $dark-color);
+@each $key,
+$val in $colors {
+  .badge-#{$key} {
+    background-color: $val;
+    border-color: $val;
+    &:hover,
+    &:focus,
+    &:active:focus {
+      background-color: $val;
+      border-color: $val;
+    }
+  }
+  .badge-light-#{$key} {
+    background-color: rgba($val, 0.1);
+    color: $val !important;
+    span {
+      [data-theme="dark"] & {
+        color: $val !important;
+      }
+    }
+  }
+}
+.badge {
+  padding: $badge-padding;
+  font-family: $body-font, $font-serif;
+  font-weight: 500;
+  &+.badge {
+    margin-left: 5px;
+  }
+  svg {
+    width: $badge-svg-size;
+    height: $badge-svg-size;
+    padding-top: 3px;
+  }
+}
+.touchspin-badge {
+  .touchspin-wrapper {
+    position: relative;
+    display: inline-block;
+    .menu-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--light-color);
+      border-radius: 0;
+      padding: 0;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .badge {
+      position: absolute;
+      top: -4px;
+      right: 4px;
+    }
+    button {
+      padding: 2px 8px 4px;
+      &:hover {
+        svg {
+          stroke: var(--white);
+        }
+      }
+      +button {
+        margin-left: -4px;
+      }
+    }
+  }
+  input.badge {
+    display: block;
+    padding: 4px;
+    width: 30px;
+  }
+}
+.center-badge {
+  li {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: relative;
+    @include flex_common;
+    .badge {
+      position: absolute;
+      bottom: -6px;
+      left: auto;
+      right: auto;
+      padding: 3px 5px 5px;
+      @include media-breakpoint-between(lg, xxl) {
+        bottom: -10px;
+      }
+      @include media-breakpoint-down(sm) {
+        bottom: -10px;
+      }
+    }
+    +li {
+      margin-left: 14px;
+      [dir="rtl"] & {
+        margin-left: unset;
+        margin-right: 14px;
+      }
+    }
+    @include media-breakpoint-between(lg, xxl) {
+      width: 48px;
+      height: 48px;
+    }
+    @include media-breakpoint-down(sm) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+.animated-badge {
+  ul {
+    li {
+      position: relative;
+      +li {
+        margin-left: 14px;
+        [dir="rtl"] & {
+          margin-left: unset;
+          margin-right: 14px;
+        }
+      }
+      span {
+        width: 8px;
+        height: 8px;
+        border-radius: 10px;
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        animation: round 1.3s ease-in-out infinite;
+        min-width: 6px;
+        border-radius: 100%;
+        z-index: 2;
+      }
+    }
+  }
+}
+@keyframes round {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.badge-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 10px;
+}
+.button-badge {
+  .badge-spacing {
+    .badge {
+      &.btn-p-space {
+        padding: 6px;
+        svg {
+          &.feather {
+            width: 14px;
+            height: 14px;
+            [data-theme="dark"] & {
+              stroke: var(--black);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.badge-spacing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  a {
+    &:hover {
+      color: var(--white);
+    }
+  }
+  .badge {
+    padding: 6px 12px;
+    font-size: 12px;
+    &.badge {
+      svg {
+        padding-top: 0px;
+        &.feather {
+          width: 16px;
+          height: 16px;
+          [data-theme="dark"] & {
+            stroke: var(--black);
+          }
+        }
+      }
+    }
+    &.rounded-circle {
+      padding: 10px 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &.badge-p-space {
+      padding: 10px 14px;
+    }
+    &+.badge {
+      margin-left: 0px;
+    }
+    &.btn-p-space {
+      padding: 8px 10px;
+    }
+  }
+  @include media-breakpoint-between(xl, xxl) {
+    gap: 12px 8px;
+  }
+}
+.badge-dark {
+  [data-theme="dark"] & {
+    background-color: var(--light-color);
+    border-color: var(--light-color);
+  }
+}
+/**=====================
+     Badge css end
+==========================**/

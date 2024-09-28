@@ -1,0 +1,76 @@
+.pika-single {
+    [data-theme="dark"] & {
+        background: var(--card-color);
+        border-color: var(--solid-border);
+    }
+    .pika-lendar {
+        .pika-label {
+            color: var(--theme-default);
+            [data-theme="dark"] & {
+                background: var(--card-color);
+            }
+        }
+        .pika-table {
+            &> :not(caption) {
+                &>* {
+                    &>* {
+                        border-bottom: none;
+                    }
+                }
+            }
+            abbr[title] {
+                text-decoration: none;
+            }
+            th {
+                color: var(--theme-default);
+            }
+            .is-today .pika-button {
+                background-color: var(--theme-default);
+                color: $white;
+                font-weight: bold;
+            }
+            .pika-button {
+                background-color: rgba($primary-color, 0.1);
+                text-align: center;
+            }
+            .is-selected .pika-button,
+            .has-event .pika-button {
+                color: $white;
+                font-weight: bold;
+                background: var(--theme-default);
+                box-shadow: inset 0 1px 3px $primary-color;
+                border-radius: 3px;
+            }
+            .has-event .pika-button {
+                background: var(--theme-default);
+                box-shadow: inset 0 1px 3px $primary-color;
+            }
+            .is-endrange .pika-button {
+                color: $white;
+                background: var(--theme-default);
+                box-shadow: none;
+                border-radius: 3px;
+            }
+            .pika-button {
+                &:hover {
+                    color: $white;
+                    background: var(--theme-default);
+                    box-shadow: none;
+                    border-radius: 3px;
+                }
+            }
+            .pika-row {
+                .pick-whole-week {
+                    &:hover {
+                        .pika-button {
+                            color: $white;
+                            background: var(--theme-default);
+                            box-shadow: none;
+                            border-radius: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+/**=====================
+    Translate CSS start
+==========================**/
+.hdg_main {
+    position: relative;
+}
+.main {
+    .langChoice {
+        position: absolute;
+        right: 40px;
+        top: 18px;
+        padding: 10px 12px;
+        background-color: transparent;
+        border: 1px solid var(--solid-border);
+        [data-theme="dark"] & {
+            color: $white;
+        }
+        &:focus-visible {
+            outline: 0;
+        }
+        @include media-breakpoint-down(lg) {
+            right: 20px;
+            top: 11px;
+            padding: 8px;
+        }
+        @include media-breakpoint-down(sm) {
+            top: 14px;
+            padding: 4px 7px;
+        }
+        option{
+            background-color: var(--body-color);
+        }
+    }
+}
+.pl-navs-inline {
+    padding-left: 26px !important;
+}
+.language-xs {
+    @include media-breakpoint-down(md) {
+        margin-top: 15px;
+    }
+    .masthead {
+        border: var(--light-border) !important;
+    }
+    ul {
+        padding: 20px;
+        li {
+            &.d-flex {
+                align-items: center;
+                gap: 15px;
+            }
+            +li {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+.navs-icon {
+    padding: 20px;
+    &.masthead-nav {
+        border: var(--light-border) !important;
+    }
+    li {
+        padding: 9px 0;
+        a {
+            color: var(--body-font-color);
+            font-family: $body-font;
+            &:hover {
+                color: var(--theme-default);
+            }
+        }
+        ul {
+            padding-top: 9px;
+        }
+    }
+}
+/**=====================
+    Translate CSS End
+==========================**/

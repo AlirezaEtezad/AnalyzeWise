@@ -1,0 +1,228 @@
+/**=====================
+    Accordion css start
+==========================**/
+$accordion-colors: (primary: $primary-color,
+    secondary: $secondary-color,
+    tertiary: $tertiary-color,
+    warning: $warning-color,
+    info: $info-color,
+    success: $success-color,
+    danger: $danger-color,
+    light: $light-color,
+    dark: $dark-color);
+.accordion {
+    .accordion-item {
+        border: var(--light-border);
+        border-radius: 0;
+        [data-theme="dark"] & {
+            color: var(--body-font-color);
+            background-color: var(--card-color);
+        }
+        +.accordion-item {
+            border-top: 0;
+        }
+    }
+    .accordion-body {
+        p {
+            margin-bottom: 0;
+        }
+    }
+    .nested-accordion {
+        padding: 0 12px;
+        @include media-breakpoint-down(sm) {
+            width: 100% !important;
+        }
+        .accordion-item {
+            .accordion-header {
+                .accordion-button {
+                    padding: 12px 16px;
+                }
+            }
+        }
+    }
+}
+.nestings {
+    .accordion {
+        .d-flex {
+            margin: 0 -12px;
+            @include media-breakpoint-down(sm) {
+                display: contents !important;
+            }
+        }
+    }
+}
+.outline-accordion {
+    .accordion-item {
+        border: 0;
+        .accordion-button {
+            &:not(.collapsed) {
+                background-color: unset;
+                .accordion-header {
+                    color: $info-color;
+                }
+            }
+        }
+        +.accordion-item {
+            border-top: 0;
+        }
+    }
+}
+.collapse-horizontal {
+    .card-body {
+        width: 300px;
+    }
+}
+.accordion-flush {
+    border: 0;
+    .accordion-item {
+        .accordion-button {
+            &:not(.collapsed) {
+                box-shadow: none;
+            }
+            &[aria-expanded="true"] {
+                background-color: rgba($tertiary-color, 0.1);
+                color: $tertiary-color;
+                [data-theme="dark"] & {
+                    background-color: rgba($tertiary-color, 0.1);
+                    color: $tertiary-color;
+                }
+            }
+            [data-theme="dark"] & {
+                background-color: var(--card-color);
+                color: var(--body-font-color);
+            }
+        }
+    }
+}
+.multi-collapse {
+    .card-body {
+        border: var(--light-border);
+    }
+}
+.icons-accordion {
+    .accordion-item {
+        .accordion-header {
+            .accordion-button {
+                position: relative;
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+                &:not(.collapsed) {
+                    &:after {
+                        transform: none;
+                    }
+                }
+                &:before {
+                    background: var(--theme-secondary);
+                    content: '';
+                    height: 2px;
+                    margin-right: 37px;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: rotate(90deg);
+                    transition: all 0.2s ease-in-out;
+                    width: 14px;
+                }
+                &:after {
+                    background: var(--theme-secondary);
+                    content: '';
+                    height: 2px;
+                    margin-right: 37px;
+                    filter: none;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    width: 14px;
+                }
+                &[aria-expanded="true"] {
+                    &:before {
+                        transform: rotate(0deg);
+                    }
+                }
+            }
+        }
+    }
+}
+.accordion-button {
+    &:focus {
+        box-shadow: none;
+    }
+    &:after {
+        width: 15px;
+        height: 12px;
+        background-size: 0.875rem;
+        filter: brightness(0.4);
+        [data-theme="dark"] & {
+            filter: brightness(0.4) invert(1);
+        }
+    }
+}
+@each $key,
+$val in $accordion-colors {
+    .accordion-light-#{$key} {
+        background-color: rgba($val, 0.1);
+        color: $val;
+        &:not(.collapsed) {
+            background-color: rgba($val, 0.1);
+            color: $val;
+            box-shadow: none;
+        }
+    }
+}
+.default-according.style-1 {
+    button {
+        width: 100%;
+        text-align: left;
+    }
+}
+.faq-wrap {
+    .faq-accordion {
+        &.default-according {
+            .card {
+                .faq-header {
+                    padding: 20px 20px 0 !important;
+                }
+            }
+        }
+    }
+}
+.default-according {
+    .card {
+        .card-header {
+            i {
+                font-size: 14px;
+                top: 24px;
+            }
+        }
+        .btn-link {
+            display: block;
+            width: 100%;
+            padding-left: 17px;
+        }
+    }
+}
+.default-according {
+    .card {
+        margin-bottom: 0;
+        box-shadow: none;
+    }
+}
+.default-according {
+    .card {
+        &+.card {
+            margin-top: 10px;
+        }
+    }
+}
+.accordion-button {
+    &:not(.collapsed) {
+        [data-theme="dark"] & {
+            box-shadow: var(--card-box-shadow);
+        }
+    }
+}
+/**=====================
+    Accordion css end
+==========================**/

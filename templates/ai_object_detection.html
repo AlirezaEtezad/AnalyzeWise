@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Object Detection
+{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-6">
+        <div class="card text-bg-dark mb-3">
+            <div class="card-body">
+                <h1>
+                    <i class="fa-duotone fa-object-group"></i>
+                </h1>
+                <h5 class="card-title">Object Detection</h5>
+                <p class="card-text">
+                    Just upload a picture and I will name you the objects.
+                </p>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Upload a picture </label>
+                        <input name="image" class="form-control" type="file" id="formFile">
+                    </div>
+                    <button type="submit" class="btn btn-light">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card text-bg-light mb-3">
+            <div class="card-body">
+                <h1 class="card-title">
+                    <i class="fa-duotone fa-face-viewfinder"></i>
+                </h1>
+                {% if image_uri %}
+                <div class="row mt-4">
+                    <div class="col">
+                        <img src="{{ image_uri }}" class="img-fluid">
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if labels %}
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                Objects
+                            </li>
+                            {% for label in labels %}
+                            <li class="list-group-item">
+                                {{ label }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

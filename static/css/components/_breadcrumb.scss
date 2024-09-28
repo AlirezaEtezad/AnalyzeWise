@@ -1,0 +1,112 @@
+/**=====================
+    Breadcrumb css start
+==========================**/
+.page-title {
+    align-items: center;
+    padding: $title-spacing;
+    @include media-breakpoint-down(md) {
+        padding: 16px 0;
+    }
+    .breadcrumb {
+        --bs-breadcrumb-margin-bottom: 0;
+        &-item {
+            color: var(--theme-default);
+            font-weight: 600;
+            &.active {
+                text-transform: capitalize;
+                color: rgba($primary-color, 0.6);
+            }
+            +.breadcrumb-item {
+                &:before {
+                    color: var(--theme-default);
+                }
+            }
+            .svg-color {
+                padding: 8px;
+                width: 30px;
+                height: 30px;
+                stroke: var(--theme-default);
+                background-color: rgba($primary-color, 0.1);
+            }
+        }
+    }
+    h3 {
+        font-weight: 600;
+        @include media-breakpoint-down(md) {
+            margin-bottom: 10px;
+        }
+    }
+}
+.breadcrumb {
+    --bs-breadcrumb-margin-bottom: 0;
+    &-item {
+        color: var(--theme-default);
+        &.active {
+            color: var(--body-font-color);
+        }
+        +.breadcrumb-item {
+            &:before {
+                color: var(--body-font-color);
+            }
+        }
+        .svg-color {
+            padding: 8px;
+            width: 30px;
+            height: 30px;
+            stroke: var(--theme-default);
+            background-color: rgba($primary-color, 0.1);
+        }
+    }
+}
+.breadcrumb-icon {
+    --bs-breadcrumb-divider: '>';
+}
+.breadcrumb-no-divider {
+    --bs-breadcrumb-divider: '';
+}
+.breadcrumb-item {
+    .home-icon {
+        width: 15px;
+        height: 15px;
+        stroke: var(--theme-default);
+        vertical-align: sub;
+    }
+}
+.breadcrumb-space {
+    .breadcrumb-item {
+        +.breadcrumb-item {
+            &::before {
+                content: '';
+                width: 4px;
+                height: 4px;
+                padding-right: 0;
+                border-radius: 50%;
+                float: left;
+                margin-right: 7px;
+                margin-top: 9px;
+                background-color: var(--light-font);
+            }
+        }
+    }
+}
+.breadcrumb-colored {
+    padding: 12px 16px;
+    border-radius: 4px;
+    li {
+        &.active {
+            color: var(--white);
+            opacity: 0.7;
+        }
+        a {
+            color: var(--white);
+        }
+    }
+    .breadcrumb-item {
+        &:before {
+            color: var(--white);
+        }
+    }
+}
+/**=====================
+    Breadcrumb css end
+==========================**/

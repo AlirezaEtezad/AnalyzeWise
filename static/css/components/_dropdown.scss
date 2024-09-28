@@ -1,0 +1,257 @@
+/**=====================
+     Dropdown css start
+==========================**/
+.rtl-dropdown {
+	.dropdown-menu {
+		[data-theme="dark"] & {
+			color: var(--white);
+			background-color: var(--body-color);
+		}
+	}
+}
+.custom {
+	&-dropdown {
+		position: relative;
+	}
+	&-menu {
+		position: absolute;
+		border-radius: 5px;
+		background: var(--card-color);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.5s;
+		right: 0;
+		top: 28px;
+		[data-theme="dark"] & {
+			border: 1px solid var(--light-color);
+		}
+		[dir="rtl"] & {
+			right: unset;
+			left: 16px;
+		}
+		&.show {
+			opacity: 1;
+			visibility: visible;
+			transition: all 0.5s;
+		}
+	}
+}
+.dropdown {
+	&-menu {
+		border: var(--light-border);
+		z-index: 1;
+		.dropdown-item {
+			padding: 6px 12px;
+			[data-theme="dark"] & {
+				color: var(--body-font-color);
+				background-color: var(--body-color);
+			}
+			&:hover {
+				[data-theme="dark"] & {
+					background-color: var(--card-color);
+				}
+			}
+		}
+	}
+}
+.custom {
+	&-menu {
+		margin-top: 20px !important;
+		box-shadow: var(--dropdown-shadow);
+	}
+}
+.dropdown-basic {
+	margin-bottom: -10px;
+	.btn-group {
+		.btn-round {
+			border-radius: 50px;
+		}
+	}
+	.separated-btn {
+		.btn {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			padding: 10px;
+			svg {
+				width: 16px;
+				height: 16px;
+				vertical-align: initial;
+			}
+		}
+	}
+	button {
+		max-height: 43px;
+	}
+	.dropdown {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 10px;
+		.dropbtn {
+			color: $white;
+			padding: 12px 35px;
+			border: none;
+			cursor: pointer;
+		}
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			right: 0;
+			background-color: $white;
+			border-radius: 0.375rem;
+			min-width: 160px;
+			z-index: 1;
+			top: 45px;
+			[data-theme="dark"] & {
+				background-color: var(--card-color);
+			}
+			@include media-breakpoint-down(sm) {
+				left: -75;
+				min-width: 100px;
+			}
+			a {
+				color: var(--body-font-color);
+				padding: 6px 14px;
+				text-decoration: none;
+				display: block;
+			}
+			.dropdown-header {
+				padding: 12px 16px;
+			}
+		}
+	}
+	.dropdown-content a:hover {
+		background-color: var(--light-color);
+	}
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+}
+.heading-dropdown {
+	.dropdown-menu {
+		>li {
+			&:first-child {
+				>a {
+					border-bottom: var(--light-border);
+					border-top: 0;
+					background-color: var(--light-color);
+				}
+			}
+		}
+	}
+}
+btn-group {
+	.dropdown-wrapper {
+		z-index: 2;
+		.input-group {
+			.input-group-text {
+				padding: 0px 8px 0px 0px;
+				[dir="rtl"] & {
+					padding: 0px 0px 0px 8px;
+				}
+			}
+		}
+	}
+}
+.form-wrapper {
+	width: 260px;
+}
+.dropdown-menu {
+	.input-group {
+		background-color: unset;
+		padding: 6px 12px;
+		border-top: var(--light-border);
+		opacity: 0.6;
+		[data-theme="dark"] & {
+			color: var(--white);
+			background-color: var(--body-color);
+			opacity: unset !important;
+		}
+		&:hover,
+		&:active {
+			background-color: var(--light-color);
+		}
+		.input-group-text {
+			background-color: unset;
+			border: none;
+		}
+		span {
+			color: var(--body-font-color);
+		}
+	}
+}
+.dropdown-toggle {
+	&::after {
+		display: inline-block;
+		margin-left: 8px;
+		vertical-align: 4px;
+		content: '';
+		border-top: 4px solid;
+		border-right: 4px solid transparent;
+		border-bottom: 0;
+		border-left: 4px solid transparent;
+		[dir="rtl"] & {
+			margin-left: unset;
+			margin-right: 8px;
+		}
+	}
+}
+.dropstart {
+	.dropdown-toggle {
+		&::before {
+			display: inline-block;
+			margin-right: 8px;
+			content: '';
+			border-top: 4px solid transparent;
+			border-right: 4px solid;
+			border-bottom: 4px solid transparent;
+			[dir="rtl"] & {
+				margin-left: 8px;
+				margin-right: unset;
+			}
+		}
+	}
+}
+.dropup {
+	.dropdown-toggle {
+		&::after {
+			content: '';
+			display: inline-block;
+			margin-left: 8px;
+			vertical-align: 4px;
+			border-top: 0;
+			border-right: 4px solid transparent;
+			border-bottom: 4px solid;
+			border-left: 4px solid transparent;
+			[dir="rtl"] & {
+				margin-left: unset;
+				margin-right: 8px;
+			}
+		}
+	}
+}
+.dropend {
+	.dropdown-toggle {
+		&::after {
+			content: '';
+			display: inline-block;
+			content: '';
+			border-top: 4px solid transparent;
+			border-right: 0;
+			border-bottom: 4px solid transparent;
+			border-left: 4px solid;
+			margin-left: 8px;
+			[dir="rtl"] & {
+				margin-left: unset;
+				margin-right: 8px;
+			}
+		}
+	}
+}
+.dropdown-menu {
+	&.show {
+		z-index: 9 !important;
+	}
+}
+/**=====================
+     Dropdown css end
+==========================**/

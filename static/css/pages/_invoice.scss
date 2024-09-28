@@ -1,0 +1,213 @@
+/**========================
+    67. Invoice CSS Start
+=============================**/
+.invoice {
+  p {
+    color: var(--light-text);
+    text-transform: capitalize;
+  }
+  .invo-header {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $light-gray;
+  }
+  .table-striped {
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          background-color: rgba($primary-color, 0.05);
+          --bs-table-accent-bg: unset;
+        }
+        h6 {
+          text-transform: capitalize;
+          color: var(--theme-default);
+        }
+      }
+    }
+  }
+  .invo-profile {
+    margin-bottom: 15px;
+    .invo-profile-left {
+      .d-flex {
+        .flex-shrink-0 {
+          margin-right: 15px;
+        }
+        .flex-grow-1 {
+          h4 {
+            font-size: 16px;
+          }
+          p {
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .invo-profile-right {
+      text-align: right;
+      h6 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+/**==invioce1==**/
+.invoice-1 {
+  body {
+    font-family: 'Outfit', sans-serif;
+    display: block;
+    color: #000248;
+  }
+  .table-wrapper {
+    margin: 0 auto;
+  }
+  h2 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 32px;
+  }
+  h6 {
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+  }
+  span {
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .banner-image {
+    margin: 13px 0 10px;
+  }
+  .order-details td span {
+    margin-bottom: -4px;
+    display: block;
+  }
+}
+/**==invioce2==**/
+.invoice-2 {
+  .back {
+    td {
+      [data-theme="dark"] & {
+        background: var(--card-color) !important;
+      }
+    }
+  }
+  .padding {
+    td {
+      padding-bottom: 18px !important;
+    }
+  }
+}
+.invoice-2 {
+  .card-body {
+    >table {
+      display: block;
+      >tbody {
+        display: block;
+        >tr {
+          display: block;
+          >td {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .invoice {
+    h4 {
+      margin-bottom: 0px;
+    }
+    h3 {
+      margin-bottom: 0px;
+    }
+    .invo-profile {
+      .d-flex {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid $light-gray;
+      }
+    }
+    .invo-profile {
+      .invo-profile-right {
+        text-align: left;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 991px) {
+  .invoice {
+    .card {
+      .card-body {
+        padding: 20px;
+      }
+    }
+    h4 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    table {
+      td {
+        min-width: 150px;
+        &:first-child {
+          min-width: 280px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .invoice {
+    .invo-pal {
+      margin-top: 15px;
+      text-align: left !important;
+    }
+    .text-md-end {
+      text-align: right;
+    }
+  }
+}
+@media only screen and (max-width: 575px) {
+  .invoice {
+    h4 {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 15px;
+    }
+    p {
+      font-size: 13px;
+    }
+    .invo-header {
+      .flex-grow-1 {
+        text-align: right;
+      }
+    }
+    .text-xs-center {
+      margin-top: 20px;
+      text-align: center !important;
+    }
+    .text-md-end {
+      text-align: left;
+    }
+  }
+}
+@media only screen and (max-width: 420px) {
+  .invoice {
+    .invo-profile {
+      .d-flex {
+        .flex-grow-1 {
+          margin-left: 0 !important;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+/**========================
+      67. Invoice CSS endp
+  ==========================**/

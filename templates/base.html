@@ -24,8 +24,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard">Dashboard</a>
                         </li>
+
+                        {% if session.get('role') == 'admin' %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/upload">Age Finder</a>
+                            <a class="nav-link" href="/admin">Admin Panel</a>
+                        </li>
+                        {% endif %}
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ai-face-analysis">Age Finder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ai-object-detection">Object Detection</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/bmr">BMR Calculator</a>

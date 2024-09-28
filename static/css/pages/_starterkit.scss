@@ -1,0 +1,160 @@
+/**=====================
+    starterkit css start
+==========================**/
+.card {
+    .card-header {
+        .card-header-right {
+            right: 19px;
+            top: 12px;
+            display: inline-block;
+            float: right;
+            padding: 8px 0;
+            position: absolute;
+            background-color: $white;
+            z-index: 1;
+            [data-theme="dark"] & {
+                background-color: var(--card-color);
+            }
+            @include media-breakpoint-down(sm) {
+                top: 16px;
+            }
+            .card-option {
+                text-align: right;
+                width: 35px;
+                height: 20px;
+                overflow: hidden;
+                transition: 0.3s ease-in-out;
+                li {
+                    display: inline-block;
+                    &:first-child {
+                        i {
+                            transition: 1s;
+                            &.icofont {
+                                color: unset;
+                            }
+                        }
+                    }
+                }
+            }
+            i {
+                margin: 0 5px;
+                cursor: pointer;
+                line-height: 20px;
+                [data-theme="dark"] & {
+                    color: var(--light-font);
+                }
+                &.icofont-refresh {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+.starter-main {
+    .card-body {
+        p {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        ul {
+            padding-left: 30px;
+            list-style-type: disc;
+            margin-bottom: 15px;
+            li {
+                display: list-item;
+            }
+        }
+        h4 {
+            font-size: 18px;
+        }
+        pre {
+            white-space: pre-line;
+            padding: 30px;
+        }
+        .alert-primary {
+            &.inverse {
+                &:before {
+                    top: 32px;
+                }
+            }
+        }
+    }
+    .alert {
+        i {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+.starter-kit-fix {
+    .page-body {
+        margin-bottom: 52px;
+    }
+}
+.starter-main {
+    .alert-primary {
+        &.inverse {
+            padding: 13px 20px 13px 65px;
+            border-color: var(--theme-default);
+            [dir="rtl"] & {
+                padding: 13px 65px 13px 20px;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                left: 54px;
+                width: 0;
+                height: 0;
+                border-left: 7px solid var(--theme-default);
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                [dir="rtl"] & {
+                    border-right: 7px solid var(--theme-default);
+                    border-left: unset;
+                }
+            }
+            i {
+                padding: 17px 20px;
+                display: flex;
+                align-items: center;
+                background-color: var(--theme-default);
+                color: $white;
+                border-radius: 3px 0 0 3px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                [dir="rtl"] & {
+                    right: 0;
+                    left: unset;
+                    margin-right: unset;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+.card {
+    &.card-load {
+        .card-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background-color: rgba($white, 0.7);
+            z-index: 8;
+            align-items: center;
+            justify-content: center;
+            i {
+                margin: 0 auto;
+                color: var(--theme-default);
+                font-size: 20px;
+            }
+        }
+    }
+}
+/**=====================
+    starterkit css end
+==========================**/

@@ -1,0 +1,274 @@
+/**=====================
+    . base_inputs CSS start
+==========================**/
+.jkanban-container {
+  .card-header {
+    p {
+      color: $theme-body-font-color;
+      font-weight: 400;
+      [data-theme="dark"] & {
+        color: var(--light-font) !important;
+      }
+    }
+  }
+  .card-body {
+    #demo1,
+    #demo2,
+    #demo3 {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  .btn {
+    margin-bottom: 10px;
+  }
+  .note {
+    [data-theme="dark"] & {
+      color: var(--bs-heading-color) !important;
+    }
+    a {
+      display: contents;
+    }
+  }
+}
+.kanban-board-header {
+  z-index: 0;
+  height: auto;
+  width: auto;
+  line-height: unset;
+  background: var(--light-color);
+  border-bottom: 1px solid var(--solid-border);
+  padding: 16px;
+  &.bg-info {
+    &~.kanban-drag {
+      padding: 20px;
+      background-color: rgba($info-color, 0.3) !important;
+    }
+  }
+  &.bg-warning {
+    &~.kanban-drag {
+      padding: 20px;
+      background-color: rgba($warning-color, 0.3) !important;
+    }
+  }
+  &.bg-success {
+    &~.kanban-drag {
+      padding: 20px;
+      background-color: rgba($success-color, 0.3) !important;
+    }
+  }
+}
+.default-kanban {
+  .kanban-container {
+    display: flex;
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+}
+.custom-board {
+  .kanban-container {
+    display: flex;
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+}
+.api-board {
+  .kanban-container {
+    display: flex;
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+}
+.kanban-board {
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
+  overflow: hidden;
+  width: calc((100% - 45px * 2) / 3) !important;
+  margin-right: 30px;
+  .kanban-drag {
+    background: var(--light-color);
+    padding: 20px;
+  }
+}
+.kanban-item {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 20px;
+  p {
+    opacity: 0.7;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .list {
+    display: inline-block;
+    opacity: 0.4;
+    li {
+      display: inline-block;
+      font-size: 12px;
+      margin-right: 10px;
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+  .kanban-box {
+    border: var(--light-border);
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    display: block;
+    color: inherit;
+    background-color: var(--body-color);
+    &:hover {
+      color: inherit;
+    }
+    &+.kanban-box {
+      margin-top: 20px;
+    }
+    .badge {
+      font-weight: 400;
+      padding: 4px;
+      float: right;
+    }
+    h6 {
+      font-size: 15px;
+      margin-top: 5px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .dropdown {
+      display: inline-block;
+      right: 10px;
+      position: absolute;
+      top: 20px;
+      .dropdown-item {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 5px 10px;
+        text-align: left;
+      }
+      svg {
+        height: 14px;
+      }
+    }
+    .d-flex {
+      justify-content: space-between;
+    }
+    .dropdown-toggle {
+      &:after {
+        content: none;
+      }
+    }
+    .customers {
+      li {
+        &:first-child {
+          vertical-align: middle;
+        }
+      }
+    }
+    .customers {
+      ul {
+        li {
+          +li {
+            margin-left: -10px;
+          }
+        }
+      }
+    }
+    .date {
+      font-size: 11px;
+      opacity: 0.5;
+    }
+  }
+}
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .jkanban-container {
+    .kanban-container {
+      .kanban-board {
+        width: calc(100% / 3 - 20px) !important;
+      }
+    }
+  }
+}
+@include media-breakpoint-between(lg, xl) {
+  .jkanban-container {
+    .kanban-container {
+      .kanban-board {
+        margin: 0 10px !important;
+        width: calc(100% / 3 - 20px) !important;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xl) {
+  .jkanban-container {
+    .btn {
+      margin-bottom: 10px;
+    }
+  }
+}
+@include media-breakpoint-down(lg) {
+  .kanban-board {
+    width: calc(100% / 2 - 30px) !important;
+  }
+}
+@include media-breakpoint-down(md) {
+  .jkanban-container {
+    .card-body {
+      #demo1 {
+        margin-left: 0;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .kanban-board .kanban-drag,
+  .kanban-container .kanban-item .kanban-box {
+    padding: 10px 15px;
+  }
+  .custom-board,
+  .api-board {
+    .kanban-container {
+      .kanban-board {
+        width: 90% !important;
+        margin-left: 14px !important;
+        margin-right: 14px !important;
+      }
+    }
+  }
+  .kanban-container {
+    .kanban-board {
+      width: 94% !important;
+      margin: 0px 10px !important;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .jkanban-container {
+    .kanban-board {
+      margin-bottom: 14px;
+    }
+    .card-body {
+      padding: 15px !important;
+    }
+  }
+  .kanban-board .kanban-drag,
+  .kanban-container .kanban-item .kanban-box {
+    padding: 10px 15px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .jkanban-container {
+    .btn {
+      margin-left: 0;
+      padding: 6px 16px;
+    }
+  }
+}
+/**=====================
+    61. base_inputs CSS Ends
+==========================**/

@@ -1,0 +1,64 @@
+/**=====================
+    2.8 Scrollbar CSS Start
+==========================**/
+[data-simplebar] {
+    position: unset;
+}
+.simplebar-track {
+    right: -2px;
+    &.simplebar-vertical {
+        width: 10px;
+    }
+    &.simplebar-horizontal {
+        visibility: hidden !important;
+    }
+}
+.simplebar-scrollbar {
+    &:before {
+        background: rgba($primary-color, 0.2);
+    }
+}
+.scrollbar-images {
+    margin-bottom: 12px;
+}
+.visible-wrapper {
+    img {
+        width: calc(230px + (330 - 230) * ((100vw - 320px) / (1920 - 320))) !important;
+    }
+}
+.horizontal-scroll {
+    .horz-scroll-content {
+        .horizontal-img {
+            height: 100%;
+            max-width: 240px;
+            @media (max-width:576px) {
+                max-width: calc(220px + (240 - 220) * ((100vw - 320px) / (576 - 320)));
+            }
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+.scroll-demo {
+    &.scroll-b-none {
+        padding: 0;
+        border: none;
+    }
+    .scroll-rtl {
+        .list-group-item {
+            span {
+                [dir="rtl"] & {
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}
+.scroll-demo {
+    border-color: var(--solid-border);
+}
+/**=====================
+    2.8 Scrollbar CSS Ends
+==========================**/

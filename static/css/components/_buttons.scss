@@ -1,0 +1,421 @@
+/**=====================
+     buttons css start
+==========================**/
+.btn {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 20px;
+  letter-spacing: 0.3px;
+}
+.btn-showcase {
+  .btn {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  margin-bottom:-10px;
+}
+.btn-lg {
+  font-size: $btn-lg-font-size;
+}
+.btn-sm {
+  font-size: $btn-sm-font-size;
+}
+.btn-xs {
+  padding: $btn-xs-padding;
+  font-size: $btn-xs-font-size;
+}
+$colors: (primary: $primary-color,
+  secondary: $secondary-color,
+  tertiary: $tertiary-color,
+  warning: $warning-color,
+  info: $info-color,
+  success: $success-color,
+  danger: $danger-color,
+  light: $light-color,
+  dark: $dark-color);
+@each $key,
+$val in $colors {
+  .btn-#{$key} {
+    background-color: $val;
+    border: 1px solid $val;
+    border-radius: 5px;
+    color: $white;
+    &:hover,
+    &:focus,
+    &:active:focus,
+    &.show {
+      background-color: $val;
+      border-color: $val;
+      color: $white;
+    }
+    &:first-child {
+      &:active {
+        background-color: $val;
+        border-color: $val;
+        color: $white;
+      }
+    }
+  }
+  .btn-light {
+    &:hover {
+      color: $dark-color;
+    }
+  }
+  .btn-light-#{$key} {
+    background-color: rgba($val, 0.1);
+    color: $val !important;
+    span {
+      [data-theme="dark"] & {
+        color: $val !important;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active:focus,
+    &:active {
+      background-color: rgba($val, 0.1);
+      color: $val !important;
+    }
+  }
+}
+@each $key,
+$val in $colors {
+  .line-#{$key} {
+    &:before {
+      content: '';
+      height: 28px;
+      width: 4px;
+      background-color: $val;
+      border-radius: 10px;
+    }
+  }
+}
+@each $key,
+$val in $colors {
+  .btn-outline-#{$key} {
+    background-color: var(--white);
+    border: 1px solid $val !important;
+    color: $val;
+    &:hover,
+    &:focus,
+    &:active:focus,
+    &:not(:first-child):active {
+      background-color: $val;
+      border-color: $val;
+      color: var(--white);
+    }
+    [data-theme="dark"] & {
+      background-color: transparent;
+      color: var(--body-font-color);
+      &:hover,
+      &:focus,
+      &:active:focus {
+        background-color: $val;
+      }
+    }
+  }
+  .input-group-page{
+    .btn-outline-#{$key}{
+      [data-theme="dark"] & {
+        border: 1px solid $val !important;
+      }
+    }
+  }
+}
+.btn {
+  &.btn-tertiary,
+  &.btn-info,
+  &.btn-warning {
+    &:hover {
+      color: $white;
+    }
+  }
+}
+@mixin btn-gradien($deg, $leftcolor, $leftcolor-per, $rightcolor, $rightcolor-per, $font-color) {
+  background-image: linear-gradient(to right, $leftcolor 0%, $rightcolor 51%, $leftcolor 100%);
+  border: none;
+  color: $font-color;
+  background-size: auto 200%;
+  transition: all 0.3s ease;
+}
+.btn-primary-gradien {
+  @include btn-gradien(60, lighten($primary-color, 8%), 0%, darken($primary-color, 8%), 100%, $white);
+  color: $white;
+  &:focus,
+  &:active,
+  &.active {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($primary-color, 8%), 0%, darken($primary-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-secondary-gradien {
+  @include btn-gradien(60, lighten($secondary-color, 8%), 0%, darken($secondary-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($secondary-color, 8%), 0%, darken($secondary-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-tertiary-gradien {
+  @include btn-gradien(60, lighten($tertiary-color, 8%), 0%, darken($tertiary-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($tertiary-color, 8%), 0%, darken($tertiary-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-success-gradien {
+  @include btn-gradien(60, lighten($success-color, 8%), 0%, darken($success-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($success-color, 8%), 0%, darken($success-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-danger-gradien {
+  @include btn-gradien(60, lighten($danger-color, 8%), 0%, darken($danger-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($danger-color, 8%), 0%, darken($danger-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-warning-gradien {
+  @include btn-gradien(60, lighten($warning-color, 8%), 0%, darken($warning-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($warning-color, 8%), 0%, darken($warning-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-info-gradien {
+  @include btn-gradien(60, lighten($info-color, 8%), 0%, darken($info-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($info-color, 8%), 0%, darken($info-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-light-gradien {
+  @include btn-gradien(60, lighten($light-color, 8%), 0%, darken($light-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($light-color, 8%), 0%, darken($light-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-dark-gradien {
+  @include btn-gradien(60, lighten($dark-color, 8%), 0%, darken($dark-color, 8%), 100%, $white);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.hover {
+    transition: 1.5s;
+    background-position: right center;
+    background-image: linear-gradient(to right, lighten($dark-color, 8%), 0%, darken($dark-color, 8%), 100%, $white) !important;
+  }
+}
+.btn-gradient {
+  color: $white !important;
+  font-weight: 500;
+  padding: 10px 30px;
+  border-radius: 5px;
+  letter-spacing: 0.06rem;
+  &:hover {
+    background-size: 100% !important;
+  }
+}
+[class*='-gradien'] {
+  &:hover {
+    background-size: 50% 100%;
+    transition: all 0.3s ease;
+    color: $white;
+  }
+}
+@each $key,
+$val in $colors {
+  $i: 0;
+  @while $i<=20 {
+    .b-w-#{$i} {
+      border-width: #{$i}px !important;
+      &.b-l-#{$key} {
+        border-left: #{$i}px solid $val !important;
+        [dir="rtl"] & {
+          border-right: #{$i}px solid $val !important;
+          border-left: unset !important;
+        }
+      }
+      &.b-r-#{$key} {
+        border-right: #{$i}px solid $val !important;
+        [dir="rtl"] & {
+          border-left: #{$i}px solid $val !important;
+          border-right: unset !important;
+        }
+      }
+    }
+    $i: $i+1;
+  }
+  .border-#{$key} {
+    border: 1px solid $val !important;
+    [data-theme="dark"] & {
+      border: 1px solid var(--solid-border);
+    }
+  }
+  .b-l-#{$key} {
+    border-left: 1px solid $val !important;
+    [dir="rtl"] & {
+      border-right: 1px solid $val !important;
+      border-left: unset !important;
+    }
+  }
+  .b-r-#{$key} {
+    border-right: 1px solid $val !important;
+    [dir="rtl"] & {
+      border-left: 1px solid $val !important;
+      border-right: unset !important;
+    }
+  }
+  .b-t-#{$key} {
+    border-top: 1px solid $val !important;
+  }
+  .b-b-#{$key} {
+    border-bottom: 1px solid $val !important;
+  }
+}
+@mixin btn-squre($border-radius) {
+  border-radius: $border-radius+px;
+}
+@mixin edge-btn($border-radius) {
+  border-radius: $border-radius+px;
+}
+.flat-btn {
+  @include btn-squre(0);
+}
+.edge-btn {
+  @include btn-squre(60);
+}
+@each $btn-name,
+$btn-color in (primary, $primary-color),
+(secondary, $secondary-color),
+(tertiary, $tertiary-color),
+(success, $success-color),
+(danger, $danger-color),
+(info, $info-color),
+(light, $light-color),
+(dark, $dark-color),
+(warning, $warning-color) {
+  .btn-raised-#{$btn-name} {
+    box-shadow: 0 5px 10px 2px rgba(88, 103, 221, .19) !important;
+    &:hover,
+    &:active,
+    &:not([disabled]):not(.disabled):active {
+      background-color: darken($btn-color, 10%);
+      border-color: darken($btn-color, 10%);
+    }
+  }
+  .input-air-#{$btn-name} {
+    box-shadow: 0 3px 5px 1px rgba($btn-color, 0.10) !important;
+    &:focus {
+      border-color: $btn-color;
+    }
+  }
+}
+.buttons-tab {
+  .btn {
+    width: 100%;
+  }
+  .card-wrapper {
+    border: var(--light-border);
+    color: var(--body-font-color);
+    height: 100%;
+    &.bg-light-primary {
+      .nav-link {
+        &.active {
+          [class*="circle-dot-"] {
+            span {
+              background-color: var(--theme-default);
+            }
+          }
+        }
+      }
+    }
+    &.bg-light-secondary {
+      .nav-link {
+        &.active {
+          [class*="circle-dot-"] {
+            span {
+              background-color: var(--theme-secondary);
+            }
+          }
+        }
+      }
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      [class*="circle-dot-"] {
+        margin-right: 10px;
+        span {
+          background-color: transparent;
+        }
+      }
+      @media (max-width: 1690px) {
+        padding: 6px 8px;
+      }
+      @media (max-width: 1580px) {
+        padding: 6px 0;
+      }
+      color: var(--body-font-color);
+      &.active {
+        background-color: transparent !important;
+      }
+    }
+  }
+  .bg-light-primary {
+    .nav-link {
+      &.active {
+        color: var(--theme-default) !important;
+      }
+    }
+  }
+  .bg-light-secondary {
+    .nav-link {
+      &.active {
+        color: $secondary-color !important;
+      }
+    }
+  }
+}
+/**=====================
+     buttons css end
+==========================**/

@@ -1,0 +1,67 @@
+/**=====================
+     tree css start
+==========================**/
+div.ninotree {
+    margin: 0;
+    padding: 0;
+}
+div.ninotree ul {
+    list-style-type: none;
+}
+div.ninotree label {
+    margin-left: 1.8em;
+    user-select: none;
+}
+div.ninotree .caret {
+    cursor: pointer;
+    user-select: none;
+}
+div.ninotree .collapsed {
+    display: none;
+}
+.treejs {
+    >ul.treejs-nodes {
+        padding: 0;
+    }
+    .treejs-nodes {
+        [dir="rtl"] & {
+            padding-left: unset;
+            padding-right: 20px;
+        }
+    }
+    .treejs-node {
+        &.treejs-placeholder {
+            [dir="rtl"] & {
+                padding-right: 20px;
+                padding-left: unset;
+            }
+        }
+    }
+    .treejs-node__halfchecked {
+        >.treejs-checkbox:before {
+            background-color: var(--theme-default) !important;
+            border-color: var(--theme-default) !important;
+        }
+        >.treejs-checkbox:after {
+            [dir="rtl"] & {
+                right: 3px;
+                left: unset;
+            }
+        }
+    }
+    .treejs-node__checked {
+        >.treejs-checkbox:before {
+            background-color: $success-color !important;
+            border-color: $success-color !important;
+        }
+        >.treejs-checkbox:after {
+            [dir="rtl"] & {
+                right: 5px;
+                left: unset;
+            }
+        }
+    }
+}
+/**=====================
+     tree css end
+==========================**/

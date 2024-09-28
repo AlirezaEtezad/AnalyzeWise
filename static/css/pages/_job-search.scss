@@ -1,0 +1,301 @@
+/**=====================
+    3.22 Job-search CSS Start
+==========================**/
+.filter-cards-view {
+  .job-filter {
+    &:first-child {
+      margin-bottom: 30px;
+      @include media-breakpoint-down(lg) {
+        margin-bottom: 20px;
+      }
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .checkbox-animated {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    @include media-breakpoint-down(lg) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    padding: 20px !important;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 15px !important;
+  }
+}
+.location-checkbox {
+  span {
+    color: var(--light-text);
+    padding-left: 33px;
+  }
+}
+.job-accordion {
+  .card {
+    margin-bottom: 30px;
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 20px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 10px !important;
+    }
+  }
+  .btn-block {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .animate-chk {
+    @include media-breakpoint-down(lg) {
+      padding: 20px !important;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 15px !important;
+    }
+  }
+}
+.job-search {
+  p {
+    margin-top: 30px;
+    @include media-breakpoint-down(lg) {
+      margin-top: 20px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-top: 15px;
+    }
+  }
+  .d-flex {
+    @include media-breakpoint-down(sm) {
+      display: block !important;
+      text-align: center;
+    }
+    .flex-grow-1 {
+      h6 {
+        margin-bottom: 3px;
+        .pull-right {
+          @include media-breakpoint-down(sm) {
+            float: none;
+            margin-top: 3px;
+            display: block;
+          }
+        }
+        a {
+          @include media-breakpoint-down(sm) {
+            display: block;
+          }
+        }
+        span {
+          font-size: 13px;
+          color: var(--light-text);
+          font-weight: normal;
+          &.badge {
+            color: $white;
+          }
+        }
+      }
+      p {
+        margin-top: 0;
+        color: var(--light-text);
+        span {
+          +span {
+            @include media-breakpoint-down(sm) {
+              display: block !important;
+            }
+          }
+        }
+      }
+    }
+    img {
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 15px;
+      }
+    }
+    .m-r-20 {
+      @include media-breakpoint-down(sm) {
+        margin-right: 0;
+      }
+    }
+  }
+  .job-description {
+    margin-top: 30px;
+    @include media-breakpoint-down(sm) {
+      margin-top: 15px;
+    }
+    h6 {
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+      li {
+        margin-bottom: 10px;
+        display: list-item;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .theme-form {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      @include media-breakpoint-down(sm) {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      .row {
+        div[class^="col-"] {
+          +div[class^="col-"] {
+            .select2-container {
+              margin-top: 18px;
+              @include media-breakpoint-down(sm) {
+                margin-top: 2px;
+              }
+            }
+          }
+          .job-select2 {
+            ~.select2-container {
+              margin-top: 0 !important;
+            }
+          }
+          .input-group {
+            .datepicker-here {
+              font-size: 14px;
+              border: 1px solid var(--light-semi-gray);
+              padding-top: 12px;
+              padding-bottom: 12px;
+            }
+          }
+        }
+      }
+      .xs-mt-period {
+        @include media-breakpoint-down(sm) {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+.select2-container {
+  .select2-selection--single {
+    border-radius: 0.25rem !important;
+    border-color: var(light-semi-gray);
+    height: 47px !important;
+    padding: 10px;
+  }
+}
+.job-pagination {
+  margin-bottom: 30px;
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 15px;
+  }
+  nav {
+    ul {
+      justify-content: flex-end;
+    }
+  }
+}
+.xl-mt-job {
+  @media only screen and (max-width: 1366px) {
+    margin-bottom: 20px;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 15px;
+  }
+}
+.job-search {
+  .job-description {
+    .btn {
+      @media only screen and (max-width: 360px) {
+        padding: 6px 12px;
+      }
+    }
+  }
+}
+/**==job-apply==**/
+.select-date {
+  .select2-container--default {
+    .select2-selection--single {
+      .select2-selection__arrow {
+        top: 9px;
+        right: 12px;
+      }
+    }
+  }
+}
+.md-sidebar {
+  position: relative;
+  .md-sidebar-toggle {
+    display: none;
+    width: fit-content;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    @include media-breakpoint-down(xl) {
+      display: block;
+    }
+  }
+  .md-sidebar-aside {
+    @include media-breakpoint-down(xl) {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 3;
+      width: 280px !important;
+      [dir="rtl"] & {
+        left: unset;
+        right: 0;
+      }
+      &.open {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  .job-sidebar {
+    @include media-breakpoint-down(xl) {
+      box-shadow: var(--dropdown-shadow);
+      background-color: var(--card-color);
+      padding: 20px;
+    }
+    .faq-accordion.default-according {
+      @include media-breakpoint-down(xl) {
+        margin-bottom: 0;
+        background-color: var(--card-color);
+      }
+      .row {
+        >div {
+          &:last-child {
+            .card {
+              @include media-breakpoint-down(xl) {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .job-toggle {
+      @include media-breakpoint-down(xl) {
+        display: block !important;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+/**=====================
+      3.22 Job-search CSS End
+  ==========================**/

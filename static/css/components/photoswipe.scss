@@ -1,0 +1,122 @@
+.my-gallery {
+  img {
+    width: 100%;
+    &.img-thumbnail {
+      border: var(--light-border);
+      [data-theme="dark"] & {
+        border-color: var(--light-font) !important;
+      }
+    }
+  }
+  .pswp-gallery {
+    margin-bottom: 30px;
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 20px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 15px;
+    }
+  }
+  &.gallery-with-description {
+    img {
+      padding: 10px !important;
+      border: var(--light-border) !important;
+      border-bottom: none ! important;
+      border-radius: 5px 5px 0 0;
+    }
+    a {
+      >div {
+        border-top: none !important;
+        margin-bottom: 0;
+        padding: 5px 10px 10px 10px;
+      }
+    }
+    h4 {
+      margin-top: 0px;
+    }
+  }
+  &.gallery {
+    figure {
+      &.img-hover {
+        a {
+          >div {
+            overflow: hidden;
+          }
+        }
+        &.hover-12 {
+          a {
+            >div {
+              background: var(--theme-default);
+              &:hover {
+                img {
+                  opacity: .7;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.masonary-gallery {
+  display: flex;
+}
+.gallery-grid {
+  .my-gallery {
+    gap: unset;
+    display: inherit !important;
+  }
+}
+#aniimated-thumbnials {
+  figure {
+    &:nth-child(12),
+    &:nth-child(11),
+    &:nth-child(10),
+    &:nth-child(9) {
+      margin-bottom: 30px;
+    }
+  }
+}
+/* photoswipe */
+.pswp--touch .pswp__button--arrow {
+  visibility: visible;
+}
+.pswp--one-slide {
+  .pswp__button--arrow {
+    display: block;
+  }
+}
+.pswp--one-slide {
+  .pswp__counter {
+    display: block;
+  }
+}
+.pswp__dynamic-caption {
+  h4 {
+    color: $white;
+    [data-theme="dark"] & {
+      color: var(--body-font-color);
+    }
+  }
+}
+.pswp__dynamic-caption {
+  color: $white !important;
+  text-align: center !important;
+}
+.pswp__button--arrow {
+  .pswp__icn {
+    @include media-breakpoint-down(sm) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+.pswp__img {
+  object-fit: cover;
+}
+section {
+  &.pswp__scroll-wrap {
+    margin: 0 !important;
+  }
+}

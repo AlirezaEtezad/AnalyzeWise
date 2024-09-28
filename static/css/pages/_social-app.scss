@@ -1,0 +1,480 @@
+/**=====================
+    3.37 Social-app CSS start
+==========================**/
+.user-profile {
+    .hovercard {
+        .user-image {
+            .share-icons {
+                position: absolute;
+                right: 100px;
+                top: -27px;
+                @include media-breakpoint-down(xl) {
+                    position: absolute;
+                    right: 45px;
+                    top: -22px;
+                }
+                @include media-breakpoint-down(md) {
+                    right: 25px;
+                    top: -19px;
+                }
+                @include media-breakpoint-down(sm) {
+                    right: 15px;
+                }
+                @media only screen and (max-width: 360px) {
+                    right: 6px;
+                    top: -15px;
+                }
+                li {
+                    display: inline-block;
+                    margin-right: 10px;
+                    @include media-breakpoint-down(sm) {
+                        margin-right: 0px;
+                    }
+                    .social-icon {
+                        width: 50px;
+                        height: 50px;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        vertical-align: middle;
+                        justify-content: center;
+                        border-radius: 100%;
+                        @include media-breakpoint-down(xl) {
+                            width: 40px;
+                            height: 40px;
+                        }
+                        @include media-breakpoint-down(md) {
+                            width: 35px;
+                            height: 35px;
+                        }
+                        @media only screen and (max-width: 360px) {
+                            width: 25px;
+                            height: 25px;
+                        }
+                        i {
+                            color: $white;
+                            font-size: 25px;
+                            [data-theme="dark"] & {
+                                color: var(--light-font);
+                            }
+                            @include media-breakpoint-down(xl) {
+                                font-size: 18px;
+                            }
+                            @media only screen and (max-width: 360px) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    .card-footer {
+        >div {
+            h3 {
+                font-size: 16px;
+            }
+        }
+    }
+}
+.market-tabs {
+    .border-tab.nav-tabs .nav-item .nav-link.active {
+        border-bottom: none !important;
+    }
+    .nav {
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        .nav-item {
+            width: 100%;
+            @include media-breakpoint-down(sm) {
+                width: 50% !important;
+            }
+            .nav-link {
+                height: 81px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                padding-top: 30px;
+                text-align: center;
+                font-family: $body-font;
+                color: var(--body-font-color);
+            }
+        }
+    }
+}
+.tabs-scoial {
+    border-bottom: none;
+    margin-bottom: 20px !important;
+    margin-top: 20px;
+    li {
+        a {
+            font-weight: 600;
+            svg {
+                circle {
+                    color: var(--light-text);
+                }
+            }
+        }
+        &:nth-child(3) {
+            @include media-breakpoint-down(sm) {
+                position: absolute;
+                top: 25px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+.social-network {
+    span {
+        margin-bottom: 30px;
+        display: block;
+    }
+}
+.social-list {
+    .d-flex {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .flex-grow-1 {
+            a {
+                color: var(--light-text);
+            }
+            span {
+                font-weight: 600;
+            }
+            &:hover {
+                a {
+                    color: var(--theme-default);
+                }
+            }
+        }
+    }
+}
+.photos {
+    margin-bottom: -15px;
+    ul {
+        li {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            width: 70px;
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+.new-users-social {
+    margin-bottom: 30px;
+    svg {
+        cursor: pointer;
+    }
+    .d-flex {
+        img {
+            width: 58px;
+        }
+        .flex-grow-1 {
+            margin-top: 10px;
+        }
+    }
+    svg {
+        circle {
+            color: var(--light-text);
+        }
+    }
+}
+.like-content {
+    span {
+        i {
+            font-size: 14px;
+        }
+    }
+}
+.timeline-content {
+    p {
+        margin-top: 30px;
+        color: var(--light-text);
+    }
+    .comment-number {
+        i {
+            color: var(--light-text);
+            margin-right: 20px;
+            margin-left: 10px;
+        }
+    }
+    .comments-box {
+        margin-top: 30px;
+        .input-group {
+            margin-top: 6px;
+            .input-txt-bx {
+                border: none;
+                &::placeholder {
+                    color: var(--light-text);
+                }
+            }
+            .input-group-append {
+                .btn {
+                    i {
+                        font-size: 20px;
+                        display: flex;
+                        color: var(--light-text);
+                    }
+                }
+            }
+        }
+    }
+}
+.social-chat {
+    margin-top: 30px;
+    span {
+        span {
+            font-weight: normal;
+            color: var(--light-text);
+            font-size: 12px;
+        }
+    }
+    .flex-grow-1 {
+        padding: 30px;
+        border: 1px solid $light-color;
+        position: relative;
+        [data-theme="dark"] & {
+            border-color: var(--body-color);
+        }
+        p {
+            margin-top: 5px;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 19px;
+            right: 100%;
+            border: 7px solid transparent;
+            border-right: 7px solid $semi-dark;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 19px;
+            right: 100%;
+            border: 7px solid transparent;
+            border-right: 7px solid $white;
+            [data-theme="dark"] & {
+                border-right: 7px solid var(--body-color);
+            }
+        }
+    }
+    .your-msg,
+    .other-msg {
+        margin-bottom: 30px;
+        .d-flex {
+            align-items: baseline;
+        }
+    }
+    .other-msg {
+        margin-left: 40px;
+    }
+}
+.socialprofile {
+    span {
+        color: var(--light-text);
+    }
+    .social-btngroup {
+        margin: 30px 0;
+    }
+    .likes-profile {
+        h5 {
+            span {
+                color: $theme-body-font-color;
+            }
+        }
+    }
+    .social-group {
+        margin-top: 30px;
+        ul {
+            li {
+                +li {
+                    margin-left: -7%;
+                }
+                &:nth-child(4) {
+                    margin-left: -22px;
+                }
+            }
+        }
+    }
+}
+.social-status {
+    form {
+        .form-group {
+            .form-control-social {
+                border: 1px solid $light-color;
+                padding-left: 15px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .d-flex {
+        position: relative;
+        margin-bottom: 30px;
+        align-items: flex-start;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .social-status {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: $white;
+            bottom: 0;
+            left: 35px;
+            border-radius: 100%;
+        }
+        .social-online {
+            border: 3px solid $success-color;
+        }
+        .social-busy {
+            border: 3px solid $warning-color;
+        }
+        .social-offline {
+            border: 3px solid $semi-dark;
+        }
+        .flex-grow-1 {
+            p {
+                color: var(--light-text);
+                margin-bottom: 5px;
+            }
+            span {
+                +span {
+                    color: var(--light-text);
+                }
+            }
+            .light-span {
+                color: var(--light-text);
+            }
+        }
+    }
+}
+.social-header {
+    h5 {
+        span {
+            &:first-child {
+                line-height: 1.48;
+            }
+            svg {
+                circle {
+                    color: var(--light-text);
+                }
+            }
+        }
+    }
+}
+.details-about {
+    +.details-about {
+        margin-top: 30px;
+    }
+    .your-details {
+        p {
+            color: var(--light-text);
+        }
+    }
+}
+.avatar-showcase {
+    .friend-pic {
+        margin-right: 8px;
+        margin-bottom: 10px;
+    }
+    .pepole-knows {
+        ul {
+            li {
+                display: inline-block;
+                margin-right: 20px;
+                margin-bottom: 10px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                .add-friend {
+                    h6 {
+                        margin-top: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+.activity-log {
+    .my-activity {
+        +.my-activity {
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 5px;
+            span {
+                svg {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+}
+.social-app-profile {
+    .hovercard {
+        .info {
+            .tabs-scoial {
+                .user-designation {
+                    @include media-breakpoint-down(sm) {
+                        border-top: none;
+                        border-bottom: none;
+                        margin-bottom: 0;
+                        padding: 0px 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+.tabs-scoial.border-tab.nav-tabs {
+    @include media-breakpoint-down(md) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+.social-app-profile {
+    .tabs-scoial {
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+.tabs-scoial.border-tab.nav-tabs {
+    .nav-item {
+        .nav-link {
+            @include media-breakpoint-down(sm) {
+                padding: 10px;
+                height: 60px;
+            }
+            @media (max-width: 380px) {
+                padding: 5px;
+                height: 50px;
+            }
+        }
+    }
+}
+.tabs-scoial {
+    @include media-breakpoint-down(sm) {
+        position: relative;
+        padding-top: 80px;
+    }
+}
+/**=====================
+      3.37 Social-app CSS end
+  ==========================**/

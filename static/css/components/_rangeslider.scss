@@ -1,0 +1,257 @@
+/**=====================
+    range-slider css start
+==========================**/
+.range-slider {
+    .card {
+        .card-body {
+            .slider-container {
+                width: 90%;
+                max-width: 600px;
+                margin: 50px auto 20px;
+            }
+        }
+        &.range_1 {
+            .card-body {
+                .slider-container {
+                    .rs-container {
+                        .rs-scale {
+                            span {
+                                &:last-of-type {
+                                    width: 0 !important;
+                                }
+                            }
+                        }
+                        .rs-selected {
+                            background-color: var(--theme-secondary);
+                            border: 1px solid var(--theme-secondary);
+                        }
+                        .rs-pointer {
+                            height: 20px;
+                            width: 20px;
+                            border-radius: 50%;
+                            border: 1px solid var(--theme-secondary);
+                            background: var(--theme-secondary);
+                            box-shadow: none;
+                            &::before {
+                                background-color: var(--theme-secondary);
+                            }
+                            &::after {
+                                background-color: var(--theme-secondary);
+                            }
+                            .rs-tooltip {
+                                border: 1px solid var(--theme-secondary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.range_2 {
+            .card-body {
+                .slider-container {
+                    .rs-container {
+                        .rs-selected {
+                            background-color: $tertiary-color;
+                            border: 1px solid $tertiary-color;
+                        }
+                        .rs-pointer {
+                            height: 20px;
+                            width: 20px;
+                            border-radius: 50%;
+                            border: 1px solid $tertiary-color;
+                            background: $tertiary-color;
+                            box-shadow: none;
+                            &::before {
+                                background-color: $tertiary-color;
+                            }
+                            &::after {
+                                background-color: $tertiary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.range_3 {
+            .card-body {
+                .slider-container {
+                    .rs-container {
+                        .rs-selected {
+                            background-color: $danger-color;
+                            border: 1px solid $danger-color;
+                        }
+                        .rs-pointer {
+                            border: 1px solid $danger-color;
+                            [data-theme="dark"] & {
+                                background-color: var(--body-color);
+                                box-shadow: none;
+                            }
+                            &::before {
+                                background-color: $danger-color;
+                            }
+                            &::after {
+                                background-color: $danger-color;
+                            }
+                            .rs-tooltip {
+                                border: 1px solid $danger-color;
+                                [data-theme="dark"] & {
+                                    background-color: var(--body-color);
+                                    color: var(--body-font-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.range_4 {
+            .card-body {
+                .slider-container {
+                    position: relative;
+                    height: 45px;
+                    .range-slider_thumb {
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid $info-color;
+                        border-radius: 50%;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-color: $light-color;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: 700;
+                        font-size: 14px;
+                        color: $info-color;
+                        z-index: 2;
+                        [data-theme="dark"] & {
+                            background-color: var(--body-color);
+                        }
+                    }
+                    .range-slider_line {
+                        height: 10px;
+                        width: 100%;
+                        background-color: var(--scrollbar-color);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 0;
+                        position: absolute;
+                        z-index: 1;
+                        [data-theme="dark"] & {
+                            background-color: var(--body-color);
+                        }
+                        .range-slider_line-fill {
+                            position: absolute;
+                            height: 10px;
+                            width: 0;
+                            background-color: $info-color;
+                        }
+                    }
+                    .range-slider_input {
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        z-index: 3;
+                        transform: translateY(-50%);
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 100%;
+                        height: 4px;
+                        opacity: 0;
+                        margin: 0;
+                        &::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            appearance: none;
+                            width: 100px;
+                            height: 100px;
+                            cursor: pointer;
+                            border-radius: 50%;
+                            opacity: 0;
+                        }
+                        &::-moz-range-thumb {
+                            width: 14vmin;
+                            height: 14vmin;
+                            cursor: pointer;
+                            border-radius: 50%;
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+        &.range_5 {
+            .card-body {
+                .slider-container {
+                    .rs-container {
+                        .rs-selected {
+                            background-color: $success-color;
+                            border: 1px solid $success-color;
+                        }
+                        .rs-tooltip {
+                            background-color: $success-color;
+                            color: white !important;
+                            padding: 3px 5px;
+                            border-radius: 4px;
+                            font-size: 14px;
+                        }
+                        .rs-pointer {
+                            width: 24px;
+                            height: 24px;
+                            background-color: --white;
+                            border-radius: 24px;
+                            border: 4px solid $success-color;
+                            &::before {
+                                background-color: transparent;
+                            }
+                            &::after {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.range_6 {
+            .card-body {
+                .slider-container {
+                    .rs-container {
+                        .rs-selected {
+                            background-color: $warning-color;
+                            border: 1px solid $warning-color;
+                        }
+                        .rs-pointer {
+                            border: 2px solid $warning-color;
+                            width: 20px;
+                            height: 20px;
+                            background-color: $white;
+                            transform: rotate(45deg);
+                            cursor: pointer;
+                            [data-theme="dark"] & {
+                                background-color: var(--body-color);
+                                box-shadow: none;
+                            }
+                            &::before {
+                                background-color: transparent;
+                            }
+                            &::after {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+[data-theme=dark] .rs-container .rs-scale span ins {
+    color: $white;
+}
+[data-theme=dark] .rs-container .rs-bg {
+    background-color: var(--body-color);
+    border: 1px solid var(--light-color);
+}
+/**=====================
+   range-slider css end
+==========================**/

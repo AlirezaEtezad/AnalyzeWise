@@ -1,0 +1,11 @@
+.jvector-map-height {
+    @include media-breakpoint-down(xl) {
+        height: 280px;
+    }
+    @include media-breakpoint-down(md) {
+        height: 150px;
+    }
+    @include media-breakpoint-down(sm) {
+        height: 250px;
+    }
+}

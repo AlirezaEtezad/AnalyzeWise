@@ -1,0 +1,126 @@
+/**=====================
+  Dropzone CSS Start
+==========================**/
+.dropzone {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 50px;
+  border: 2px dashed $primary-color;
+  border-radius: 15px;
+  border-image: none;
+  background: rgba($primary-color, 0.1);
+  box-sizing: border-box;
+  min-height: 150px;
+  * {
+    box-sizing: border-box;
+  }
+  h6 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  i {
+    font-size: 50px;
+    color: var(--theme-default);
+  }
+  position: relative;
+  .dz-message {
+    text-align: center;
+    margin: 25px 0;
+  }
+  .dz-preview {
+    position: relative;
+    display: inline-block;
+    margin: 0.5em;
+    padding: 0;
+    border: none;
+    background-color: $light-color;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0px 0px 3px $primary-color;
+    .dz-image {
+      border-radius: 0px;
+    }
+    .dz-file-preview {
+      .dz-image {
+        border-radius: 0px;
+      }
+    }
+    .dz-progress {
+      display: block;
+      height: 10px;
+      border: 1px solid $success-color;
+      left: 12px;
+      right: 12px;
+      .dz-upload {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: $success-color;
+      }
+    }
+    .dz-error-message {
+      display: none !important;
+    }
+    &.dz-error {
+      .dz-error-message,
+      .dz-error-mark {
+        display: block;
+      }
+    }
+    &.dz-success .dz-success-mark {
+      display: block;
+    }
+    .dz-error-mark,
+    .dz-success-mark {
+      position: absolute;
+      display: none;
+      left: 30px;
+      top: 30px;
+      width: 54px;
+      height: 58px;
+      left: 50%;
+      margin-left: -27px;
+    }
+  }
+}
+.dropzone {
+  .dz-preview {
+    .dz-details {
+      .dz-size {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.filepond--root {
+  margin-bottom: 0;
+  .filepond--credits {
+    display: none;
+  }
+}
+.filepond--drop-label {
+  background-color: rgba($primary-color, 0.1);
+  border: var(--light-border);
+  color: var(--theme-default);
+  [data-theme="dark"] & {
+    background-color: var(--body-color);
+  }
+  .filepond--label-action {
+    text-decoration: none;
+  }
+}
+.filepond--list {
+  .filepond--file {
+    background-color: var(--theme-default);
+  }
+}
+.dropzone{
+  &.dropzone-secondary{
+    background-color: rgba($secondary-color , 0.1);
+  }
+}
+/**=====================
+  Dropzone CSS End
+==========================**/

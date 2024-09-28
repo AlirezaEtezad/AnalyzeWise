@@ -1,0 +1,160 @@
+/**=====================
+  Popover CSS Start
+==========================**/
+.popover {
+  border: var(--light-border);
+  [data-theme="dark"] & {
+    background-color: var(--body-color);
+    --bs-popover-header-bg: unset;
+  }
+}
+.popover-header {
+  background-color: rgba($primary-color, 0.1);
+  border-bottom: var(--light-border);
+  color: var(--theme-default);
+}
+.common-flex {
+  @include common_flex_gap
+}
+.popover-main {
+  .btn-showcase {
+    a {
+      color: $white;
+    }
+    button {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.tooltip-inner {
+  background-color: rgba($white, 1);
+  border: var(--light-border);
+  color: var(--theme-default);
+  [data-theme="dark"] & {
+    background-color: var(--body-color);
+  }
+}
+.tooltip-arrow {
+  &:before {
+    border: $white !important;
+  }
+}
+.bs-popover-auto {
+  &[data-popper-placement^=left] {
+    >.popover-arrow::after {
+      [data-theme="dark"] & {
+        border-left-color: var(--body-color);
+      }
+    }
+  }
+  &[data-popper-placement^=top] {
+    >.popover-arrow::after {
+      [data-theme="dark"] & {
+        border-top-color: var(--body-color);
+      }
+    }
+  }
+  &[data-popper-placement^=right] {
+    >.popover-arrow::after {
+      [data-theme="dark"] & {
+        border-right-color: var(--body-color);
+      }
+    }
+  }
+  &[data-popper-placement^=bottom] {
+    >.popover-arrow::after {
+      [data-theme="dark"] & {
+        border-bottom-color: var(--body-color);
+      }
+    }
+  }
+}
+.popover-body {
+  [data-theme="dark"] & {
+    color: var(--light-font);
+  }
+}
+$colors: (primary: $primary-color,
+  secondary: $secondary-color,
+  tertiary: $tertiary-color,
+  warning: $warning-color,
+  info: $info-color,
+  success: $success-color,
+  danger: $danger-color,
+  light: $light-color,
+  dark: $dark-color);
+@each $key,
+$val in $colors {
+  .colored-tooltip {
+    .btn-#{$key} {
+      --bs-tooltip-bg: $val;
+    }
+  }
+}
+.custom-tooltip {
+  --bs-tooltip-bg: $primary-color;
+}
+.wonky-tooltip {
+  form {
+    display: flex;
+    gap: 20px;
+    @include media-breakpoint-down(sm) {
+      flex-wrap: wrap;
+    }
+  }
+  .input-group {
+    width: 280px;
+    @include media-breakpoint-between(sm, md) {
+      width: 188px;
+    }
+    @include media-breakpoint-down(sm) {
+      width: 220px;
+    }
+    input {
+      background-color: var(--light-color);
+    }
+    .input-group-text {
+      position: relative;
+      transition: all 0.4s ease-in;
+      .tooltip {
+        display: none;
+        position: absolute;
+        top: -62px;
+        left: -90px;
+        width: 260px;
+        @media (max-width: 420px) {
+          left: unset;
+          right: -30px;
+        }
+      }
+      &:hover {
+        .tooltip {
+          display: block;
+          padding: 10px;
+          opacity: 1;
+          transition: all 0.4s ease-in;
+          animation: shake 600ms ease-in-out forwards;
+        }
+      }
+    }
+  }
+  @keyframes shake {
+    0% {
+      transform: rotate(2deg);
+    }
+    50% {
+      transform: rotate(-3deg);
+    }
+    70% {
+      transform: rotate(3deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+/**=====================
+  Popover CSS Ends
+==========================**/

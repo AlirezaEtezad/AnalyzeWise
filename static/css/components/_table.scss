@@ -1,0 +1,261 @@
+/**=====================
+     Radio css start
+==========================**/
+.table {
+	margin-bottom: 0;
+	--bs-table-color: var(--body-font-color);
+	.datatable-table {
+		&:focus {
+			outline: 0;
+		}
+	}
+}
+.table-striped {
+	&.table-bordered {
+		>tbody,
+		>thead {
+			>tr {
+				>* {
+					&:nth-child(n+2) {
+						border-left: unset;
+					}
+				}
+			}
+		}
+	}
+	>tbody {
+		>tr {
+			&:nth-of-type(odd) {
+				>* {
+					background-color: rgba($light-color, 0.7);
+					color: var(--body-font-color);
+					--bs-table-accent-bg: unset;
+					[data-theme="dark"] & {
+						background-color: var(--body-color) !important;
+					}
+				}
+			}
+		}
+	}
+}
+table {
+	> :not(caption) {
+		>*>* {
+			border-bottom: var(--light-border);
+			[data-theme="dark"] & {
+				color: var(--light-font);
+				border-color: var(--solid-border);
+			}
+		}
+	}
+	tbody {
+		tr {
+			[data-theme="dark"] & {
+				border-color: var(--solid-border);
+			}
+			&:last-child {
+				td {
+					padding-bottom: 0;
+					border-bottom: 0;
+				}
+				th {
+					border-bottom: 0 !important;
+				}
+			}
+			th {
+				font-weight: 600;
+			}
+			th,
+			td {
+				vertical-align: middle;
+				[data-theme="dark"] & {
+					color: var(--light-font);
+				}
+			}
+		}
+	}
+}
+.table-inverse {
+	color: $white;
+	background-color: $dark-color;
+	th,
+	td {
+		border-color: $white;
+		color: $white !important;
+	}
+	&.table-bordered {
+		border: 0;
+	}
+}
+.table[class*='bg-'] {
+	th,
+	td {
+		color: $white !important;
+	}
+}
+/* Sizing class */
+.table-xl {
+	td,
+	th {
+		padding: $table-xl-padding;
+		font-size: $table-xl-font;
+	}
+}
+.table-lg {
+	td,
+	th {
+		padding: $table-lg-padding;
+		font-size: $table-lg-font;
+	}
+}
+.table-de {
+	td,
+	th {
+		padding: $table-de-padding;
+	}
+}
+.table-sm {
+	th,
+	td {
+		padding: $table-sm-padding;
+		font-size: $table-sm-font;
+	}
+}
+.table-xs {
+	th,
+	td {
+		padding: $table-xs-padding;
+		font-size: $table-xs-font;
+	}
+}
+.card-block {
+	.table-responsive {
+		.checkbox-td-width {
+			tbody {
+				tr {
+					td {
+						@include media-breakpoint-down(md) {
+							min-width: 200px !important;
+						}
+					}
+				}
+			}
+		}
+		.table-bordered {
+			tbody {
+				tr {
+					&:last-child {
+						td {
+							padding: 0.5rem 0.5rem !important;
+							border-bottom: 0;
+						}
+					}
+					td {
+						span {
+							@include media-breakpoint-down(md) {
+								overflow: hidden;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								max-width: 100px;
+							}
+						}
+					}
+				}
+			}
+			td {
+				vertical-align: middle;
+			}
+		}
+	}
+}
+.pills-component {
+	width: 20%;
+}
+.table-space {
+	table {
+		tbody {
+			tr {
+				&:last-child {
+					td {
+						padding-bottom: 0.5rem !important;
+					}
+				}
+			}
+		}
+	}
+}
+.table-hover {
+	>tbody {
+		>tr:hover {
+			--bs-table-accent-bg: $light-color;
+		}
+	}
+	tbody {
+		tr {
+			&:hover {
+				background-color: rgba($primary-color, 0.1);
+			}
+			vertical-align: middle;
+			td {
+				svg {
+					width: 30px;
+					height: 30px;
+					padding: 5px;
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+}
+.signal-table {
+	.table {
+		&.table-hover {
+			tbody {
+				tr {
+					td {
+						&:nth-child(n+2) {
+							@include media-breakpoint-down(xl) {
+								min-width: 240px !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.basic_table {
+	.table-responsive {
+		.table {
+			tbody {
+				tr {
+					td {
+						&:nth-child(n+2) {
+							@include media-breakpoint-down(xl) {
+								min-width: 180px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.card-block {
+	.table-responsive {
+		.radio-first-col-width {
+			tbody {
+				tr {
+					td {
+						@include media-breakpoint-down(md) {
+							min-width: 200px !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/**=====================
+     Radio css end
+==========================**/

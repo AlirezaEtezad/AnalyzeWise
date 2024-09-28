@@ -1,0 +1,114 @@
+/*! -----------------------------------------------------------------------------------
+    Template Name: Edmin Admin
+    Template URI: http://admin.pixelstrap.com/Edmin/theme
+    Description: This is Admin Template
+    Author: Pixelstrap
+    Author URI: https://themeforest.net/user/pixelstrap
+-----------------------------------------------------------------------------------*/
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+// *** utils ***
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/key-frames';
+// *** base ***
+@import './base/reset';
+@import './base/typography';
+// *** components ***
+@import './components/according';
+@import './components/alert';
+@import './components/avatars';
+@import './components/buttons';
+@import './components/badge';
+@import './components/breadcrumb';
+@import './components/card';
+@import './components/color';
+@import './components/chart';
+@import './components/dropdown';
+@import './components/dropzone';
+@import './components/forms';
+@import './components/grid';
+@import './components/icon';
+@import './components/list';
+@import './components/modal';
+@import './components/radio';
+@import './components/rating';
+@import './components/sweet-alert';
+@import './components/tab';
+@import './components/table';
+@import './components/toast';
+@import './components/tour';
+@import './components/tree';
+@import './components/pagination';
+@import './components/popover';
+@import './components/progress';
+@import './components/ribbon';
+@import './components/rangeslider';
+@import './components/scrollable';
+@import './components/switch';
+@import './components/datatables';
+@import './components/datepicker';
+@import './components/touchspin';
+@import './components/form-wizard';
+@import './components/megaoption';
+@import './components/photoswipe';
+@import './components/order-history';
+// *** Pages ***
+@import './pages/default-dashboard';
+@import './pages/dashboard-02';
+@import './pages/dashboard-03';
+@import './pages/user-profile'; 
+@import './pages/projectlist'; 
+@import './pages/file';
+@import './pages/kanban';
+@import './pages/gallery';
+@import './pages/blog';
+@import './pages/faq';
+@import './pages/ecommerce';
+@import './pages/update';
+@import './pages/job-search';
+@import './pages/learning';
+@import './pages/translate';
+@import './pages/img-crop';
+@import './pages/knowledgebase';
+@import './pages/aceeditors';
+@import './pages/cart';
+@import './pages/general';
+@import './pages/helper';
+@import './pages/checkout';
+@import './pages/pricing';
+@import './pages/invoice';
+@import './pages/print';
+@import './pages/errorpage';
+@import './pages/login';
+@import './pages/comingsoon';
+@import './pages/chat';
+@import './pages/loader';
+@import './pages/bookmark-app';
+@import './pages/email-application';
+@import './pages/contact';
+@import './pages/letterbox';
+@import './pages/task';
+@import './pages/pikaday';
+@import './pages/calendar';
+@import './pages/social-app';
+@import './pages/choice';
+@import './pages/timeline';
+@import './pages/swiper';
+@import './pages/whethericon';
+@import './pages/todo';
+@import './pages/map';
+@import './pages/jsgrid';
+@import './pages/starterkit';
+@import './pages/general-widget';
+@import './pages/landing';
+// *** Layout *** 
+@import './layout/sidebar'; 
+@import './layout/header';
+@import './layout/footer';
+@import './layout/select2';
+@import './layout/search';
+@import './layout/box-layout';
+// *** Themes *** 
+@import './themes/rtl';
+@import './themes/custom';
+@import "./themes/theme-customizer";

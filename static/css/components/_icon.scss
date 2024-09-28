@@ -1,0 +1,280 @@
+/**=====================
+    Icon css start
+==========================**/
+.icon-event {
+	margin-bottom: -24px;
+	.card {
+		&:hover {
+			transform: translateY(-5px);
+			transition: 0.5s;
+		}
+	}
+	.d-flex {
+		padding: 20px 14px;
+		text-align: center;
+		transition: all 0.3s ease-in-out;
+		@include media-breakpoint-between(lg, xl) {
+			padding: 18px 8px;
+		}
+		.flex-grow-1 {
+			margin-top: 14px;
+		}
+		i {
+			[data-theme="dark"] & {
+				color: var(--light-font);
+			}
+			font-size: 24px;
+			&.flag-icon {
+				font-size: 28px;
+			}
+		}
+		h6 {
+			font-size: 15px;
+			font-family: $body-font;
+			color: var(--light-font);
+			[data-theme="dark"] & {
+				color: var(--light-font);
+			}
+		}
+		&:hover {
+			border-color: var(--theme-default) !important;
+			i {
+				color: var(--theme-default);
+			}
+			svg {
+				stroke: var(--theme-default);
+				transition: all 0.2s ease-in-out;
+			}
+			h6 {
+				color: var(--theme-default);
+				transition: all 0.3s ease-in-out;
+			}
+		}
+	}
+}
+.icon-hover-bottom {
+	background-color: $light;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	display: none;
+	&.open {
+		display: block;
+	}
+	.icon-popup {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		.close-icon {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			font-size: 20px;
+			color: var(--gray-60);
+			cursor: pointer;
+			[dir="rtl"] & {
+				right: unset;
+				left: 10px;
+			}
+		}
+		padding: 20px;
+		>div {
+			display: inline-block;
+			.flag-icon {
+				width: 60px;
+				height: 60px;
+				@media only screen and (max-width: 767.98px){
+					width: 30px;
+					height: auto;
+				}
+			}
+		}
+		.icon-class {
+			margin: 0 20px;
+			cursor: pointer;
+			@media only screen and (max-width: 480px){
+				display: none;
+			}
+		}
+		.icon-last {
+			.form-inline {
+				.form-group {
+					display: initial;
+					@media only screen and (max-width: 767.98px){
+						display: flex;
+					}
+					@media only screen and (max-width: 575.98px){
+						display: block !important;
+						margin-bottom: 0;
+					}
+					.btn{
+						@media only screen and (max-width: 575.98px){
+							margin-top: 15px;
+						}
+					}
+					input{
+						@media only screen and (max-width: 767.98px){
+							display: block;
+							width: auto !important;
+							min-width: 270px;
+						}
+						@media only screen and (max-width: 575.98px){
+							width: 100% !important;
+						}
+					}
+				}
+			}
+			@media only screen and (max-width: 767.98px){
+				display: block;
+				margin-top: 15px;
+			}
+		}
+	}
+	.icon-title {
+		display: block;
+		color: $dark-color;
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+	.form-group {
+		input {
+			display: inline-block;
+			width: 300px;
+			background-color: $white;
+		}
+	}
+	svg.climacon {
+		@media (max-width:767px) {
+			height: 50px;
+			width: 50px;
+		}
+	}
+}
+.iconly-icons {
+	.svg-menu {
+		width: 24px;
+		height: 24px;
+		stroke: var(--body-font-color);
+		[data-theme="dark"] & {
+			stroke: var(--light-font);
+		}
+	}
+}
+.iconModal {
+	.modal-body {
+		pre {
+			margin-bottom: 0;
+		}
+		.copy-text {
+			position: absolute;
+			top: 12px;
+			right: 12px;
+		}
+	}
+}
+.fa-fa-icon-show-div {
+	display: none;
+}
+.icon-hover-bottom {
+	.icon-popup {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 20px;
+		border-top: var(--light-border);
+		@media only screen and (max-width: 767.98px){
+			display: block;
+		}
+		@media only screen and (max-width: 575.98px){
+			padding: 15px;
+		}
+		>div {
+			display: inline-block;
+		}
+		.close-icon {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			font-size: 20px;
+			color: var(--body-font-color);
+			cursor: pointer;
+		}
+		.icon-class {
+			margin: 0 20px;
+			cursor: pointer;
+		}
+		.icon-first {
+			.svg-menu {
+				width: 24px;
+				height: 24px;
+				stroke: var(--body-font-color);
+			}
+			@media only screen and (max-width: 480px){
+				margin-right: 10px;
+			}
+		}
+		[data-theme="dark"] & {
+			background-color: var(--body-color);
+		}
+	}
+	.icon-title {
+		display: block;
+		color: var(--body-font-color);
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+	.form-group {
+		input {
+			display: inline-block;
+			width: 300px;
+			background-color: var(--card-color);
+		}
+	}
+}
+.alert {
+	border-radius: 0.15rem;
+	padding: 15px;
+	svg {
+		vertical-align: middle;
+	}
+	.progress {
+		margin-top: 15px;
+	}
+	[data-notify='icon'] {
+		margin-right: 10px;
+		line-height: 20px;
+		position: absolute;
+	}
+	[data-notify='message'] {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		margin: 0 auto;
+	}
+	i {
+		margin-right: 5px;
+		font-size: 16px;
+	}
+	p {
+		margin-bottom: 0;
+	}
+	.close {
+		opacity: 1;
+		display: none;
+		span {
+			font-size: 24px;
+			font-weight: 400;
+			display: inline-block;
+			border-radius: 3px;
+			text-shadow: none;
+			padding: 0 5px;
+			padding-right: 0;
+		}
+	}
+}
+/**=====================
+    Icon css end
+==========================**/

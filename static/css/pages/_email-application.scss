@@ -1,0 +1,270 @@
+/**=====================
+  3.15 Email-application CSS Start
+==========================**/
+%email-mixin {
+    background: transparent;
+    font-size: 15px;
+    line-height: 25px;
+}
+.email-wrap {
+    .row {
+        .col-xl-3 {
+            &+.col-xl-3 {
+                padding-right: 0;
+            }
+        }
+        .col-xl-6 {
+            padding-left: 0;
+        }
+    }
+    .dropdown {
+        .dropdown-toggle {
+            background-color: rgba(115, 102, 255, 0.08);
+            color: var(--theme-default);
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 100px;
+            text-align: left;
+            [dir="rtl"] & {
+                text-align: right;
+            }
+            &:after {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                content: "\f107";
+                border: none;
+                font-family: "FontAwesome";
+                font-size: 18px;
+                margin: 0;
+                [dir="rtl"] & {
+                    right: unset;
+                    left: 10px;
+                }
+            }
+        }
+        .dropdown-menu {
+            -webkit-box-shadow: 0 0 20px rgba($semi-dark, 0.1);
+            box-shadow: 0 0 20px rgba($semi-dark, 0.1);
+            border: none;
+            padding: 0;
+            .dropdown-item {
+                color: #2b2b2b;
+                opacity: 0.6;
+                font-size: 13px;
+                padding: 6px 12px;
+                border-top: 1px solid var(--light-color);
+                background: $white;
+                line-height: 19px;
+                &:hover {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+    .email-app-sidebar {
+        .media img {
+            border: 2px solid var(--light-gray);
+        }
+        .main-menu {
+            >li {
+                width: 100%;
+                text-align: left;
+                a {
+                    line-height: 2.2;
+                    text-transform: uppercase;
+                    border-radius: 3px;
+                    i {
+                        margin-right: 10px;
+                    }
+                    &.active>a {
+                        color: $black;
+                    }
+                    &:hover {
+                        background-color: rgba($primary-color, 0.1);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        ul li {
+            a {
+                display: flex;
+                padding-left: 20px;
+                align-items: center;
+                > {
+                    .title {
+                        width: 100%;
+                        color: $dark-color;
+                        [data-theme="dark"] & {
+                            color: var(--light-font);
+                        }
+                    }
+                    .badge {
+                        align-self: center;
+                        color: var(--dark-gray);
+                    }
+                }
+            }
+        }
+        .d-flex{
+            .flex-grow-1{
+                @media (min-width: 1200px) and (max-width: 1327px) {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+    .email-left-aside {
+        float: left;
+        width: 100%;
+        .card-body {
+            padding: 15px;
+        }
+    }
+    .email-right-aside {
+        .email-body {
+            .pr-0 {
+                @media (min-width: 1200px) {
+                    padding-right: 0;
+                    [dir="rtl"] & {
+                        padding-right: 12px;
+                        padding-left: 0;
+                    }
+                }
+            }
+            .pl-0 {
+                @media (min-width: 1200px) {
+                    padding-left: 0;
+                    [dir="rtl"] & {
+                        padding-left: 12px;
+                        padding-right: 0;
+                    }
+                }
+            }
+            .inbox {
+                overflow: auto;
+                @media (max-width: 1199.98px) {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                .media {
+                    padding: 20px;
+                    &.active {
+                        background-color: lighten($light-color, 4%);
+                    }
+                }
+            }
+        }
+        .radius-left {
+            border-radius: 8px;
+            height: 100%;
+        }
+    }
+    .btn-mail {
+        border-radius: 2px;
+        text-align: left;
+        padding: 13px 15px;
+        margin: 20px 0 20px;
+        letter-spacing: 1px;
+        line-height: 12px !important;
+    }
+    p {
+        margin-bottom: 0;
+        color: var(--dark-gray);
+    }
+    .media-body {
+        margin-top: 5px;
+        h6 {
+            margin-bottom: 2px;
+            color: var(--body-font-color);
+            margin-top: 3px;
+            small {
+                font-size: 12px;
+                span {
+                    color: var(--light-font);
+                }
+            }
+        }
+        p {
+            color: $theme-body-sub-title-color;
+            font-size: 12px;
+        }
+    }
+    .email-top {
+        padding: 20px;
+        border-bottom: 1px solid rgba($black, 0.1);
+        line-height: 49px;
+        i {
+            cursor: pointer;
+        }
+        h5 {
+            margin-bottom: 0;
+            padding: 12px 0;
+        }
+        .d-flex {
+            padding: 13px 0;
+        }
+    }
+    .email-wrapper {
+        padding: 20px;
+        hr {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .d-inline-block {
+            width: 100%;
+        }
+        h6 {
+            margin-bottom: 11px;
+            float: left;
+        }
+        .right-download {
+            float: right;
+        }
+        p {
+            &+p {
+                margin-bottom: 20px;
+            }
+        }
+        h5 {
+            margin-bottom: 20px;
+        }
+    }
+    .email-body {
+        .attachment {
+            ul {
+                li {
+                    img {
+                        margin-bottom: 20px;
+                        width: 80px;
+                        height: 80px;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .list-inline {
+                .list-inline-item {
+                    padding-right: 13px;
+                }
+            }
+        }
+        .email-compose {
+            .cke_contents.cke_reset {
+                max-height: 178px;
+                width: 100%;
+                border: 1px solid var(--light-gray);
+            }
+            .email-top {
+                h4 {
+                    padding: 11px 0;
+                }
+            }
+        }
+    }
+}
+/**=====================
+    3.15 Email-application CSS Ends
+  ==========================**/

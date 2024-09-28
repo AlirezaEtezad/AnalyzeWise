@@ -1,0 +1,244 @@
+/**=====================
+     card css start
+==========================**/
+.card {
+    --bs-card-cap-color: var(--light-font);
+    --bs-card-color: var(--body-font-color);
+    margin-bottom: 24px;
+    border: $card-border;
+    border-radius: $card-border-radius;
+    background-color: var(--card-color);
+    box-shadow: var(--card-box-shadow);
+    @include media-breakpoint-down(sm) {
+        margin-bottom: 14px;
+    }
+    &-header {
+        border: none;
+        position: relative;
+        padding: $card-padding;
+        background-color: var(--card-color);
+        @include media-breakpoint-down(sm) {
+            padding: 16px;
+        }
+        h4 {
+            text-transform: capitalize;
+            [data-theme="dark"] & {
+                color: var(--light-font);
+            }
+            @include media-breakpoint-down(md) {
+                font-size: 18px;
+            }
+        }
+        p.desc {
+            display: block;
+            color: var(--light-font);
+            code {
+                margin: 0 4px;
+                [class="desc"] & {
+                    display: none;
+                }
+            }
+            code,
+            span {
+                &:empty {
+                    display: none;
+                    [class="desc"] & {
+                        display: none;
+                    }
+                }
+            }
+            &:has(span) {
+                &:empty {
+                    display: none;
+                }
+            }
+        }
+        .card-header-right {
+            right: 19px;
+            top: 19px;
+            display: inline-block;
+            float: right;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            background-color: $white;
+            [data-theme="dark"] & {
+                background-color: var(--card-color);
+            }
+            @include media-breakpoint-down(sm) {
+                top: 16px;
+            }
+        }
+    }
+    .sub-title {
+        padding-bottom: 12px;
+        font-size: 16px;
+    }
+    &-body {
+        padding: $card-padding;
+        @include media-breakpoint-down(sm) {
+            padding: 16px;
+        }
+    }
+    &-footer {
+        padding: $card-padding;
+        background-color: var(--card-color);
+        border-top: var(--light-border);
+    }
+    &.full-card {
+        position: fixed;
+        top: 0;
+        z-index: 99999;
+        box-shadow: none;
+        right: 0;
+        border-radius: 0;
+        border: 1px solid var(--light-semi-gray);
+        width: calc(100vw - 12px);
+        height: calc(100vh);
+        .card-body {
+            overflow: auto;
+        }
+    }
+}
+.card-absolute {
+    margin-top: 20px;
+    .card-header {
+        position: absolute;
+        top: -20px;
+        left: 18px;
+        border-radius: 0.25rem;
+        padding: 6px 12px;
+        h5 {
+            font-size: 17px;
+        }
+    }
+    .card-body {
+        margin-top: 10px;
+    }
+}
+.card-social {
+    text-align: center;
+    li {
+        display: inline-block;
+        padding: 15px 0;
+        &:last-child {
+            a {
+                margin-right: 0;
+            }
+        }
+        a {
+            padding: 0;
+            margin-right: 15px;
+            color: rgb(188, 198, 222);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            &:hover {
+                color: var(--theme-default);
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}
+.social {
+    &-profile {
+        text-align: center;
+        background-image: url(../images/alert/profile-bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        [data-theme="dark"] & {
+            background: var(--card-color);
+        }
+        .card-body {
+            padding-left: 20px;
+            padding-right: 20px;
+            @include media-breakpoint-down(xxl) {
+                padding: 23px 15px;
+            }
+            @include media-breakpoint-down(lg) {
+                padding: 20px;
+            }
+        }
+    }
+    &-details {
+        margin-top: 15px;
+        h4 {
+            a {
+                color: var(--body-font-color);
+                [data-theme="dark"] & {
+                    color: var(--light-font);
+                }
+            }
+        }
+        .social-follow {
+            column-count: 3;
+            column-gap: 30px;
+            margin-top: 25px;
+            @include media-breakpoint-down(xxl) {
+                column-gap: 23px;
+            }
+            li {
+                position: relative;
+                +li {
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        height: 14px;
+                        border: var(--light-border);
+                        left: -15px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        [dir="rtl"] & {
+                            left: unset;
+                            right: -15px;
+                        }
+                    }
+                }
+            }
+        }
+        .card-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+    }
+    &-img-wrap {
+        background: linear-gradient(253deg, var(--theme-default) 11.51%, rgba($primary-color, 0) 82.07%);
+        display: inline-block;
+        border-radius: 100%;
+        padding: 2px;
+        position: relative;
+        .edit-icon {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            svg {
+                width: 26px;
+                height: 27px;
+                border-radius: 100%;
+                border: 2px solid $white;
+                background: $white;
+                [data-theme="dark"] & {
+                    background: var(--card-color);
+                    border-color: var(--card-color);
+                }
+            }
+        }
+    }
+    &-img {
+        padding: 5px;
+        background: $white;
+        border-radius: 100%;
+        [data-theme="dark"] & {
+            background: var(--card-color);
+        }
+        img {
+            height: 68px;
+            border-radius: 100%;
+        }
+    }
+}
+/**=====================
+     card css end
+==========================**/

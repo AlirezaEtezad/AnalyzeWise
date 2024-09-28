@@ -1,0 +1,65 @@
+/**=====================
+  2.24 Print CSS Start
+==========================**/
+@media print {
+  .page-wrapper {
+    .page-header {
+      display: none;
+    }
+  }
+  .page-body-wrapper {
+    .page-sidebar {
+      display: none;
+    }
+  }
+  .setting-sidebar {
+    display: none;
+  }
+  .page-body {
+    margin: 0;
+  }
+  .page-wrapper {
+    .page-title {
+      visibility: hidden;
+    }
+    .page-body-wrapper {
+      .page-title {
+        display: none;
+      }
+    }
+    &.compact-wrapper {
+      .page-body-wrapper {
+        .page-body {
+          margin: 0;
+        }
+      }
+    }
+  }
+  table.fixedHeader-floating {
+    display: none;
+  }
+  /**==letter-box==**/
+  .email-left-aside {
+    display: none;
+  }
+  .footer {
+    display: none;
+  }
+}
+.invoice-table {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.invoice {
+  .text-right {
+    input {
+      margin-top: 6px;
+    }
+  }
+  .d-flex {
+    align-items: center;
+  }
+}
+/**=====================
+    2.24 Print CSS Ends
+  ==========================**/

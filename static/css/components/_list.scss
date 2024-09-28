@@ -1,0 +1,204 @@
+/**=====================
+    Lists css start
+==========================**/
+.list-group {
+	i {
+		margin-right: $list-group-margin;
+	}
+	img {
+		height: 40px;
+		width: 40px;
+		margin-right: $list-group-margin;
+	}
+}
+ol.line {
+	h5 {
+		font-size: 17px;
+	}
+}
+$list-colors: (primary: $primary-color,
+	secondary: $secondary-color,
+	tertiary: $tertiary-color,
+	warning: $warning-color,
+	info: $info-color,
+	success: $success-color,
+	danger: $danger-color,
+	light: $light-color,
+	dark: $dark-color);
+@each $key,
+$val in $list-colors {
+	.list-group-item {
+		&.list-group-item-#{$key} {
+			background-color: rgba($val, 0.3) !important;
+			color: $val;
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: rgba($val, 0.3);
+				[data-theme="dark"] & {
+					color: var(--body-font-color);
+				}
+			}
+		}
+	}
+	.list-hover-#{$key} {
+		background-color: unset;
+		&:hover,
+		&:active,
+		&.active {
+			background-color: rgba($val, 0.1) !important;
+			color: var(--body-font-color);
+		}
+	}
+}
+.horizontal-list-wrapper {
+	.list-group {
+		.list-group-item {
+			padding: 8px;
+			&[class*="b-"] {
+				border-left-width: 2px !important;
+			}
+		}
+	}
+}
+.list-group-item {
+	border-color: var(--solid-border);
+	&.active {
+		background-color: var(--theme-default);
+		border-color: var(--theme-default);
+		[data-theme="dark"] & {
+			background-color: var(--theme-default);
+		}
+	}
+	[data-theme="dark"] & {
+		background-color: var(--body-color);
+		color: var(--body-font-color);
+	}
+}
+.list-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+	@media (max-width: 414px) {
+		flex-wrap: unset;
+		word-break: break-word;
+	}
+	@media (max-width: 366px) {
+		padding-bottom: 8px;
+	}
+	.list-img {
+		width: calc(40px + (55 - 40) * ((100vw - 320px) / (1920 - 320)));
+		height: calc(40px + (55 - 40) * ((100vw - 320px) / (1920 - 320)));
+		margin-bottom: 10px;
+		border-radius: 50%;
+	}
+	.list-content {
+		h6 {
+			font-weight: 500;
+		}
+		p {
+			margin-bottom: 0;
+			color: var(--light-font);
+		}
+	}
+}
+.list-behavior-1 {
+	align-items: center;
+	@include media-breakpoint-down(xl) {
+		gap: 12px;
+	}
+	@include media-breakpoint-down(sm) {
+		&:first-child {
+			margin-bottom: 14px;
+		}
+	}
+	img {
+		@media (max-width:1999px) {
+			height: 86px;
+		}
+		@media (max-width:992px) {
+			height: 70px;
+		}
+	}
+	.flex-grow-1 {
+		margin-left: 16px;
+		@include media-breakpoint-down(xl) {
+			margin-left: 0;
+			p {
+				display: block;
+				display: -webkit-box;
+				max-width: 100%;
+				margin: 0 auto;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}
+#nav-tabContent {
+	@include media-breakpoint-down(sm) {
+		margin-top: 15px;
+	}
+}
+.list-behaviors {
+	>div:nth-child(even) {
+		.flex-grow-1 {
+			order: -1;
+			margin-left: unset;
+			margin-right: 16px;
+			@include media-breakpoint-down(xl) {
+				margin-left: 0;
+				margin-right: 0;
+				order: unset;
+			}
+		}
+	}
+}
+.list-group {
+	overflow: hidden;
+	.list-group-item {
+		padding: 11px 16px;
+		.form-check-input {
+			&:focus {
+				box-shadow: unset !important;
+			}
+		}
+	}
+}
+.contact-profile {
+	@media (max-width:1216px) {
+		background-color: unset;
+		&.list-light-dark {
+			&:hover {
+				background-color: unset;
+			}
+		}
+	}
+	img.tab-img {
+		@media (max-width: 360px) {
+			height: 66px;
+		}
+	}
+}
+.scrollbar-wrapper {
+	max-height: 250px;
+	overflow: auto;
+}
+.badge-list {
+	.list-group-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		div {
+			margin-right: auto;
+			margin-left: 8px;
+		}
+	}
+}
+/**=====================
+    Lists css ends
+==========================**/

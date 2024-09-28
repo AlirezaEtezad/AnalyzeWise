@@ -1,0 +1,64 @@
+/**=====================
+    Helper CSS start
+==========================**/
+.helper-common-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.border-wrapper {
+    padding: 20px;
+    border: var(--light-border);
+    h5 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    @include media-breakpoint-between(xl, xxl) {
+        padding: 18px 14px;
+    }
+}
+.helper-box {
+    width: 40px;
+    height: 40px;
+    &.helper-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 900;
+    }
+    @include media-breakpoint-between(xl, xxl) {
+        width: 34px;
+        height: 34px;
+    }
+}
+.helper-radius {
+    width: 60px;
+    height: 30px;
+}
+.fill-wrapper {
+    background-color: var(--light-color);
+}
+.gradient-border {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    @media (max-width: 1200px) {
+        gap: calc(13px + (22 - 13) * ((100vw - 320px) / (1200 - 320)));
+    }
+}
+.radius-wrapper {
+    background-color: var(--light-color);
+}
+.font-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+}
+/**=====================
+    Helper CSS end
+==========================**/

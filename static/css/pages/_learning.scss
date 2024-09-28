@@ -1,0 +1,97 @@
+/**=====================
+     3.28 Learning CSS start
+==========================**/
+.learning-header {
+  margin-bottom: 10px;
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 0;
+  }
+  span {
+    [data-theme="dark"] & {
+      color: var(--body-font-color);
+    }
+  }
+}
+.categories {
+  padding: 15px 0;
+  .learning-header {
+    padding-left: 15px;
+  }
+  ul {
+    li {
+      padding: 10px 15px;
+      @include media-breakpoint-down(lg) {
+        padding: 4px 15px;
+      }
+      a {
+        color: $theme-body-font-color;
+        [data-theme="dark"] & {
+          color: var(--light-font);
+        }
+      }
+      &:hover {
+        background-color: $light-color;
+        [data-theme="dark"] & {
+          background-color: rgba($primary-color, 0.1);
+        }
+      }
+    }
+  }
+}
+.upcoming-course {
+  .d-flex {
+    +.d-flex {
+      margin-top: 15px;
+    }
+  }
+}
+.job-accordion {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1200px) and (max-width: 1366px) {
+  .learning-comment {
+    margin-left: -14px !important;
+    float: left !important;
+  }
+  .blog-box {
+    .blog-details {
+      .blog-social {
+        li {
+          &:first-child {
+            padding-right: 30px;
+          }
+          +li {
+            padding-left: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 991px) {
+  .categories {
+    padding: 20px 0;
+  }
+  .upcoming-course {
+    .d-flex {
+      +.d-flex {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 575px) {
+  .categories {
+    padding: 15px 0;
+  }
+  .upcoming-course {
+    .d-flex {
+      +.d-flex {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+/**=====================
+       3.28 Learning CSS end
+  ==========================**/

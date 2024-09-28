@@ -1,0 +1,282 @@
+/**=====================
+  2.32 Touchspin CSS Start
+==========================**/
+.bootstrap-touchspin {
+  input {
+    &.touchspin {
+      padding: 0 12px;
+    }
+  }
+  .input-group .btn {
+    padding: 0.5rem 1.75rem;
+  }
+  .touchspin-vertical-tab {
+    .input-group {
+      .input-group-btn-vertical {
+        position: relative;
+        white-space: nowrap;
+        width: 1%;
+        vertical-align: middle;
+        display: table-cell;
+        .bootstrap-touchspin-down {
+          margin-top: -2px;
+        }
+        i {
+          position: absolute;
+          top: 4px;
+          left: 7px;
+          font-size: 10px;
+          font-weight: normal;
+        }
+        >.btn {
+          display: block;
+          float: none;
+          width: 100%;
+          max-width: 100%;
+          padding: 9px;
+          margin-left: -1px;
+          position: relative;
+        }
+      }
+    }
+  }
+  .input-group {
+    font-family: $body-font, $font-serif;
+    .btn {
+      border-radius: 0 !important;
+    }
+  }
+  .dropdown-basic {
+    .dropdown {
+      .dropbtn {
+        padding: 9px 30px;
+      }
+      .dropdown-content {
+        z-index: 9999;
+      }
+    }
+  }
+}
+/* Custom touchspin arrows */
+.touchspin-wrapper {
+  .btn-touchspin {
+    border-radius: 5px;
+    width: 32px;
+    height: 32px;
+  }
+  input[type='number'] {
+    width: 85px;
+    padding: 3px;
+    text-align: center;
+    height: 30px;
+  }
+}
+.hover-touchspin {
+  .btn-touchspin {
+    &.spin-border-dark {
+      &:hover {
+        background-color: $dark-color;
+        color: $white;
+      }
+    }
+  }
+}
+.pre-post-touchspin {
+  .decrement-touchspin,
+  .increment-touchspin,
+  .input-group-text {
+    padding: 7px 14px;
+    border: 0;
+    border-radius: 0 !important;
+  }
+  .input-group-text {
+    background-color: var(--light-bg);
+    [data-theme="dark"] & {
+      background: var(--card-color);
+      color: var(--body-font-color);
+      border: 1px solid var(--solid-border);
+    }
+  }
+  .input-touchspin {
+    border: 1px solid var(--light-bg);
+    border-width: 2px;
+    text-align: center;
+    [data-theme="dark"] & {
+      background: var(--body-color);
+      border: 1px solid var(--solid-border);
+      color: var(--body-font-color);
+    }
+  }
+  .input-group {
+    width: auto;
+    .input-touchspin {
+      @media (max-width:768px) {
+        width: 100px;
+      }
+    }
+  }
+  &.bg-touchspin {
+    button[type='button'] {
+      border: 1px solid var(--light-bg);
+      border-width: 2px;
+      text-align: center;
+      [data-theme="dark"] & {
+        border: 1px solid var(--solid-border);
+      }
+    }
+  }
+  .input-group> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+.rounded-touchspin {
+  .btn-touchspin {
+    border-radius: 50%;
+  }
+  .touchspin-wrapper {
+    input[type="number"] {
+      &.input-touchspin {
+        border-radius: 15px;
+      }
+    }
+  }
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+$alert-name: primary,
+secondary,
+tertiary,
+success,
+danger,
+info,
+light,
+dark,
+warning;
+$alert-color: $primary-color,
+$secondary-color,
+$tertiary-color,
+$success-color,
+$danger-color,
+$info-color,
+$light-color,
+$dark-color,
+$warning-color;
+@each $var in $alert-name {
+  $i: index($alert-name, $var);
+  .alert-#{$var} {
+    background-color: rgba(nth($alert-color, $i), 0.8);
+    border-color: rgba(nth($alert-color, $i), 0.9);
+    color: $white;
+    .progress {
+      height: 5px;
+      background-color: darken(nth($alert-color, $i), 1%);
+      border-radius: 0;
+    }
+    .progress-bar {
+      background-color: lighten(nth($alert-color, $i), 50%);
+    }
+    .btn-close {
+      filter: brightness(1) invert(1);
+    }
+    .alert-link {
+      color: nth($alert-color, $i);
+      @if($var=="light") {
+        color: $dark-color;
+      }
+    }
+    @if($var=="light") {
+      color: $dark-color;
+      background-color: $light-color;
+      .btn-close {
+        filter: unset;
+      }
+    }
+    hr {
+      border-top-color: nth($alert-color, $i);
+    }
+  }
+  .border-#{$var} {
+    border-color: nth($alert-color, $i) !important;
+  }
+  /* touchspin */
+  .touchspin-wrapper {
+    .btn-touchspin {
+      &.touchspin-#{$var} {
+        background-color: nth($alert-color, $i);
+        border: 1px solid nth($alert-color, $i);
+        color: $white;
+      }
+      &.spin-border-#{$var} {
+        background-color: unset;
+        border: 1px solid nth($alert-color, $i);
+        color: nth($alert-color, $i);
+      }
+    }
+    input[type='number'] {
+      &.spin-outline-#{$var} {
+        outline: 1px solid nth($alert-color, $i);
+        border: none;
+        border-radius: 3px;
+        [data-theme="dark"] & {
+          background-color: var(--body-color) !important;
+          color: $white;
+          outline: 1px solid var(--solid-border);
+        }
+      }
+    }
+  }
+  .pre-post-touchspin {
+    .btn-touchspin {
+      &.touchspin-#{$var} {
+        background-color: nth($alert-color, $i);
+        border: 1px solid nth($alert-color, $i);
+        color: $white;
+      }
+    }
+  }
+  /* switches */
+  .form-switch {
+    .form-check-input {
+      &.switch-#{$var} {
+        &:checked {
+          background-color: nth($alert-color, $i);
+          border-color: nth($alert-color, $i);
+        }
+      }
+    }
+  }
+}
+.alert {
+  .alert-heading {
+    [data-theme="dark"] & {
+      color: var(--body-font-color) !important;
+    }
+  }
+  p {
+    [data-theme="dark"] & {
+      color: var(--body-font-color) !important;
+    }
+  }
+}
+.alert-light {
+  [data-theme="dark"] & {
+    color: var(--black) !important;
+  }
+  p {
+    [data-theme="dark"] & {
+      color: var(--black) !important;
+    }
+  }
+}
+/**=====================
+      2.32 Touchspin CSS Ends
+  ==========================**/

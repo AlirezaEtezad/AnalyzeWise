@@ -1,0 +1,18 @@
+/**=====================
+     mixins
+==========================**/
+@mixin flex_common {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin common_flex_gap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+@mixin bg_color {
+  width: 42px;
+  height: 40px;
+  border-radius: 11px;
+}

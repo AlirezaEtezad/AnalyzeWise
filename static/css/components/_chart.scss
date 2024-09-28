@@ -1,0 +1,217 @@
+/**=====================
+    Chart css start
+==========================**/
+.apexcharts-canvas {
+    .apexcharts-tooltip {
+        [data-theme="dark"] & {
+            border: 1px solid var(--light-color);
+        }
+        .apexcharts-tooltip-text {
+            font-family: $body-font !important;
+            [data-theme="dark"] & {
+                color: var(--body-font-color);
+            }
+        }
+        &.apexcharts-theme-light {
+            background-color: var(--card-color);
+            .apexcharts-tooltip-text {
+                font-family: $body-font !important;
+                [data-theme="dark"] & {
+                    color: var(--body-font-color);
+                }
+            }
+            .apexcharts-tooltip-title {
+                border-bottom: 1px solid var(--solid-border);
+                background-color: var(--card-color);
+            }
+        }
+    }
+    .apexcharts-text {
+        tspan {
+            font-family: $body-font;
+            font-size: 13px;
+            font-weight: 500;
+            fill: var(--body-font-color);
+        }
+    }
+    .apexcharts-xaxis {
+        tspan {
+            fill: var(--light-font);
+        }
+    }
+    .apexcharts-yaxis-title text,
+    .apexcharts-legend-text,
+    .apexcharts-title-text {
+        font-family: $body-font !important;
+        font-weight: 500 !important;
+    }
+}
+.chartist-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 400px;
+    @include media-breakpoint-down(xl) {
+        height: 200px;
+    }
+    @media only screen and (max-width: 360px) {
+        height: 230px;
+    }
+}
+.ct-series-a {
+    .ct-slice-pie,
+    .ct-slice-donut-solid,
+    .ct-area {
+        fill: $primary-color;
+    }
+    .ct-point,
+    .ct-line,
+    .ct-bar,
+    .ct-slice-donut {
+        stroke: var(--theme-default);
+    }
+}
+.ct-series-b {
+    .ct-point,
+    .ct-line,
+    .ct-bar,
+    .ct-slice-donut {
+        stroke: $secondary-color;
+    }
+    .ct-slice-pie,
+    .ct-slice-donut-solid,
+    .ct-area {
+        fill: $secondary-color;
+    }
+}
+.ct-series-c {
+    .ct-point,
+    .ct-line,
+    .ct-bar,
+    .ct-slice-donut {
+        stroke: $tertiary-color;
+    }
+    .ct-slice-pie,
+    .ct-slice-donut-solid,
+    .ct-area {
+        fill: $tertiary-color;
+    }
+}
+.ct-series-d {
+    .ct-point,
+    .ct-line,
+    .ct-bar,
+    .ct-slice-donut {
+        stroke: $success-color;
+    }
+    .ct-slice-pie,
+    .ct-slice-donut-solid,
+    .ct-area {
+        fill: $success-color;
+    }
+}
+.ct-series-e {
+    .ct-point,
+    .ct-line,
+    .ct-bar,
+    .ct-slice-donut {
+        stroke: $info-color;
+    }
+    .ct-slice-pie,
+    .ct-slice-donut-solid,
+    .ct-area {
+        fill: $info-color;
+    }
+}
+.ct-series-e {
+    .ct-point,
+    .ct-line,
+    .ct-bar,
+    .ct-slice-donut {
+        stroke: $danger-color;
+    }
+    .ct-slice-pie,
+    .ct-slice-donut-solid,
+    .ct-area {
+        fill: $danger-color;
+    }
+}
+.ct-series-f {
+    .ct-point,
+    .ct-line,
+    .ct-bar,
+    .ct-slice-donut {
+        stroke: $warning-color;
+    }
+    .ct-slice-pie,
+    .ct-slice-donut-solid,
+    .ct-area {
+        fill: $warning-color;
+    }
+}
+.chart-container.chart-block {
+    canvas {
+        height: 360px !important;
+        margin: 0 auto;
+        @media only screen and (max-width: 360px) {
+            height: 140px !important;
+        }
+    }
+}
+.skill-chart {
+    margin-bottom: -48px;
+    .apexcharts-legend {
+        .apexcharts-legend-series {
+            span {
+                display: block;
+            }
+            .apexcharts-legend-text {
+                margin: 10px 0 20px;
+            }
+        }
+    }
+}
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+}
+.dropdown {
+    .dropdown-toggle {
+        background-color: rgba($primary-color, 0.08);
+        color: var(--theme-default);
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 100px;
+        text-align: left;
+    }
+}
+.progress-chart {
+    margin: -11px 0 -20px;
+}
+.apexcharts-title-text {
+    fill: var(--body-font-color) !important;
+}
+.apexcharts-subtitle-text {
+    fill: var(--light-font);
+}
+.apexcharts-legend-text {
+    color: var(--light-font) !important;
+}
+.apexcharts-yaxis-title-text {
+    fill: var(--light-font);
+}
+.apexcharts-datalabel-label {
+    fill: var(--body-font-color) !important;
+}
+.apexcharts-datalabel-value {
+    fill: var(--body-font-color) !important;
+}
+#chart-widget1,
+#chart-widget2,
+#chart-widget3 {
+    margin-bottom: -15px;
+}
+/**=======================
+    Chart css end
+==========================**/

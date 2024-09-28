@@ -1,0 +1,33 @@
+/**=====================
+    79. cart CSS start
+==========================**/
+.cart {
+  .total-amount {
+    text-align: right !important;
+    margin-top: 30px;
+  }
+  .cart-btn-transform {
+    text-transform: capitalize;
+  }
+  .qty-box {
+    width: 25%;
+    margin: 0 auto;
+    .input-group {
+      .btn {
+        background-color: var(--photoswipe-border) !important;
+        border-color: var(--photoswipe-border) !important;
+        padding: 8px 12px;
+      }
+    }
+  }
+}
+.cart-buttons {
+  margin-top: 30px;
+  .cart-btn {
+    float: right;
+    padding-right: 85px;
+  }
+}
+/**=====================
+      79. cart CSS Ends
+  ==========================**/

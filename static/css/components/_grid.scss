@@ -1,0 +1,63 @@
+/**=====================
+     Grid css start
+==========================**/
+.grid-showcase {
+    margin-bottom: -10px;
+    span {
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        border: var(--light-border);
+    }
+    ~.card-footer {
+        table {
+            tr {
+                th {
+                    border: 0;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+.grid-align {
+    margin-bottom: -16px;
+    padding: 0 15px;
+    .row {
+        padding: 15px 0;
+        min-height: 7rem;
+        margin-bottom: 16px;
+    }
+}
+.grid-vertical {
+    min-height: 150px;
+    padding: 10px;
+}
+.grid-option {
+    .table-striped {
+        tbody {
+            tr {
+                &:nth-of-type(odd) {
+                    background-color: var(--light-color);
+                }
+            }
+        }
+    }
+    .table {
+        margin-bottom: 0;
+        tr,
+        th,
+        td {
+            border: var(--light-border);
+        }
+        tr {
+            th {
+                font-weight: 600;
+            }
+        }
+    }
+}
+/**=====================
+     Grid css end
+==========================**/

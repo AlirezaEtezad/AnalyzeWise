@@ -1,0 +1,201 @@
+/**=====================
+   3.6 Checkout CSS start
+==========================**/
+.checkout {
+    .checkout-details {
+        border: 1px solid var(--photoswipe-border);
+        padding: 40px;
+        background-color: var(--body-color);
+        [data-theme="dark"] & {
+            border-color: var(--solid-border);
+        }
+        .order-place {
+            margin-top: 15px;
+        }
+    }
+}
+.order-box {
+    .title-box {
+        padding-bottom: 20px;
+        color: var(--body-font-color);
+        font-size: 22px;
+        border-bottom: 1px solid var(--light-semi-gray);
+        margin-bottom: 20px;
+        [data-theme="dark"] & {
+            border-color: var(--solid-border);
+        }
+        span {
+            width: 35%;
+            float: right;
+            font-weight: 600;
+            text-align: right;
+        }
+        h4 {
+            font-weight: 600;
+        }
+        .checkbox-title {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .sub-total {
+        li {
+            position: relative;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--body-font-color);
+            line-height: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            .count {
+                position: relative;
+                font-size: 18px;
+                line-height: 20px;
+                font-weight: 400;
+                width: 35%;
+                float: right;
+                text-align: right;
+            }
+        }
+        .shipping-class {
+            margin-bottom: 12px;
+            .shopping-checkout-option {
+                margin-top: -4px;
+                position: relative;
+                font-size: 18px;
+                line-height: 20px;
+                color: var(--theme-default);
+                font-weight: 400;
+                width: 35%;
+                float: right;
+                text-align: right;
+            }
+        }
+    }
+    .total {
+        position: relative;
+        margin-bottom: 30px;
+        li {
+            position: relative;
+            display: block;
+            font-weight: 400;
+            color: var(--body-font-color);
+            line-height: 20px;
+            font-size: 18px;
+        }
+    }
+    .qty {
+        position: relative;
+        border-bottom: 1px solid var(--light-semi-gray);
+        margin-bottom: 30px;
+        [data-theme="dark"] & {
+            border-color: var(--solid-border);
+        }
+        li {
+            position: relative;
+            display: block;
+            font-size: 15px;
+            color: var(--body-font-color);
+            line-height: 20px;
+            margin-bottom: 20px;
+            span {
+                float: right;
+                font-size: 18px;
+                line-height: 20px;
+                color: var(--body-font-color);
+                font-weight: 400;
+                width: 35%;
+                text-align: right;
+            }
+        }
+    }
+}
+.radio-option {
+    position: relative;
+}
+.img-paypal {
+    width: 30%;
+    margin-left: 15px;
+}
+/**=====================
+    86. Checkout CSS Ends
+==========================**/
+/**=====================
+    Responsive CSS Start
+==========================**/
+@media screen and (max-width: 1199px) {
+    .checkout {
+        .checkout-details {
+            padding: 25px;
+        }
+    }
+    .order-box {
+        .title-box {
+            span {
+                width: 30%;
+            }
+        }
+        .sub-total {
+            li {
+                .count {
+                    width: 38%;
+                }
+            }
+            .shipping-class {
+                .shopping-checkout-option {
+                    width: 46%;
+                }
+            }
+        }
+        .qty {
+            li {
+                span {
+                    width: 38%;
+                }
+            }
+        }
+        .total {
+            li {
+                .count {
+                    width: 38%;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 991px) {
+    .order-box {
+        .sub-total {
+            .shipping-class {
+                .shopping-checkout-option {
+                    width: 38%;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 575px) {
+    .checkout {
+        .checkout-details {
+            padding: 15px;
+        }
+    }
+    .order-box {
+        .sub-total {
+            .shipping-class {
+                .shopping-checkout-option {
+                    width: 50%;
+                }
+            }
+            li {
+                .count {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+/**=====================
+   3.6 Checkout CSS ends
+==========================**/

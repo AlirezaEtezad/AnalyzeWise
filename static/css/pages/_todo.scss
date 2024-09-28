@@ -1,0 +1,79 @@
+.todo {
+    .todo-list-wrapper {
+        .mark-all-tasks {
+            @include media-breakpoint-down(lg) {
+                top: 20px;
+                right: 20px;
+            }
+            @include media-breakpoint-down(sm) {
+                right: 15px;
+            }
+            .mark-all-tasks-container {
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+            }
+        }
+        #todo-list {
+            li {
+                .task-container {
+                    .task-label {
+                        @include media-breakpoint-down(lg) {
+                            min-width: 460px;
+                        }
+                        @include media-breakpoint-down(sm) {
+                            font-size: 14px;
+                        }
+                    }
+                    .task-action-btn {
+                        .action-box {
+                            &:hover {
+                                border-color: var(--solid-border);
+                                background: var(--card-color);
+                            }
+                        }
+                    }
+                    &:hover {
+                        h4 {
+                            [data-theme="dark"] & {
+                                color: var(--body-font-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .todo-list-footer {
+            .new-task-wrapper {
+                textarea {
+                    [data-theme="dark"] & {
+                        background-color: var(--body-color);
+                        border-color: var(--body-color);
+                    }
+                }
+            }
+        }
+    }
+    .todo-list-body {
+        .task-container {
+            div.d-flex {
+                @media (max-width: 1800px) {
+                    min-width: 240px;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+    .action-box.large {
+        @include media-breakpoint-down(sm) {
+            height: 25px;
+            width: 25px;
+        }
+        .icon {
+            @include media-breakpoint-down(sm) {
+                font-size: 14px;
+                vertical-align: -3px;
+            }
+        }
+    }
+}

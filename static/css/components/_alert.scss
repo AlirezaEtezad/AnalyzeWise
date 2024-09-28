@@ -1,0 +1,187 @@
+/**=====================
+    Alert css start
+==========================**/
+$colors: (primary: $primary-color,
+    secondary: $secondary-color,
+    tertiary: $tertiary-color,
+    warning: $warning-color,
+    info: $info-color,
+    success: $success-color,
+    danger: $danger-color,
+    light: $light-color,
+    dark: $dark-color);
+@each $key,
+$val in $colors {
+    .alert-#{$key} {
+        background-color: $val;
+        border: 1px solid $val;
+        color: $white;
+    }
+    .alert-light-#{$key} {
+        background-color: rgba($val, 0.2);
+        color: $val;
+    }
+    .alert-light {
+        color: var(--body-font-color);
+    }
+    .alert-light-light {
+        background-color: rgba($light-color, 0.5);
+        color: var(--body-font-color);
+    }
+}
+.btn-close {
+    [data-theme="dark"] & {
+        filter: brightness(0.5) invert(1);
+    }
+}
+.notify-alert {
+    .close {
+        background: unset;
+        border: none;
+        font-size: 25px;
+    }
+}
+.alert {
+    border-radius: $alert-border-radius;
+    padding: 12px;
+    &[class*="bg-light-"] {
+        h5 {
+            font-size: 17px;
+        }
+    }
+    .feather {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
+    .progress {
+        margin-top: $alert-padding;
+    }
+    [data-notify='icon'] {
+        margin-right: 10px;
+        line-height: 20px;
+        position: absolute;
+    }
+    [data-notify='message'] {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    i {
+        margin-right: 5px;
+        font-size: $alert-msg-icon-size;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    .close {
+        opacity: 1;
+        display: none;
+        span {
+            font-size: 24px;
+            font-weight: 400;
+            display: inline-block;
+            border-radius: 3px;
+            text-shadow: none;
+            padding: 0 5px;
+            padding-right: 0;
+        }
+    }
+}
+.alert-dismissible {
+    padding-right: 2.5rem;
+    .btn-close {
+        padding: 0 15px;
+        z-index: 1;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+    .close {
+        padding: 10px 1.25rem;
+        top: 4px;
+        padding-right: 13px;
+        opacity: 0.5;
+        transition: all 0.3s ease;
+        &:hover {
+            transition: all 0.3s ease;
+            opacity: 1;
+            color: inherit;
+        }
+    }
+    p{
+        @media screen and (max-width: 1366px) and (min-width: 1200px){
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 181px;
+        }
+        @media only screen and (max-width: 767.98px){
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 294px;
+        }
+        @media only screen and (max-width: 575.98px){
+            max-width: 102px;
+        }
+    }
+}
+.alert-dismissible {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @media only screen and (max-width: 575.98px){
+        padding-right: 30px;
+    }
+}
+.alert {
+    &.notify-alert {
+        &.alert-copy {
+            display: flex !important;
+        }
+    }
+}
+.live-dark {
+    div[class*="b-"] {
+        border-width: 2px !important;
+    }
+}
+.alert-arrow {
+    min-width: 46px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    i {
+        margin-right: 0;
+    }
+}
+.card-body {
+    button {
+        &:focus {
+            outline: none;
+        }
+    }
+    .alert {
+        &:last-child {
+            margin-bottom: 0;
+        }
+        svg {
+            width: 14px;
+            height: 14px;
+            margin-right: 4px;
+            position: absolute;
+            top: 18px;
+            &~p {
+                padding-left: 20px;
+            }
+        }
+    }
+}
+.btn-close:focus {
+    box-shadow: none;
+}
+/**=====================
+    Alert css end
+==========================**/

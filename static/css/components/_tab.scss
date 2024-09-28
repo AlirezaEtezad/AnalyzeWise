@@ -1,0 +1,450 @@
+/**=====================
+    Tab CSS Start
+==========================**/
+.nav-pills {
+  .nav-link.active,
+  .show>.nav-link {
+    background-color: var(--theme-default);
+  }
+}
+.nav {
+  i {
+    margin-right: 10px;
+  }
+}
+.flex-space {
+  display: flex;
+  gap: 16px;
+  @media (max-width:576px) {
+    justify-content: center;
+  }
+}
+.tab-img {
+  height: 100px;
+}
+.nav {
+  @include media-breakpoint-down(sm) {
+    display: inherit;
+    text-align: center;
+    border-bottom: none;
+    &.nav-tabs {
+      .nav-link {
+        border-top: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+}
+.nav-tabs {
+  .nav-item {
+    .nav-link {
+      svg.svg-color {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .nav-link {
+    [data-theme="dark"] & {
+      color: var(--light-font) !important;
+    }
+    &.active {
+      font-weight: 500;
+      [data-theme="dark"] & {
+        color: var(--theme-default) !important;
+        border-color: var(--solid-border);
+      }
+    }
+    &:hover {
+      border-color: var(--solid-border);
+    }
+  }
+}
+.rating {
+  stroke: $warning-color;
+  fill: $warning-color;
+}
+$colors: (primary: $primary-color,
+  secondary: $secondary-color,
+  tertiary: $tertiary-color,
+  warning: $warning-color,
+  info: $info-color,
+  success: $success-color,
+  danger: $danger-color,
+  light: $light-color,
+  dark: $dark-color);
+@each $key,
+$val in $colors {
+  .nav-#{$key} {
+    .nav-link {
+      color: $val;
+      &.active {
+        background-color: $val;
+        color: var(--white);
+      }
+      svg {
+        stroke: $val;
+      }
+    }
+  }
+}
+$tabs-name: primary,
+secondary,
+tertiary,
+success,
+danger,
+warning,
+info,
+light,
+dark;
+$tab-color : $primary-color,
+$secondary-color,
+$tertiary-color,
+$success-color,
+$danger-color,
+$warning-color,
+$info-color,
+$light-color,
+$dark-color;
+@each $var in $tabs-name {
+  $i: index($tabs-name, $var);
+  #bottom-tab {
+    .nav-border {
+      &.tab-#{$var} {
+        &:hover {
+          color: nth($tab-color, $i);
+        }
+        &:focus,
+        &:active,
+        &.active {
+          color: nth($tab-color, $i);
+          border-bottom: 2px solid nth($tab-color, $i);
+        }
+      }
+    }
+  }
+}
+.border-tab.nav-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+  @include media-breakpoint-down(sm) {
+    display: block;
+  }
+  .nav-item {
+    .nav-link {
+      font-size: 16px;
+      color: $dark-color;
+      text-align: center;
+      padding: 10px 25px;
+      border: none;
+      border-bottom: none;
+      transition: 0.3s;
+      @include media-breakpoint-between(xl, xxl) {
+        padding: 10px 22px;
+      }
+      @media (min-width: 576px) and (max-width: 1920px) {
+        padding-top: 0;
+      }
+      &.active,
+      &.show,
+      &:focus,
+      &:hover {
+        color: var(--theme-default);
+      }
+      &.active,
+      &.show,
+      &:focus {
+        border-bottom: none;
+      }
+    }
+  }
+}
+.border-tab.nav-left {
+  .nav-link {
+    transition: all 0.3s ease;
+    color: $dark-color;
+    [data-theme="dark"] & {
+      color: var(--light-font);
+    }
+  }
+  .nav-link.active,
+  .show>.nav-link {
+    background-color: transparent;
+    border-left-color: var(--theme-default);
+    color: var(--theme-default);
+    border-radius: 0;
+    transition: all 0.3s ease;
+  }
+}
+.border-tab.nav-right {
+  .nav-link {
+    border-right: 2px solid transparent;
+    transition: all 0.3s ease;
+    color: $dark-color;
+    text-align: right;
+  }
+  .nav-link.active,
+  .show>.nav-link {
+    background-color: transparent;
+    border-right-color: var(--theme-default);
+    color: var(--theme-default);
+    border-radius: 0;
+    transition: all 0.3s ease;
+  }
+}
+$m-nav-name: primary,
+secondary,
+tertiary,
+success,
+danger,
+info,
+light,
+dark,
+warning;
+$nav-color: $primary-color,
+$secondary-color,
+$tertiary-color,
+$success-color,
+$danger-color,
+$info-color,
+$light-color,
+$dark-color,
+$warning-color;
+@each $var in $m-nav-name {
+  $i: index($m-nav-name, $var);
+  .border-tab.nav-#{$var} {
+    .nav-link.active,
+    .nav-item.show,
+    .nav-link:focus,
+    .nav-link:hover {
+      color: nth($nav-color, $i);
+      background-color: transparent;
+    }
+    .nav-item {
+      .nav-link {
+        transition: 0.3s;
+        [data-theme="dark"] & {
+          color: nth($nav-color, $i) !important;
+        }
+        &.active,
+        &.show,
+        &:focus {
+          border-bottom: 2px solid nth($nav-color, $i);
+        }
+        &.active,
+        &.show,
+        &:focus,
+        &:hover {
+          color: nth($nav-color, $i) !important;
+        }
+        svg {
+          stroke: nth($nav-color, $i);
+        }
+      }
+    }
+  }
+  .border-tab.nav-left.nav-#{$var} {
+    .nav-link.active,
+    .show>.nav-link {
+      border-left-color: nth($nav-color, $i);
+      color: nth($nav-color, $i);
+    }
+  }
+  .border-tab.nav-right.nav-#{$var} {
+    .nav-link.active,
+    .show>.nav-link {
+      border-right-color: nth($nav-color, $i);
+      color: nth($nav-color, $i);
+    }
+  }
+}
+.pills-blogger {
+  .blog-wrapper {
+    border-radius: 12px;
+    .flex-shrink-0 {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      @include flex_common;
+    }
+  }
+}
+.designer-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  @media (max-width:1400px) {
+    gap: calc(14px + 21 * (100vw - 320px) / 1080);
+  }
+  .designer-profile {
+    display: inline-block;
+    .designer-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .designer-img {
+        height: 50px;
+        border-radius: 100%;
+      }
+      .designer-content {
+        h6 {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+.material-wrapper {
+  display: flex;
+  gap: 12px;
+  @media (max-width:576px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.main-inbox {
+  .header-inbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--solid-border);
+    padding-bottom: 8px;
+    .header-left-inbox {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      @include media-breakpoint-between(xl, xxl) {
+        gap: 8px;
+      }
+      .inbox-img {
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 100%;
+        }
+      }
+    }
+    .header-right-inbox {
+      display: flex;
+      gap: 12px;
+      @include media-breakpoint-between(xl, xxl) {
+        gap: 5px;
+      }
+      @media (max-width: 560px) {
+        display: none;
+      }
+    }
+  }
+  .body-inbox {
+    .body-h-wrapper {
+      display: flex;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--solid-border);
+      align-items: center;
+      .feather {
+        width: 16px;
+        height: 16px;
+        fill: var(--body-font-color);
+      }
+      @media (max-width:630px) {
+        align-items: unset;
+      }
+    }
+  }
+}
+#sideline-tab {
+  .nav-effect {
+    display: inline-block;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      height: 14px;
+      width: 80%;
+      border-bottom: 1px solid;
+      margin-top: 10px;
+      opacity: 0;
+      -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+      transition: opacity 0.35s, transform 0.35s;
+      -webkit-transform: scale(0, 1);
+      transform: scale(0, 1);
+    }
+    &:hover {
+      &::after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+  }
+}
+.tabs-responsive-side {
+  .border-tab {
+    &.nav-secondary {
+      &.nav-left {
+        .nav-link {
+          &:hover,
+          &.active {
+            background-color: unset;
+            border-left: none;
+            border-radius: 0;
+            transition: none;
+          }
+        }
+      }
+    }
+  }
+}
+.pills-blogger {
+  @media (max-width: 576px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+/* font-color */
+@each $font-name,
+$font-color in (primary, $primary-color),
+(secondary, $secondary-color),
+(tertiary, $tertiary-color),
+(success, $success-color),
+(warning, $warning-color),
+(danger, $danger-color),
+(info, $info-color),
+(light, var(--light-font)),
+(dark, var(--body-font-color)) {
+  .nav-tabs {
+    .nav-link {
+      &.font-#{$font-name} {
+        color: $font-color !important;
+        &.active {
+          color: $font-color !important;
+        }
+      }
+    }
+  }
+}
+.product-page-main {
+  .border-tab.nav-primary {
+    .nav-item {
+      .nav-link {
+        [data-theme="dark"] & {
+          color: var(--body-font-color) !important;
+        }
+        &.active {
+          color: var(--theme-default) !important;
+        }
+      }
+    }
+  }
+}
+/**=====================
+    Tab CSS Ends
+==========================**/

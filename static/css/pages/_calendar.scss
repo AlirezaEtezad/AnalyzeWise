@@ -1,0 +1,110 @@
+.fc {
+	.fc-button-primary {
+		color: $white;
+		background-color: var(--theme-default);
+		border-color: var(--theme-default);
+		&:hover {
+			color: $white;
+			background-color: var(--theme-default);
+			border-color: var(--theme-default);
+		}
+		&:disabled {
+			color: $white;
+			background-color: var(--theme-default);
+			border-color: var(--theme-default);
+		}
+		&:focus {
+			box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.5);
+		}
+		&:not(:disabled) {
+			&:active {
+				color: $white;
+				background-color: var(--theme-default);
+				border-color: var(--theme-default);
+				&:focus {
+					box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.5);
+				}
+			}
+		}
+		&:not(:disabled).fc-button-active {
+			color: $white;
+			background-color: var(--theme-default);
+			border-color: var(--theme-default);
+			&:focus {
+				box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.5);
+			}
+		}
+	}
+	.fc-list-event-dot {
+		display: inline-block;
+		box-sizing: content-box;
+		width: 0;
+		height: 0;
+		border: 5px solid var(--theme-default);
+		border-radius: 5px;
+	}
+}
+.fc-h-event {
+	display: block;
+	border: 1px solid var(--theme-default);
+	background-color: var(--theme-default);
+	.fc-event-title {
+		color: $white;
+	}
+}
+.fc-daygrid-event-dot {
+	margin: 0 4px;
+	box-sizing: content-box;
+	width: 0;
+	height: 0;
+	border: 4px solid var(--theme-default);
+	border-radius: 4px;
+}
+.fc-event-time {
+	color: var(--theme-default);
+}
+.fc-event-title {
+	color: var(--theme-default);
+}
+.fc-v-event {
+	display: block;
+	border: 1px solid var(--theme-default);
+	background-color: var(--theme-default);
+	.fc-event-title {
+		color: $white;
+	}
+}
+.fc-timegrid-event {
+	.fc-event-time {
+		color: $white;
+	}
+}
+.fc-list-day-side-text {
+	color: var(--theme-default);
+}
+.fc-list-day-text {
+	color: var(--theme-default);
+}
+.fc-theme-standard {
+	.fc-list-day-cushion {
+		[data-theme="dark"] & {
+			background-color: var(--body-color);
+		}
+	}
+}
+.fc {
+	.fc-list-event {
+		&:hover {
+			td {
+				[data-theme="dark"] & {
+					background-color: var(--body-color);
+				}
+			}
+		}
+	}
+}
+.fc-theme-standard {
+	.fc-list {
+		border: 1px solid var(--solid-border);
+	}
+}

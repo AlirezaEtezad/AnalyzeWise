@@ -1,0 +1,44 @@
+footer {
+    background-color: var(--card-color);
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+    p {
+        font-size: 14px;
+        font-weight: 500;
+        .footer-icon {
+            width: 22px;
+            height: 18px;
+            stroke: var(--footer-icon);
+            fill: var(--footer-icon);
+        }
+    }
+    @include media-breakpoint-down(md) {
+        padding: 14px 6px;
+        .row {
+            p {
+                text-align: center;
+                &.float-end {
+                    float: unset !important;
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        p {
+            font-size: 13px;
+        }
+    }
+}
+.page {
+    &-wrapper {
+        &.sidebar-close {
+            margin-left: 0;
+            transition: 0.5s all;
+            .footer {
+                left: -($sidebar-width + 10px);
+                transition: 0.5s all;
+            }
+        }
+    }
+}

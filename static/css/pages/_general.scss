@@ -1,0 +1,98 @@
+/**=====================
+    General css start
+==========================**/
+.wow-title {
+    .badge {
+        padding: 4px 6px 6px;
+    }
+}
+.line {
+    p {
+        strong {
+            text-transform: capitalize;
+        }
+    }
+}
+/**==support ticket==**/
+.ecommerce-widget {
+    .progress-showcase {
+        margin-top: 30px;
+    }
+    .total-num {
+        margin: 0;
+        letter-spacing: 1px;
+        font-weight: 500;
+        span {
+            color: var(--black);
+        }
+    }
+}
+/**==map js==**/
+.data-basic-map {
+    height: 340px;
+    width: 100%;
+    @include media-breakpoint-down(xl) {
+        height: 320px;
+    }
+    @include media-breakpoint-down(md) {
+        height: 300px;
+    }
+    @include media-breakpoint-down(sm) {
+        height: 260px;
+    }
+}
+.choropleth-map {
+    height: 340px;
+    width: 100%;
+    @include media-breakpoint-down(xl) {
+        height: 320px;
+    }
+    @include media-breakpoint-down(md) {
+        height: 300px;
+    }
+    @include media-breakpoint-down(sm) {
+        height: 260px;
+    }
+}
+.data-map {
+    height: 340px;
+    width: 100%;
+    @include media-breakpoint-down(xl) {
+        height: 320px;
+    }
+    @include media-breakpoint-down(md) {
+        height: 300px;
+    }
+    @include media-breakpoint-down(sm) {
+        height: 260px;
+    }
+}
+.data-map-glob {
+    height: 580px;
+    width: 100%;
+    svg {
+        margin-top: -3%;
+        @include media-breakpoint-down(md) {
+            margin-top: 0;
+        }
+    }
+    @include media-breakpoint-down(xl) {
+        height: 400px;
+    }
+    @include media-breakpoint-down(md) {
+        height: 360px;
+    }
+    @include media-breakpoint-down(sm) {
+        height: 280px;
+    }
+}
+.data-map-glob {
+    .datamap {
+        path:not(.datamaps-arc) {
+            stroke: var(--solid-border) !important;
+        }
+    }
+}
+/**=====================
+    General css end
+==========================**/

@@ -1,0 +1,193 @@
+/**=====================
+     Reset css start
+==========================**/
+/**==Svg Width css starts==**/
+$i: 12;
+@while $i<=50 {
+  .svg-w-#{$i} {
+    width:#{$i}px;
+    height:#{$i}px;
+  }
+  $i: $i+1;
+}
+/*====== Svg Width css ends ======*/
+/*====== Font-style css starts ======*/
+$i: normal,
+italic,
+oblique,
+initial,
+inherit;
+@each $val in $i {
+  .f-s-#{$val} {
+    font-style: $val;
+  }
+}
+/*====== Font-style css ends ======*/
+/*====== Font-size css starts ======*/
+$i: 12;
+@while $i<=100 {
+  .f-#{$i} {
+    font-size:#{$i}px !important;
+  }
+  $i: $i+1;
+}
+/*====== Font-size css ends ======*/
+/*====== Border-radius css starts ======*/
+$i: 0;
+@while $i<=50 {
+  .b-r-#{$i} {
+    border-radius: #{$i}px !important;
+  }
+  $i: $i+1;
+}
+/*====== Border-radius css ends ======*/
+/*====== Image Sizes css start ======*/
+$i: 10;
+@while $i<=100 {
+  .img-#{$i} {
+    width: #{$i}px !important;
+  }
+  .img-h-#{$i} {
+    height:#{$i}px !important;
+  }
+  $i: $i+2;
+}
+/*====== Image Sizes css ends ======*/
+/*====== Font-weight css starts ======*/
+$i: 100,
+300,
+500,
+400,
+600,
+700,
+800,
+900;
+@each $val in $i {
+  .f-w-#{$val} {
+    font-weight: $val;
+  }
+}
+/*====== Font-weight css ends ======*/
+/*====== All Padding css starts ======*/
+$i: 0;
+@while $i<=50 {
+  .p-#{$i} {
+    padding:#{$i}px;
+  }
+  .p-t-#{$i} {
+    padding-top:#{$i}px !important;
+  }
+  .p-b-#{$i} {
+    padding-bottom:#{$i}px !important;
+  }
+  .p-l-#{$i} {
+    padding-left:#{$i}px;
+  }
+  .p-r-#{$i} {
+    padding-right:#{$i}px;
+  }
+  $i: $i+5;
+}
+/*====== All Padding css ends ======*/
+/*====== All Margin css starts ======*/
+$i: 0;
+@while $i<=50 {
+  .m-#{$i} {
+    margin:#{$i}px;
+  }
+  .m-t-#{$i} {
+    margin-top:#{$i}px !important;
+  }
+  .m-b-#{$i} {
+    margin-bottom:#{$i}px !important;
+  }
+  .m-l-#{$i} {
+    margin-left:#{$i}px;
+  }
+  .m-r-#{$i} {
+    margin-right:#{$i}px;
+  }
+  $i: $i+5;
+}
+/*====== All Margin css ends ======*/
+/*===== Bg outline color css starts ======*/
+$outline-colors: (primary: $primary-color,
+  secondary: $secondary-color,
+  tertiary: $tertiary-color,
+  warning: $warning-color,
+  info: $info-color,
+  success: $success-color,
+  danger: $danger-color,
+  light: $light-color,
+  dark: $dark-color);
+@each $key,
+$val in $outline-colors {
+  .bg-outline-#{$key} {
+    border: 1px solid $val;
+    color: $val;
+    background-color: transparent;
+    li.breadcrumb-item {
+      &.active {
+        color: $val;
+      }
+      &:before {
+        color: $val;
+      }
+      a {
+        color: $val;
+        &.active {
+          color: $val;
+        }
+      }
+    }
+  }
+}
+/*===== Bg outline color css end ======*/
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-color);
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-color);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 10px;
+  [data-theme="dark"] & {
+    background-color: var(--light-color);
+  }
+}
+/*======= Font-color css starts  ======= */
+$text-name: primary,
+secondary,
+success,
+danger,
+info,
+light,
+dark,
+warning;
+$label-color: $primary-color,
+$secondary-color,
+$success-color,
+$danger-color,
+$info-color,
+$light-color,
+$dark-color,
+$warning-color;
+@each $var in $text-name {
+  $i: index($text-name, $var);
+  .txt-#{$var} {
+    color: nth($label-color, $i) !important;
+  }
+}
+/*======= Font-color css end  ======= */
+/**=====================
+     Reset css end
+==========================**/

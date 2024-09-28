@@ -1,0 +1,436 @@
+/**=====================
+     form css start
+==========================**/
+.col-form-label {
+    padding-bottom: 4px;
+}
+label {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+.form-control {
+    border: 1px solid var(--solid-border);
+    &::placeholder {
+        [data-theme="dark"] & {
+            color: var(--dark-gray) !important;
+        }
+    }
+    &:focus {
+        box-shadow: none;
+        border-color: var(--theme-default);
+        outline: none !important;
+        color: var(--body-font-color);
+        [data-theme="dark"] & {
+            background-color: var(--body-color);
+        }
+    }
+    &.form-control-color {
+        padding: 8px;
+    }
+    @include media-breakpoint-down(sm) {
+        padding: 12px;
+    }
+}
+.form-check-input {
+    border: 1px solid var(--solid-border);
+    [data-theme="dark"] & {
+        background-color: var(--body-color);
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}
+.input-group {
+    border-radius: $input-radius;
+    .form-control {
+        border-radius: 8px;
+    }
+    &-text {
+        border: none;
+        border-radius: 8px;
+    }
+    &:focus {
+        border: 1px solid var(--theme-default);
+    }
+}
+.theme-form {
+    .form-control {
+        &[type="file"]::file-selector-button {
+            border: 2px solid $light-color;
+            padding: 0.2em 0.4em;
+            border-radius: 0.2em;
+            background-color: $light-color;
+            border-radius: 8px;
+            padding: 5px 10px;
+            transition: 1s;
+            [data-theme="dark"] & {
+                background: var(--card-color);
+                border-color: var(--card-color);
+                color: var(--light-font);
+            }
+        }
+    }
+    .form-control,
+    select {
+        background-color: $light-color;
+    }
+    .btn-fb,
+    .btn-twitter,
+    .btn-google,
+    .btn-linkedin {
+        color: $white;
+        width: 100%;
+    }
+    .btn-fb {
+        background-color: $fb;
+    }
+    .btn-twitter {
+        background-color: $twitter;
+    }
+    .btn-google {
+        background-color: $google-plus;
+    }
+    .btn-linkedin {
+        background-color: $linkedin;
+    }
+}
+.checkbox-checked {
+    .form-check-input {
+        cursor: pointer;
+        &:checked {
+            background-color: var(--theme-default);
+            border-color: var(--theme-default);
+        }
+        &:focus {
+            border-color: var(--theme-default);
+            box-shadow: 0 0 0 4px rgba($primary-color, 0.25);
+        }
+    }
+    .card-wrapper {
+        .form-check {
+            &:last-child {
+                min-height: 0;
+                margin-bottom: 0;
+                label {
+                    margin-bottom: 0;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.theme-form {
+    .form-control,
+    select {
+        border: none;
+        color: var(--dark-gray);
+        border-radius: 5px;
+        font-family: "Outfit", sans-serif;
+        font-size: 14px;
+        [data-theme="dark"] & {
+            background-color: var(--body-color);
+        }
+    }
+    .form-control-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+    }
+    .form-control-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        border-radius: 0.25rem;
+    }
+    .form-text {
+        font-size: 1em;
+    }
+    .form-label {
+        font-size: 17px;
+    }
+    .input-group-text {
+        background: darken($light-color, 4%);
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 0;
+        [data-theme="dark"] & {
+            background: var(--body-color);
+        }
+    }
+    .input-group {
+        :not(:hover)[class*=btn-outline-] {
+            background-color: $light-color;
+            color: inherit;
+            [data-theme="dark"] & {
+                background: var(--card-color);
+            }
+        }
+    }
+}
+.form-check-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding: 0;
+    .form-check-input {
+        float: left;
+        margin-right: 0;
+        margin-left: 10px;
+    }
+}
+.form-check-size {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+    .form-check-inline {
+        margin: 0;
+        min-height: 0;
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            margin-top: 0;
+        }
+        .check-size {
+            width: 36px;
+            height: 18px;
+            margin-top: 0;
+        }
+        label {
+            margin: 0;
+            cursor: pointer;
+        }
+    }
+}
+.main-img-checkbox {
+    .img-checkbox {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .main-img-cover {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 24px;
+            height: 24px;
+        }
+        .form-check-label {
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+    }
+}
+.main-icon-checkbox {
+    &.checkbox {
+        label {
+            margin-top: 0;
+            &::before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                margin-left: 1px;
+                background-color: transparent;
+                top: 0;
+                display: block;
+            }
+        }
+    }
+    &.checkbox-primary {
+        input[type=checkbox]:checked {
+            +label::before {
+                color: transparent;
+                border: 2px solid var(--theme-default);
+            }
+        }
+        input[type=checkbox] {
+            opacity: 1;
+        }
+        .form-check-input {
+            border: 1px solid var(--gray-60);
+            &.checkbox-shadow {
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+            &:checked[type=checkbox] {
+                background-image: none;
+            }
+        }
+    }
+}
+.radio-wrapper,
+.checkbox-wrapper {
+    display: flex;
+    gap: calc(8px + 8 * (100vw - 320px) / 1600);
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        border: none;
+        text-align: center;
+        display: grid;
+        place-items: center;
+        width: 100px;
+        height: 52px;
+        .form-check-input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            float: none;
+            margin: 0;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            border-radius: 0;
+            background-color: transparent;
+            border: 1px solid var(--gray-60);
+            &:focus {
+                box-shadow: none;
+            }
+            &[type=radio] {
+                opacity: 1;
+                cursor: pointer;
+            }
+            &:checked {
+                border: 2px solid var(--theme-default);
+                background-color: transparent;
+                &[type=radio] {
+                    background-image: none;
+                    box-shadow: unset;
+                }
+                ~ {
+                    .form-check-label {
+                        color: var(--theme-default);
+                        span {
+                            color: var(--theme-default);
+                        }
+                    }
+                }
+            }
+        }
+        .form-check-label {
+            position: unset;
+            padding: 0;
+            &:after {
+                content: none;
+            }
+            &::before {
+                content: none;
+            }
+            i {
+                font-size: 20px;
+                padding-right: 10px;
+                line-height: 2.5;
+            }
+            span {
+                font-size: 16px;
+            }
+        }
+    }
+}
+.radio-form {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    .form-check {
+        min-height: 0;
+        margin-bottom: 0;
+        .form-check-label {
+            margin-bottom: 0;
+        }
+    }
+}
+.basic-form {
+    position: relative;
+    svg {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        &.stroke-icon {
+            width: 25px;
+            height: 25px;
+            stroke: $dark-color;
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+        }
+    }
+}
+.flat-form * {
+    border-radius: 0 !important;
+}
+.edges-form * {
+    border-radius: 20px !important;
+    .form-select {
+        overflow: hidden;
+    }
+}
+.raise-form {
+    .form-control,
+    .form-select {
+        box-shadow: 0 5px 10px 2px rgba($dark-color, 0.1) !important;
+    }
+}
+.custom-input {
+    .form-check {
+        .form-check-input {
+            &:valid {
+                &~.form-check-label {
+                    color: var(--theme-default);
+                }
+            }
+            &:invalid {
+                &~.form-check-label {
+                    color: $danger-color;
+                }
+            }
+        }
+    }
+}
+.form-control-plaintext {
+    [data-theme="dark"] & {
+        color: var(--light-font);
+    }
+}
+.accordion-page {
+    .theme-form {
+        select {
+            &.form-select {
+                @media (max-width:360px) {
+                    padding: 6px 36px !important;
+                }
+            }
+        }
+    }
+}
+.input-dropdown {
+    .theme-form {
+        .input-group {
+            .btn {
+                @media (max-width:338px) {
+                    padding: 6px 6px !important;
+                }
+            }
+        }
+    }
+}
+::-webkit-calendar-picker-indicator {
+    [data-theme="dark"] & {
+        filter: invert(1);
+    }
+}
+input {
+    [data-theme="dark"] & {
+        color: var(--body-font-color);
+    }
+}
+/**=====================
+     form css end
+==========================**/

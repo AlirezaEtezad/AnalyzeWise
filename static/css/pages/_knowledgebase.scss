@@ -1,0 +1,122 @@
+/**=====================
+    3.25 Knowledgebase CSS start
+==========================**/
+.browse {
+  .browse-articles {
+    span {
+      vertical-align: middle;
+      &:nth-child(2) {
+        padding-left: 20px;
+        [dir="rtl"] & {
+          padding-left: unset;
+          padding-right: 20px;
+        }
+      }
+      svg {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        [dir="rtl"] & {
+          left: unset;
+          right: 0;
+        }
+      }
+    }
+    h6 {
+      padding-bottom: 10px;
+      margin-bottom: 0px;
+      border-bottom: 1px solid var(--solid-border);
+      position: relative;
+      padding-left: 25px;
+      font-weight: 600;
+      font-size: 16px;
+      [dir="rtl"] & {
+        padding-left: unset;
+        padding-right: 25px;
+      }
+      span {
+        svg {
+          width: 16px;
+          height: 16px;
+          margin-right: 10px;
+          position: absolute;
+          left: 0;
+          top: 33%;
+          transform: translate(0, -50%);
+        }
+      }
+    }
+    ul {
+      li {
+        padding: 8px;
+        border-radius: 8px;
+        a {
+          color: $theme-body-font-color;
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        &:hover {
+          background-color: $light;
+          [data-theme="dark"] & {
+            background: var(--body-color);
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .browse {
+    div[class^="col-"] {
+      &:nth-child(3) {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 360px) {
+  .browse {
+    .browse-articles {
+      ul {
+        li {
+          a {
+            span {
+              &:nth-child(2) {
+                width: 158px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.badge {
+  &.pull-right {
+    padding-top: 6px;
+  }
+}
+.articles-icons {
+  svg {
+    min-width: 18px;
+  }
+}
+.d-flex {
+  &.faq-widgets {
+    svg {
+      min-width: 18px;
+    }
+  }
+}
+/**=====================
+      3.25 Knowledgebase CSS End
+  ==========================**/

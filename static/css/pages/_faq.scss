@@ -1,0 +1,386 @@
+/**=====================
+    3.17 Faq CSS start
+==========================**/
+.knowledgebase-bg {
+  height: 500px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  @include media-breakpoint-down(xl) {
+    height: 400px;
+  }
+  @include media-breakpoint-down(sm) {
+    height: 250px;
+  }
+}
+.knowledgebase-search {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  left: 5%;
+  @include media-breakpoint-down(sm) {
+    width: calc(100% - 30px);
+    left: 15px;
+    height: calc(100% - 30px);
+    background-color: rgba($primary-color, 0.19);
+  }
+  h3 {
+    @include media-breakpoint-down(sm) {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+  }
+  >div {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      border-right: 10px;
+    }
+  }
+  .form-inline {
+    background-color: $white;
+    width: 500px;
+    padding: 12px 50px;
+    border-radius: 10px;
+    border: 1px solid var(--form-inline-border);
+    margin-top: 10px;
+    position: relative;
+    @include media-breakpoint-down(xl) {
+      width: 400px;
+      padding: 7px 45px;
+    }
+    @include media-breakpoint-down(sm) {
+      width: 90%;
+      padding: 3px 45px;
+    }
+    ::placeholder {
+      color: $gray-60;
+    }
+    svg,
+    i {
+      position: absolute;
+      left: 20px;
+      width: 20px;
+      top: 17px;
+      stroke: $gray-60;
+      @include media-breakpoint-down(xl) {
+        top: 14px;
+      }
+      @include media-breakpoint-down(sm) {
+        top: 9px;
+      }
+    }
+  }
+}
+.faq-widgets {
+  align-items: center;
+  .flex-grow-1 {
+    flex: 1;
+    h4 {
+      font-weight: 600;
+      color: $white;
+    }
+    p {
+      padding-right: 20px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: rgba($white, 0.7);
+    }
+  }
+  svg {
+    width: 60px !important;
+    height: 60px !important;
+    opacity: 0.5;
+    color: $white;
+    @include media-breakpoint-down(sm) {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      opacity: 0.1;
+      top: 10px;
+      right: 20px;
+      width: 60px !important;
+      height: 60px !important;
+    }
+    @include media-breakpoint-down(xl) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+.header-faq {
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+  h5 {
+    font-weight: 600;
+  }
+  margin-bottom: 30px;
+}
+.features-faq {
+  &.card {
+    .card-body,
+    .card-footer {
+      padding: 20px 25px;
+    }
+  }
+  .faq-image {
+    img {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      width: 100%;
+    }
+  }
+  .card-body {
+    h5 {
+      font-weight: 500;
+    }
+  }
+}
+.add-project {
+  &.table td {
+    vertical-align: middle;
+  }
+  .text-inherit {
+    color: var(--black);
+    [data-theme="dark"] & {
+      color: var(--body-font-color);
+    }
+  }
+}
+.faq-accordion.default-according {
+  margin-bottom: 30px;
+  .card {
+    .accordion-button {
+      background-color: transparent;
+    }
+    .btn-link {
+      display: flex;
+      font-weight: 500;
+      color: $theme-body-font-color;
+      text-decoration: none;
+      i {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      [data-theme="dark"] & {
+        color: var(--light-font);
+      }
+    }
+    .faq-header {
+      position: relative;
+      padding: 30px;
+      @include media-breakpoint-down(lg) {
+        padding: 20px !important;
+      }
+      @include media-breakpoint-down(sm) {
+        padding: 15px !important;
+      }
+      i {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        width: 20px;
+        height: 20px;
+        @include media-breakpoint-down(lg) {
+          right: 20px;
+          top: 20px;
+        }
+      }
+      span {
+        margin-top: 3px;
+      }
+    }
+  }
+  .faq-body {
+    padding: 20px !important;
+  }
+  .card-mb-faq {
+    margin-bottom: 30px;
+  }
+}
+.faq-title {
+  margin: 30px 0;
+  @include media-breakpoint-down(sm) {
+    margin: 15px 0;
+  }
+  h6 {
+    color: var(--light-text);
+    font-weight: 600;
+  }
+}
+.faq-form {
+  position: relative;
+  .search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 20px;
+    height: 20px;
+  }
+}
+.navigation-btn {
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 15px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  margin-bottom: 20px;
+}
+.navigation-option {
+  ul {
+    li {
+      position: relative;
+      padding: 8px 8px 8px 0;
+      @include media-breakpoint-down(lg) {
+        padding: 10px 10px 10px 0;
+      }
+      &:hover {
+        background-color: var(--body-color);
+        a {
+          color: var(--theme-default);
+        }
+      }
+      a {
+        padding-left: 40px;
+        color: $theme-body-font-color;
+        [data-theme="dark"] & {
+          color: var(--light-font);
+        }
+        i {
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          top: 11px;
+          left: 15px;
+          @include media-breakpoint-down(lg) {
+            top: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+.updates-faq {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--theme-default);
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 20px;
+  @include media-breakpoint-down(lg) {
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+  }
+  @include media-breakpoint-down(md) {
+    width: 30px;
+    height: 30px;
+  }
+  svg {
+    width: 18px !important;
+    height: 18px !important;
+    @include media-breakpoint-down(lg) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+.updates-bottom-time {
+  flex: 1;
+  p {
+    margin-bottom: 2px;
+    [data-theme="dark"] & {
+      color: var(--light-font);
+    }
+    +p {
+      color: var(--light-text);
+      [data-theme="dark"] & {
+        color: var(--light-font);
+      }
+    }
+  }
+}
+.updates-faq-main {
+  margin-bottom: 20px;
+  a {
+    font-weight: 500;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 20px;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 15px;
+  }
+}
+.faq-accordion {
+  @include media-breakpoint-down(xl) {
+    margin-bottom: 30px;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 0px;
+  }
+}
+.faq-accordion {
+  .faq-header {
+    .pull-right {
+      @include media-breakpoint-down(sm) {
+        float: right;
+      }
+    }
+    i {
+      @include media-breakpoint-down(sm) {
+        right: 15px;
+        top: 15px;
+      }
+    }
+  }
+}
+.form-inline {
+  .form-group {
+    &:not(.form-control-search) {
+      input {
+        @include media-breakpoint-down(md) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.xs-mt-search {
+  @include media-breakpoint-down(md) {
+    margin-top: 30px;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-top: 0px;
+  }
+}
+/**=====================
+      3.17 Faq CSS end
+  ==========================**/

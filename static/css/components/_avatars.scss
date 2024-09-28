@@ -1,0 +1,126 @@
+/**=====================
+    Avatars CSS start
+==========================**/
+.avatars {
+    .avatar {
+        display: inline-block;
+        margin-right: 10px;
+        position: relative;
+        width: auto;
+        &:last-child {
+            margin-right: 0;
+        }
+        &.ratio {
+            img {
+                width: auto;
+            }
+        }
+        .status {
+            position: absolute;
+            height: 12%;
+            width: 12%;
+            border-radius: 100%;
+            bottom: 12%;
+            right: 4%;
+        }
+        .img-100 {
+            width: calc(75px + (100 - 75) * ((100vw - 320px) / (1920 - 320))) !important;
+            height: calc(75px + (100 - 75) * ((100vw - 320px) / (1920 - 320)));
+        }
+        .img-90 {
+            width: calc(65px + (90 - 65) * ((100vw - 320px) / (1920 - 320))) !important;
+            height: calc(65px + (90 - 65) * ((100vw - 320px) / (1920 - 320)));
+        }
+        .img-80 {
+            width: calc(55px + (80 - 55) * ((100vw - 320px) / (1920 - 320))) !important;
+            height: calc(55px + (80 - 55) * ((100vw - 320px) / (1920 - 320)));
+        }
+        .img-70 {
+            width: calc(45px + (70 - 45) * ((100vw - 320px) / (1920 - 320))) !important;
+            height: calc(45px + (70 - 45) * ((100vw - 320px) / (1920 - 320)));
+        }
+    }
+}
+.icon-avatar {
+    .avatars {
+        display: flex;
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            @include flex_common;
+        }
+    }
+}
+.status-offline {
+    background-color: $danger-color;
+}
+.status-online {
+    background-color: $success-color;
+}
+.status-dnd {
+    background-color: $warning-color;
+}
+.customers {
+    ul {
+        display: inline-block;
+        li {
+            img {
+                border: 2px solid var(--white);
+                transition: 0.5s;
+                &:hover {
+                    transform: translateY(-4px) scale(1.02);
+                    transition: 0.5s;
+                }
+                [data-theme="dark"] & {
+                    border: 2px solid var(--light-color);
+                }
+            }
+            +li {
+                margin-left: -12%;
+            }
+        }
+    }
+    &.avatar-group {
+        margin-right: 10px;
+        ul {
+            li {
+                &:last-child {
+                    span {
+                        width: 40px;
+                        height: 40px;
+                        font-weight: 500;
+                        vertical-align: middle;
+                        border: 2px solid var(--light-color);
+                        background-color: var(--card-color);
+                        @include flex_common;
+                    }
+                }
+            }
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+.avatar-showcase {
+    margin-bottom: -10px;
+    .avatars {
+        .avatar {
+            margin-bottom: 10px;
+        }
+    }
+    .avatar-group {
+        margin-bottom: 10px;
+    }
+    .ratio {
+        >* {
+            position: relative;
+            top: unset;
+            left: unset;
+        }
+    }
+}
+/**=====================
+    Avatars CSS Ends
+==========================**/

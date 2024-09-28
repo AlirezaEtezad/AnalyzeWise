@@ -1,0 +1,110 @@
+/**=====================
+  3.23 Jsgrid CSS Start
+==========================**/
+.jsgrid {
+  .jsgrid-grid-body {
+    .jsgrid-cell {
+      padding: 12px;
+      padding-bottom: 12px !important;
+    }
+  }
+  .jsgrid-pager-container {
+    text-align: right;
+    @include media-breakpoint-down(md) {
+      text-align: center;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 0;
+    }
+  }
+  .jsgrid-pager {
+    padding: 0;
+    margin-top: 20px;
+    .jsgrid-pager-nav-inactive-button {
+      margin-right: -5px;
+      &:first-child {
+        border-radius: 5px 0 0 5px;
+      }
+    }
+    .jsgrid-pager-page {
+      @media only screen and (max-width: 360px) {
+        padding: 0.5em 0.62em;
+      }
+      &~.jsgrid-pager-nav-button {
+        margin-left: -5px;
+        &:last-child {
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+    [class*="jsgrid-pager"] {
+      display: inline-block;
+      min-width: 1.5em;
+      padding: 0.5em 1em;
+      border: 1px dashed rgba(106, 113, 133, 0.3);
+    }
+    .jsgrid-pager-page {
+      a {
+        color: $dark-color;
+      }
+    }
+    .jsgrid-pager-current-page {
+      color: $dark-color;
+    }
+  }
+  .jsgrid-selected-row {
+    >.jsgrid-cell {
+      background: $light-color;
+      border-color: rgba(106, 113, 133, 0.3);
+      border-bottom: 1px dashed rgba(106, 113, 133, 0.3);
+    }
+  }
+  .jsgrid-header-row {
+    >.jsgrid-header-cell {
+      padding: 0.75rem;
+      font-weight: 500;
+    }
+  }
+}
+.jsgrid-row {
+  >.jsgrid-cell {
+    [data-theme="dark"] & {
+      background: var(--card-color);
+    }
+  }
+}
+.jsgrid-alt-row {
+  >.jsgrid-cell {
+    [data-theme="dark"] & {
+      background: var(--body-color);
+    }
+  }
+}
+.jsgrid-header-row {
+  >.jsgrid-header-cell {
+    [data-theme="dark"] & {
+      background: var(--card-color);
+    }
+  }
+}
+.jsgrid-filter-row {
+  >.jsgrid-cell {
+    [data-theme="dark"] & {
+      background: var(--card-color);
+    }
+  }
+  input {
+    [data-theme="dark"] & {
+      background: var(--body-color);
+    }
+  }
+}
+.jsgrid-grid-header {
+  [data-theme="dark"] & {
+    background-color: var(--solid-border);
+    overflow: hidden;
+  }
+}
+/**=====================
+    3.23 Jsgrid CSS Ends
+  ==========================**/
