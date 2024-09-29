@@ -17,8 +17,8 @@ class User(SQLModel, table=True):
     role: str = Field(default="user")
 
 
-#DATABASE_URL = "postgresql://admin:123@localhost:5432/postgres_db"
-DATABASE_URL = "sqlite:///./database.db"
+DATABASE_URL = "postgresql://admin:123@analyzewise_postgres:5432/analyzewise_db"
+#DATABASE_URL = "sqlite:///./database.db"
 engine = create_engine(DATABASE_URL, echo=True)
 SQLModel.metadata.create_all(engine)
 

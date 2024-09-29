@@ -5,9 +5,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from database import User, RegisterModel, LoginModel, engine
 from sqlmodel import Session as db_session, select
 from pydantic import ValidationError
-import mediapipe as mp
-from mediapipe.tasks import python
-from mediapipe.tasks.python import vision
+# import mediapipe as mp
+# from mediapipe.tasks import python
+# from mediapipe.tasks.python import vision
 from datetime import datetime
 import humanize
 from src.face_analysis import FaceAnalysis

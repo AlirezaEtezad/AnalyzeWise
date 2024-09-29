@@ -1,15 +1,13 @@
 flask
-# deepface
 Werkzeug
 pydantic
 datetime
 humanize
 opencv-python
-tensorflow==2.16.1
-tf-keras
-mediapipe
+# tensorflow
+# tf-keras
 sqlmodel
-pydantic
 psycopg2-binary
 onnxruntime
 scikit-image
+pyyaml
