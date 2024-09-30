@@ -35,3 +35,20 @@ make a docker container from the image:
 ```sh
 sudo docker run -p 5000:5000 --name {name_of_container} {name_of_image}
 ```
+
+
+## Docker Network
+You can also use a docekr network and run your app on 2 containers.
+
+Create a Docker network
+```sh
+sudo docker network create my_network
+```
+Run PostgreSQL Docker container and connect it to the network
+```sh
+docker run --network {network_name} --name {container_name} -e POSTGRES_PASSWORD={database_password} -e POSTGRES_USER={database_user} -e POSTGRES_DB={database_name} -d postgres
+```
+Run your Flask app Docker container and connect it to the network
+```sh
+docker run --rm --network {network_name} --name {container_name} -p 8080:5000 -v $(pwd):/myapp {image_name}
+```
