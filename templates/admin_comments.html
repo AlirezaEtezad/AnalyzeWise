@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Manage Comments
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Manage Comments</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Comment</th>
+                <th>Approved</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comment in comments %}
+            <tr>
+                <td>{{ comment.user.first_name }} {{ comment.user.last_name }}</td>
+                <td>{{ comment.content | safe}}</td>
+                <td>{{ 'Yes' if comment.approved else 'No' }}</td>
+                <td>
+                    {% if not comment.approved %}
+                    <form method="POST" action="{{ url_for('approve_comment', comment_id=comment.id) }}">
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                    {% else %}
+                    <form method="POST" action="{{ url_for('disapprove_comment', comment_id=comment.id) }}">
+                        <button type="submit" class="btn btn-danger">Disapprove</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No comments to manage</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

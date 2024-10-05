@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres
+    container_name: analyzewise_postgres
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: admin
+      POSTGRES_DB: analyzewise_db
+    networks:
+      - analyzewise_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  analyzewise:
+    image: analyzewise_image
+    container_name: analyzewise_flask
+    networks:
+      - analyzewise_network
+    ports:
+      - "8080:5000"
+    volumes:
+      - .:/myapp
+    depends_on:
+      - postgres
+
+
+  idioms_api:
+    image: idioms_image
+    container_name: idioms_api
+    networks:
+      - analyzewise_network
+    ports:
+      - "8090:8000"  # port 8090
+    volumes:
+      - .:/myapp
+
+
+networks:
+  analyzewise_network:
+
+
+volumes:
+  postgres_data:

@@ -78,6 +78,41 @@ Face Analysis
     </div>
 </div>
 
+<div class="row">
+    <div class="col">
+        <form method="post" action="add-new-comment">
+            <div class="mb-3">
+                <label for="Text1" class="form-label">Your Comment</label>
+                <textarea id="editor" name="text" class="form-control" id="example text1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <h3>Comments</h3>
+        <ul class="list-group">
+            {% if comments %}
+                {% for comment in comments %}
+                    <li class="list-group-item">
+                        <strong>{{ comment.user.first_name }} {{ comment.user.last_name }}:</strong>
+                        <p>{{ comment.content | safe}}</p>
+                        <small>{{ comment.timestamp.strftime("%Y-%m-%d %H:%M:%S") }}</small>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li class="list-group-item">No comments yet. Be the first to comment!</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+
 <!-- <div class="row mt-4">
     <div class="col">
         <div id="editor">

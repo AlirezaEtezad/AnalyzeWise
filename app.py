@@ -1,9 +1,10 @@
-from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session as flask_session
+from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session as flask_session, jsonify
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 # from deepface import DeepFace
-from database import User, RegisterModel, LoginModel, engine
-from sqlmodel import Session as db_session, select
+from database import User, RegisterModel, LoginModel, engine, Comment
+from sqlmodel import Session as db_session, select, func
+from sqlalchemy.orm import selectinload #, joinedload
 from pydantic import ValidationError
 # import mediapipe as mp
 # from mediapipe.tasks import python
@@ -66,6 +67,7 @@ def login():
             if user:
                 flask_session['email'] = user.email
                 flask_session['role'] = user.role
+                flask_session['user_id'] = user.id
                 flash("Login successful", "info")
                 return redirect(url_for("dashboard"))
             else:
@@ -123,6 +125,12 @@ def ai_face_analysis():
     if 'email' not in flask_session:
         flash("Please log in to upload images", "warning")
         return redirect(url_for("login"))
+    
+    comments = []
+    with db_session(engine) as session:
+        # Fetch comments and their associated users
+        #comments = session.exec(select(Comment).options(joinedload(Comment.user))).all()
+        comments = session.exec(select(Comment).options(selectinload(Comment.user)).where(Comment.approved == True).join(User)).all()
 
     if request.method == 'POST':
         image = request.files['image']
@@ -149,7 +157,7 @@ def ai_face_analysis():
         flash("File type not allowed", "warning")
         return redirect(url_for("ai_face_analysis"))
     
-    return render_template("ai_face_analysis.html")
+    return render_template("ai_face_analysis.html",comments=comments)
 
 
 @app.route("/ai-object-detection", methods=["GET", "POST"])
@@ -274,6 +282,57 @@ def admin():
 
 
 
+
+@app.route('/admin/comments', methods=['GET', 'POST'])
+def manage_comments():
+    if 'email' not in flask_session or flask_session.get('role') != "admin":
+        flash('Admin access required', 'danger')
+        return redirect(url_for('login'))
+
+    with db_session(engine) as session:
+        # Get all comments
+        all_comments = session.exec(select(Comment).options(selectinload(Comment.user))).all()
+
+    return render_template('admin_comments.html', comments=all_comments)
+
+@app.route('/admin/comments/approve/<int:comment_id>', methods=['POST'])
+def approve_comment(comment_id):
+    if 'email' not in flask_session or flask_session.get('role') != "admin":
+        flash('Admin access required', 'danger')
+        return redirect(url_for('login'))
+
+    with db_session(engine) as session:
+        comment = session.get(Comment, comment_id)
+        if comment:
+            comment.approved = True
+            session.add(comment)
+            session.commit()
+            flash('Comment approved', 'success')
+        else:
+            flash('Comment not found', 'danger')
+
+    return redirect(url_for('manage_comments'))
+
+@app.route('/admin/comments/disapprove/<int:comment_id>', methods=['POST'])
+def disapprove_comment(comment_id):
+    if 'email' not in flask_session or flask_session.get('role') != "admin":
+        flash('Admin access required', 'danger')
+        return redirect(url_for('login'))
+
+    with db_session(engine) as session:
+        comment = session.get(Comment, comment_id)
+        if comment:
+            comment.approved = False
+            session.add(comment)
+            session.commit()
+            flash('Comment disapproved', 'success')
+        else:
+            flash('Comment not found', 'danger')
+
+    return redirect(url_for('manage_comments'))
+
+
+
 @app.route('/update_role/<int:user_id>', methods=['POST'])
 def update_role(user_id):
     new_role = request.form.get("role")
@@ -290,7 +349,27 @@ def update_role(user_id):
     return redirect(url_for("admin"))
 
 
+@app.route("/add-new-comment", methods=["post"])
+def add_new_comment():
+    text = request.form["text"]
+    with db_session(engine) as session:
+        new_comment = Comment(
+            user_id=flask_session.get("user_id"),
+            content=text
+        )
+        print(new_comment)
+        session.add(new_comment)
+        session.commit()
+    return redirect(url_for("ai_face_analysis"))
 
+
+@app.route("/api/user-count", methods=["GET"])
+def user_count():
+    with db_session(engine) as session:
+        statement = select(func.count(User.id))
+        user_count = session.exec(statement).one()  # Count the total number of users
+
+    return jsonify({"user_count": user_count}) 
 
 
 @app.route("/logout")

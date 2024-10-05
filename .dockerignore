@@ -1,0 +1,8 @@
+packages
+__pycache__
+.git
+.github
+bootstrap-5.3.3.zip
+bootstrap-5.3.3-dist.zip
+mediapipe-pose-landmarker-task-for-web.zip
+test.py

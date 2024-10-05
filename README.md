@@ -46,9 +46,29 @@ sudo docker network create my_network
 ```
 Run PostgreSQL Docker container and connect it to the network
 ```sh
-docker run --network {network_name} --name {container_name} -e POSTGRES_PASSWORD={database_password} -e POSTGRES_USER={database_user} -e POSTGRES_DB={database_name} -d postgres
+sudo docker run --network {network_name} --name {container_name} -e POSTGRES_PASSWORD={database_password} -e POSTGRES_USER={database_user} -e POSTGRES_DB={database_name} -d postgres
 ```
 Run your Flask app Docker container and connect it to the network
 ```sh
-docker run --rm --network {network_name} --name {container_name} -p 8080:5000 -v $(pwd):/myapp {image_name}
+sudo docker run --rm --network {network_name} --name {container_name} -p 8080:5000 -v $(pwd):/myapp {image_name}
+```
+
+## Docker Compose
+For ease of use you can just modify a docker-compose.yml and just use the following commands:
+
+create containers
+```sh
+sudo docker compose up -d
+```
+see the status of the containers
+```sh
+sudo docker compose ps
+```
+stop the containers
+```sh
+sudo docker compose stop
+```
+remove the containers
+```sh
+sudo docker compose down
 ```

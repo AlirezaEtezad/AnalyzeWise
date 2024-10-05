@@ -1,4 +1,4 @@
-from sqlmodel import SQLModel, create_engine, Field, Session, select
+from sqlmodel import SQLModel, create_engine, Field, Session, select, Relationship
 from pydantic import BaseModel, validator, ValidationError, EmailStr,constr  #pydantic will check the validation
 from datetime import datetime
 from typing import Optional
@@ -15,6 +15,18 @@ class User(SQLModel, table=True):
     password: str
     join_time: datetime = Field(default_factory=datetime.now)
     role: str = Field(default="user")
+
+    comments: list["Comment"] = Relationship(back_populates="user")
+
+
+class Comment(SQLModel, table=True):
+    id: int = Field(default=None, primary_key=True)
+    content: str
+    timestamp: datetime = Field(default_factory=datetime.now)
+    user_id: int = Field(foreign_key="user.id")
+    approved: bool = Field(default=False)
+
+    user: "User" = Relationship(back_populates="comments")
 
 
 DATABASE_URL = "postgresql://admin:123@analyzewise_postgres:5432/analyzewise_db"
