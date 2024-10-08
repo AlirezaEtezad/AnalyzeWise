@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ topic.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ topic.title }}</h1>
+    <p><small>By {{ author_name }} - Published {{ relative_time }}</small></p>  <!-- Author and relative time -->
+    <hr>
+    <div class="content">
+        {{ topic.text | safe }}  <!-- Render the full blog text -->
+    </div>
+</div>
+{% endblock %}

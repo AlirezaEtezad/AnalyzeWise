@@ -29,8 +29,17 @@ class Comment(SQLModel, table=True):
     user: "User" = Relationship(back_populates="comments")
 
 
-DATABASE_URL = "postgresql://admin:123@analyzewise_postgres:5432/analyzewise_db"
-#DATABASE_URL = "sqlite:///./database.db"
+class Topic(SQLModel, table=True):
+    id: int = Field(default=None, primary_key=True)
+    title: str
+    timestamp: datetime = Field(default_factory=datetime.now)
+    text: str
+    user_id: int = Field(foreign_key="user.id")
+
+    user: "User" = Relationship() 
+
+#DATABASE_URL = "postgresql://admin:123@analyzewise_postgres:5432/analyzewise_db"
+DATABASE_URL = "sqlite:///./database.db"
 engine = create_engine(DATABASE_URL, echo=True)
 SQLModel.metadata.create_all(engine)
 

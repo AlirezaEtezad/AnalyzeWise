@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Blog
+{% endblock %}
+
+{% block content %}
+
+<div class="row mt-4">
+    <div class="col-6">
+        <div class="list-group">
+            {% for entry in topics %}
+            <a href="/blog/{{ entry.topic.id }}" class="list-group-item list-group-item-action" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ entry.topic.title }}</h5>
+                <small>By {{ entry.author_name }} - {{ entry.relative_time }}</small>  <!-- Author and relative time -->
+              </div>
+              <p class="mb-1"> {{ entry.topic.text[:100] }}... <!-- Shortened text summary --> </p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

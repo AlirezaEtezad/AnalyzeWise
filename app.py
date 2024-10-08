@@ -1,8 +1,8 @@
-from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session as flask_session, jsonify
+from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session as flask_session, jsonify, abort
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 # from deepface import DeepFace
-from database import User, RegisterModel, LoginModel, engine, Comment
+from database import User, RegisterModel, LoginModel, engine, Comment, Topic
 from sqlmodel import Session as db_session, select, func
 from sqlalchemy.orm import selectinload #, joinedload
 from pydantic import ValidationError
@@ -370,6 +370,104 @@ def user_count():
         user_count = session.exec(statement).one()  # Count the total number of users
 
     return jsonify({"user_count": user_count}) 
+
+@app.route("/blog")
+def blog():
+    with db_session(engine) as session:
+        # Fetch topics along with the associated author (User)
+        topics = list(session.exec(select(Topic).options(selectinload(Topic.user))))
+        
+        # Prepare topics with their relative times and author names
+        topics_with_info = [
+            {
+                "topic": topic,
+                "relative_time": humanize.naturaltime(datetime.now() - topic.timestamp),
+                "author_name": f"{topic.user.first_name} {topic.user.last_name}"
+            }
+            for topic in topics
+        ]
+    
+    return render_template("blog.html", topics=topics_with_info)
+
+# Detailed blog post view
+@app.route("/blog/<int:topic_id>")
+def blog_topic(topic_id):
+    with db_session(engine) as session:
+        topic = session.get(Topic, topic_id)
+        if not topic:
+            abort(404, description="Topic not found")
+        
+        # Prepare the relative time and author name for the topic
+        relative_time = humanize.naturaltime(datetime.now() - topic.timestamp)
+        author_name = f"{topic.user.first_name} {topic.user.last_name}"
+        
+        return render_template("topic.html", topic=topic, relative_time=relative_time, author_name=author_name)
+    
+
+
+@app.route("/admin/blogs", methods=["GET", "POST"])
+def admin_blogs():
+    if 'email' not in flask_session or flask_session.get('role') != "admin":
+        flash('Admin access required', 'danger')
+        return redirect(url_for('login'))
+
+    with db_session(engine) as session:
+        topics = list(session.exec(select(Topic)))
+    
+    return render_template("admin_blogs.html", topics=topics)
+
+@app.route("/admin/blogs/add", methods=["POST"])
+def add_blog():
+    if 'email' not in flask_session or flask_session.get('role') != "admin":
+        flash('Admin access required', 'danger')
+        return redirect(url_for('login'))
+
+    title = request.form.get("title")
+    text = request.form.get("text")
+    with db_session(engine) as session:
+        new_topic = Topic(title=title, text=text, user_id=1)  # Assuming admin ID is 1
+        session.add(new_topic)
+        session.commit()
+    flash("Blog added successfully", "success")
+    return redirect(url_for('admin_blogs'))
+
+@app.route("/admin/blogs/edit/<int:topic_id>", methods=["POST"])
+def edit_blog(topic_id):
+    if 'email' not in flask_session or flask_session.get('role') != "admin":
+        flash('Admin access required', 'danger')
+        return redirect(url_for('login'))
+
+    title = request.form.get("title")
+    text = request.form.get("text")
+    with db_session(engine) as session:
+        topic = session.get(Topic, topic_id)
+        if topic:
+            topic.title = title
+            topic.text = text
+            session.commit()
+            flash("Blog updated successfully", "success")
+        else:
+            flash("Blog not found", "danger")
+    
+    return redirect(url_for('admin_blogs'))
+
+@app.route("/admin/blogs/delete/<int:topic_id>", methods=["POST"])
+def delete_blog(topic_id):
+    if 'email' not in flask_session or flask_session.get('role') != "admin":
+        flash('Admin access required', 'danger')
+        return redirect(url_for('login'))
+
+    with db_session(engine) as session:
+        topic = session.get(Topic, topic_id)
+        if topic:
+            session.delete(topic)
+            session.commit()
+            flash("Blog deleted successfully", "success")
+        else:
+            flash("Blog not found", "danger")
+    
+    return redirect(url_for('admin_blogs'))
+
 
 
 @app.route("/logout")

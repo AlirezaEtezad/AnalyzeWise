@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Manage Blogs
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Manage Blogs</h1>
+
+    <!-- Form to add a new blog -->
+    <h3>Add New Blog</h3>
+    <form method="POST" action="{{ url_for('add_blog') }}">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="text" class="form-label">Content</label>
+            <textarea name="text" class="form-control" id="text" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Blog</button>
+    </form>
+
+    <!-- List of blogs -->
+    <h3 class="mt-5">Current Blogs</h3>
+    <ul class="list-group">
+        {% for topic in topics %}
+        <li class="list-group-item">
+            <!-- Form to edit the blog -->
+            <form method="POST" action="{{ url_for('edit_blog', topic_id=topic.id) }}" class="d-flex justify-content-between align-items-start">
+                <div style="flex-grow: 1; margin-right: 15px;">
+                    <input type="text" name="title" class="form-control mb-2" value="{{ topic.title }}" required style="width: 100%;">
+                    <textarea name="text" class="form-control" rows="4" required style="width: 100%;">{{ topic.text }}</textarea>
+                </div>
+                <div class="d-flex flex-column justify-content-start">
+                    <button type="submit" class="btn btn-success mb-2">Edit</button>
+                </div>
+            </form>
+
+            <!-- Form to delete the blog (separate form) -->
+            <form method="POST" action="{{ url_for('delete_blog', topic_id=topic.id) }}" onsubmit="return confirm('Are you sure you want to delete this blog?');" class="d-flex justify-content-end mt-2">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
