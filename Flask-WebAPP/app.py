@@ -1,18 +1,12 @@
 from flask import Flask, render_template, send_from_directory, request, redirect, url_for, flash, session as flask_session, jsonify, abort
-import os
+import requests
 from werkzeug.security import generate_password_hash, check_password_hash
-# from deepface import DeepFace
 from database import User, RegisterModel, LoginModel, engine, Comment, Topic
 from sqlmodel import Session as db_session, select, func
 from sqlalchemy.orm import selectinload #, joinedload
 from pydantic import ValidationError
-# import mediapipe as mp
-# from mediapipe.tasks import python
-# from mediapipe.tasks.python import vision
 from datetime import datetime
 import humanize
-from src.face_analysis import FaceAnalysis
-from src.object_detection import YOLOv8
 from utils.image import encode_image
 from PIL import Image
 import numpy as np
@@ -23,9 +17,11 @@ app.config["UPLOAD_FOLDER"] = './uploads'
 app.config["ALLOWED_EXTENSIONS"] = {'png', 'jpg', 'jpeg'}
 app.secret_key = '000'
 
+URL_ai_face_analysis_microservice = "http://127.0.0.1:8000/analyze-face"
+URL_object_detection_microserice = "http://127.0.0.1:5000/detect"
+
 model_path = "models/pose_landmarker_lite.task"
-face_analysis = FaceAnalysis("models/det_10g.onnx", "models/genderage.onnx")
-object_detector = YOLOv8("models/yolov8n.onnx")
+
 
 def auth(email, password):
     with db_session(engine) as session:
@@ -140,17 +136,14 @@ def ai_face_analysis():
 
         if image and allowed_files(image.filename):
             try:
-                input_image = Image.open(image.stream)
-                input_image = np.array(input_image)
-                output_image, genders, ages = face_analysis.detect_age_gender(input_image)
-                image_uri = encode_image(output_image)
+                response = requests.post(URL_ai_face_analysis_microservice, files={"file": image})
+                response = response.json()
+                genders = response["genders"]
+                ages = response["ages"]
+                image_base64 = response["image"]
 
 
-                # os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
-                # save_path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
-                # image.save(save_path)
-                # result = DeepFace.analyze(img_path=save_path, actions=["age"])
-                return render_template("ai_face_analysis.html", genders=genders, ages=ages, image_uri=image_uri)
+                return render_template("ai_face_analysis.html", genders=genders, ages=ages, image_uri=image_base64)
             except Exception as e:
                 flash(f"Error processing image: {e}", "danger")
                 return redirect(url_for("ai_face_analysis"))
@@ -165,21 +158,51 @@ def ai_object_detection():
     if 'email' not in flask_session:
         flash("Please log in to upload images", "warning")
         return redirect(url_for("login"))
+    
     if request.method == "GET":
         return render_template("ai_object_detection.html")
+    
     elif request.method == "POST":
         input_image_file = request.files['image']
+        
         if input_image_file.filename == "":
+            flash("Please upload an image.", "warning")
             return redirect(url_for('ai_object_detection'))
-        else:
-            if input_image_file and allowed_files(input_image_file.filename):
-                input_image = Image.open(input_image_file.stream)
-                input_image = np.array(input_image)
-                output_image, labels = object_detector(input_image)
-                image_uri = encode_image(output_image)
-                return render_template("ai_object_detection.html", labels=labels, image_uri=image_uri)
-    else:
-        return redirect(url_for("index"))
+        
+        if input_image_file and allowed_files(input_image_file.filename):
+            # Attempt to send the image to the object detection microservice
+            try:
+                response = requests.post(URL_object_detection_microserice, files={"file": input_image_file}
+                )
+                
+                if response.status_code != 200:
+                    flash("Error: Object detection service returned an error.", "danger")
+                    # print("Error: Received status code", response.status_code)
+                    # print("Response content:", response.text)
+                    return redirect(url_for("ai_object_detection"))
+                
+                # Attempt to parse the JSON response
+                try:
+                    response_data = response.json()
+                except requests.exceptions.JSONDecodeError:
+                    flash("Error: Could not decode JSON from the object detection service.", "danger")
+                    # print("Error: JSON decoding failed")
+                    # print("Response content:", response.text)
+                    return redirect(url_for("ai_object_detection"))
+                
+                # Extract labels and image data
+                labels = response_data.get("labels", [])
+                image_base64 = response_data.get("image")  # Base64-encoded image string
+                
+                return render_template("ai_object_detection.html", labels=labels, image_uri=image_base64)
+            
+            except requests.RequestException as e:
+                flash("Error: Could not connect to object detection service.", "danger")
+                # print("Request failed:", e)
+                return redirect(url_for("ai_object_detection"))
+    
+    return redirect(url_for("index"))
+
 
 
 
@@ -381,7 +404,7 @@ def blog():
         topics_with_info = [
             {
                 "topic": topic,
-                "relative_time": humanize.naturaltime(datetime.now() - topic.timestamp),
+                "relative_time": relative_time(topic.timestamp),
                 "author_name": f"{topic.user.first_name} {topic.user.last_name}"
             }
             for topic in topics
@@ -398,10 +421,11 @@ def blog_topic(topic_id):
             abort(404, description="Topic not found")
         
         # Prepare the relative time and author name for the topic
-        relative_time = humanize.naturaltime(datetime.now() - topic.timestamp)
+     #   relative_time = humanize.naturaltime(datetime.now() - topic.timestamp)
+        rel_time = relative_time(topic.timestamp)
         author_name = f"{topic.user.first_name} {topic.user.last_name}"
         
-        return render_template("topic.html", topic=topic, relative_time=relative_time, author_name=author_name)
+        return render_template("topic.html", topic=topic, relative_time=rel_time, author_name=author_name)
     
 
 

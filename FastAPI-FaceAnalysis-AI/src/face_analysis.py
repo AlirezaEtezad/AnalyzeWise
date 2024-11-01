@@ -16,8 +16,8 @@ class FaceAnalysis:
         for face in faces:
             bbox = face.bbox.astype(int)
             gender, age = self.age_gender_estimation_model(image, face)
-            genders.append(gender)
-            ages.append(age)
+            genders.append(int(gender))
+            ages.append(int(age))
             # Draw bounding box and labels on the image
             cv2.rectangle(image, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (0, 255, 0), 2)
             label = f"Gender: {'Male' if gender == 1 else 'Female'}, Age: {int(age)}"
