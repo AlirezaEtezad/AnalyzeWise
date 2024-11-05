@@ -1,14 +1,15 @@
 flask
+numpy
+pillow
+opencv-python
+requests
 Werkzeug
 pydantic
 datetime
 humanize
 opencv-python
-# tensorflow
-# tf-keras
 sqlmodel
 psycopg2-binary
 onnxruntime
 scikit-image
 pyyaml
-requests

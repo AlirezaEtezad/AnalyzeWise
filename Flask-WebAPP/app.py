@@ -18,7 +18,7 @@ app.config["ALLOWED_EXTENSIONS"] = {'png', 'jpg', 'jpeg'}
 app.secret_key = '000'
 
 URL_ai_face_analysis_microservice = "http://127.0.0.1:8000/analyze-face"
-URL_object_detection_microserice = "http://127.0.0.1:5000/detect"
+URL_object_detection_microserice = "http://127.0.0.1:5001/detect"
 
 model_path = "models/pose_landmarker_lite.task"
 

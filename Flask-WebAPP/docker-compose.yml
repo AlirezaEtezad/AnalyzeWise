@@ -12,27 +12,49 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   analyzewise:
-    image: analyzewise_image
-    container_name: analyzewise_flask
+    image: flask_webapp
+    container_name: flask_webapp_cont
     networks:
       - analyzewise_network
     ports:
-      - "8080:5000"
+      - "5000:5000"
     volumes:
       - .:/myapp
     depends_on:
       - postgres
 
 
-  idioms_api:
-    image: idioms_image
-    container_name: idioms_api
+
+  faceanalysis_microservice:
+    image: face_analysis
+    container_name: face_analysis_cont
     networks:
       - analyzewise_network
     ports:
-      - "8090:8000"  # port 8090
+      - "8000:8000"
     volumes:
       - .:/myapp
+
+  objectdetection_microservice:
+    image: object_detection
+    container_name: object_detection_cont
+    networks:
+      - analyzewise_network
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/myapp
+
+
+  # idioms_api:
+  #   image: idioms_image
+  #   container_name: idioms_api
+  #   networks:
+  #     - analyzewise_network
+  #   ports:
+  #     - "8090:8000"  # port 8090
+  #   volumes:
+  #     - .:/myapp
 
 
 networks:

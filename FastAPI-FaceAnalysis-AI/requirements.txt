@@ -1,11 +1,13 @@
-flask
+fastapi[standard]
+uvicorn[standard]
+numpy
+opencv-python
+pillow
 Werkzeug
 pydantic
 datetime
 humanize
 opencv-python
-# tensorflow
-# tf-keras
 sqlmodel
 psycopg2-binary
 onnxruntime

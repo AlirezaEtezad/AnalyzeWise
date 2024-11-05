@@ -38,8 +38,9 @@ class Topic(SQLModel, table=True):
 
     user: "User" = Relationship() 
 
-#DATABASE_URL = "postgresql://admin:123@analyzewise_postgres:5432/analyzewise_db"
-DATABASE_URL = "sqlite:///./database.db"
+# DATABASE_URL = "postgres://koyeb-adm:a5JWI8dmHpLs@ep-purple-union-a2cc3xil.eu-central-1.pg.koyeb.app/koyebdb"
+DATABASE_URL = "postgresql://admin:123@analyzewise_postgres:5432/analyzewise_db"
+# DATABASE_URL = "sqlite:///./database.db"
 engine = create_engine(DATABASE_URL, echo=True)
 SQLModel.metadata.create_all(engine)
 
